@@ -10,6 +10,7 @@ const adminRoutes = require("./routes/adminlogRoutes");
 const UserRoutes = require("./routes/UserRoutes");
 const wishlistRoutes = require("./routes/wishlistRoutes");
 const cartRoutes = require("./routes/cartRoutes");
+const OrderRoutes = require("./routes/OrderRoutes");
 const { connectDB } = require("./config/db");
 
 
@@ -52,5 +53,8 @@ app.use("/api/wishlist", wishlistRoutes);
 
 // Crat List
 app.use('/api/cart', cartRoutes)
+
+// Oredr List
+app.use("api/order", OrderRoutes)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
