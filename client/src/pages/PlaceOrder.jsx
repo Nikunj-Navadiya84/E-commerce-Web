@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { StoreContext } from '../Context/StoreContext'
-import { Link } from "react-router-dom"; // Fixed import
+import { Link, useNavigate } from "react-router-dom";
 import assets from '../assets/assets'
+import axios from 'axios';
 
 function PlaceOrder() {
     const [method, setMethod] = useState('cod');
@@ -17,7 +18,9 @@ function PlaceOrder() {
         phone: ''
     });
 
-    // onChange Handler to update state
+    const { getCartAmount, delivery_fee } = useContext(StoreContext);
+
+
     const onChangeHandler = (event) => {
         const { name, value } = event.target;
         setFormData((prevData) => ({
@@ -26,26 +29,33 @@ function PlaceOrder() {
         }));
     };
 
-    const { getCartAmount, delivery_fee } = useContext(StoreContext);
+
+
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+    };
+
+
+
+
+
 
     return (
         <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20'>
-
-            <div className='text-3xl  my-3 font-semibold text-gray-700 py-5'>
+            <div className='text-3xl my-3 font-semibold text-gray-700 py-5'>
                 <h2>Place <span className='text-green-700'>Order</span></h2>
             </div>
 
-
-            <form className='flex md:flex-row sm:flex-col justify-between gap-10'>
+            <form onSubmit={handleSubmit} className='flex md:flex-row sm:flex-col justify-between gap-10'>
                 <div className='flex flex-col gap-4 w-[50%] sm:w-full'>
-
                     <div className='flex gap-3'>
                         <input required onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='First Name' />
                         <input required onChange={onChangeHandler} name='lastName' value={formData.lastName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Last Name' />
                     </div>
 
                     <input required onChange={onChangeHandler} name='email' value={formData.email} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="email" placeholder='Your Email' />
-
                     <textarea required onChange={onChangeHandler} name='street' value={formData.street} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" placeholder="Enter your Street here..."></textarea>
 
                     <div className='flex gap-3'>
@@ -61,10 +71,9 @@ function PlaceOrder() {
                     <input required onChange={onChangeHandler} name='phone' value={formData.phone} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='Phone' />
                 </div>
 
-                <div className=' w-[50%] sm:w-full sm:mt-0'>
-                    <div className=''>
+                <div className='w-[50%] sm:w-full sm:mt-0'>
+                    <div>
                         <h1 className='text-lg text-gray-700 font-bold mb-2'>Cart Totals</h1>
-
                         <div className='flex text-sm text-gray-700 justify-between py-3'>
                             <p>SubTotal</p>
                             <p>${getCartAmount().toFixed(2)}</p>
@@ -84,7 +93,7 @@ function PlaceOrder() {
 
                         <div className='flex gap-5 mt-3'>
                             <Link to='/viewCart'>
-                                <button className="text-sm bg-gray-600 hover:bg-gray-800 text-white px-3 py-2 rounded cursor-pointer">View Cart</button>
+                                <button type="button" className="text-sm bg-gray-600 hover:bg-gray-800 text-white px-3 py-2 rounded cursor-pointer">View Cart</button>
                             </Link>
                         </div>
                     </div>
@@ -102,18 +111,15 @@ function PlaceOrder() {
                                 <p className='text-gray-500 text-sm font-medium mx-4'>CASH ON DELIVERY</p>
                             </div>
                         </div>
-                        <Link to='/orderConfirmation'>
-                            <div className='w-full text-end mt-8'>
-                                <button type='submit' className='bg-gray-700 hover:bg-gray-900 text-white px-16 py-3 rounded cursor-pointer text-sm'>PLACE ORDER</button>
-                            </div>
-                        </Link>
+
+                        <div className='w-full text-end mt-8'>
+                            <button type='submit' className='bg-gray-700 hover:bg-gray-900 text-white px-16 py-3 rounded cursor-pointer text-sm'>PLACE ORDER</button>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
     );
 }
-
-
 
 export default PlaceOrder;
