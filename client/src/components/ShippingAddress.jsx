@@ -3,7 +3,7 @@ import React from 'react'
 function ShippingAddress() {
     return (
         <div>
-            <div className='text-3xl font-semibold text-gray-700 py-5'>
+            <div className='text-3xl font-semibold text-gray-700'>
                 <h2>Shipping <span className='text-green-700'>Address</span></h2>
             </div>
             <div className="container p-6">

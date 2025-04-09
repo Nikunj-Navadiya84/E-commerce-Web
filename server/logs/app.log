@@ -3941,3 +3941,13 @@
 {"ip":"::1","level":"info","message":"Fetched 6 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T07:16:03.237Z","username":"Unknown"}
 {"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T07:16:03.240Z","username":"Unknown"}
 {"ip":"::1","level":"info","message":"Fetched 6 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T07:16:03.242Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T07:53:23.491Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 6 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T07:53:23.512Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T07:53:23.779Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 6 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T07:53:23.786Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T07:53:23.793Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 6 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T07:53:23.802Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T08:46:56.804Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 6 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T08:46:56.814Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T08:46:56.820Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 6 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-09T08:46:56.827Z","username":"Unknown"}
