@@ -18,8 +18,7 @@ export const ShopContextProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     const [likedProducts, setLikedProducts] = useState({});
     const [wishlist, setWishList] = useState([]);
-    const [orders, setOrders] = useState([]);
-
+    
 
 
 
@@ -413,7 +412,6 @@ export const ShopContextProvider = ({ children }) => {
                 setCart([]);
                 setCartProducts({});
                 localStorage.removeItem("user_cart");
-                toast.success("Cart cleared successfully!");
             } else {
                 toast.info(response.data.message || "Could not clear cart");
             }
@@ -425,38 +423,8 @@ export const ShopContextProvider = ({ children }) => {
 
 
 
-
-    // Order ConFirmation 
-    useEffect(() => {
-        const fetchOrders = async () => {
-            try {
-                const res = await fetch('http://localhost:4000/api/order/userOrder', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                const data = await res.json();
-                if (data.success) {
-                    setOrders(data.orders);
-                }
-            } catch (err) {
-                console.error("Error fetching orders:", err);
-            }
-        };
-
-        fetchOrders();
-        const interval = setInterval(fetchOrders, 10000);
-        return () => clearInterval(interval);
-    }, []);
-
-
-
-
-
     const contextValue = {
-        cart, setCart, cartOpen, setCartOpen, addToCart, quantity, updateCartQuantity, getCartCount, list, setList, listOpen, setListOpen, getListCount, getCartAmount, delivery_fee, removeFromWishlist, isLoggedIn, setIsLoggedIn, user, setUser, likedProducts, setLikedProducts, addToWishlist, fetchWishlist, wishlist, handleRemove, cartProducts, handleQuantityChange, clearCart, orders
+        cart, setCart, cartOpen, setCartOpen, addToCart, quantity, updateCartQuantity, getCartCount, list, setList, listOpen, setListOpen, getListCount, getCartAmount, delivery_fee, removeFromWishlist, isLoggedIn, setIsLoggedIn, user, setUser, likedProducts, setLikedProducts, addToWishlist, fetchWishlist, wishlist, handleRemove, cartProducts, handleQuantityChange, clearCart, 
     };
 
 

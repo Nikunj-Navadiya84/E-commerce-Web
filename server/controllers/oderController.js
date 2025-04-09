@@ -1,4 +1,3 @@
-const order = require("../models/order");
 const Order = require("../models/order");
 
 exports.placeOrder = async (req, res) => {
@@ -48,3 +47,31 @@ exports.userOrder = async (req, res) => {
     return res.status(500).json({ success: false, message: "Server error. Could not fetch orders." });
   }
 };
+
+
+// Get all orders for Admin panel
+exports.allOrder = async (req, res) => {
+  try {
+    const orders = await Order.find({});
+    return res.status(200).json({ success: true, orders });
+  } catch (error) {
+    console.error("Error fetching user orders:", error.message);
+    return res.status(500).json({ success: false, message: "Server error. Could not fetch orders." });
+  }
+}
+
+
+// Update order status from Admin panel
+exports.updateStatus = async (req, res) => {
+  try {
+    const { orderId, status } = req.body
+    await Order.findByIdAndUpdate(orderId, { status })
+    res.json({ success: true, message: 'Order status updated successfully' })
+} catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message })
+}
+};
+
+
+
