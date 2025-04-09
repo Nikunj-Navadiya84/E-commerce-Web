@@ -35,13 +35,13 @@ exports.signup = async (req, res) => {
     });
 
     res.status(201).json({ message: "User created successfully" });
-  } catch (error) {  // Corrected from err to error
+  } catch (error) { 
     logger.error(`Error registering user: ${error.message}`, {
       method: req.method,
       path: req.originalUrl,
       ip: req.ip,
-      error: error.message, // Fixed variable name
-      stack: error.stack,   // Fixed variable name
+      error: error.message, 
+      stack: error.stack,  
       ...getLogMetadata(req)
     });
     res.status(500).json({ message: "Error registering user" });
