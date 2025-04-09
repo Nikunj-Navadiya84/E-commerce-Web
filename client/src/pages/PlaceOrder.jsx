@@ -1,8 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../Context/StoreContext'
 import { Link, useNavigate } from "react-router-dom";
 import assets from '../assets/assets'
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
 
 function PlaceOrder() {
     const [method, setMethod] = useState('cod');
@@ -18,7 +20,7 @@ function PlaceOrder() {
         phone: ''
     });
 
-    const { getCartAmount, delivery_fee } = useContext(StoreContext);
+    const { clearCart, getCartAmount, delivery_fee } = useContext(StoreContext);
 
 
     const onChangeHandler = (event) => {
@@ -29,17 +31,56 @@ function PlaceOrder() {
         }));
     };
 
-
-
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        const address = {
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            street: formData.street,
+            city: formData.city,
+            state: formData.state,
+            zipcode: formData.zipcode,
+            country: formData.country,
+            phone: formData.phone
+        };
+
+        const items = JSON.parse(localStorage.getItem("user_cart") || "[]");
+
+        const orderData = {
+            items: items,
+            amount: getCartAmount() + delivery_fee,
+            address,
+            paymentMethod: method === 'cod' ? 'Cash on Delivery' : 'Stripe',
+            payment: method !== 'cod',
+        };
+
+        try {
+            const token = localStorage.getItem("token");
+            const res = await axios.post("http://localhost:4000/api/order/place", orderData, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            if (res.status === 201) {
+                toast.success("Order placed successfully!");
+
+                localStorage.removeItem("user_cart");
+                if (typeof clearCart === 'function') {
+                    clearCart();
+                }
+
+                navigate("/");
+            }
+        } catch (err) {
+            console.error(err);
+            toast.error("Failed to place order. Try again.");
+        }
     };
-
-
-
-
 
 
     return (

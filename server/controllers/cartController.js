@@ -142,7 +142,7 @@ exports.removeFromCart = async (req, res) => {
         if (productInCart.quantity > 1) {
             productInCart.quantity -= 1;
         } else {
-            cart.products.splice(productIndex, 1); 
+            cart.products.splice(productIndex, 1);
         }
 
         await cart.save();
@@ -150,6 +150,31 @@ exports.removeFromCart = async (req, res) => {
         res.status(200).json({ success: true, message: "Cart updated successfully", cart });
     } catch (error) {
         logger.error("Error removing from cart", { error: error.message, stack: error.stack });
+        res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+};
+
+
+// Clear Cart
+exports.clearCart = async (req, res) => {
+    try {
+        if (!req.user) {
+            return res.status(401).json({ success: false, message: "Unauthorized" });
+        }
+
+        const userId = req.user._id;
+        const cart = await Cart.findOne({ user: userId });
+
+        if (!cart) {
+            return res.status(404).json({ success: false, message: "Cart not found" });
+        }
+
+        cart.products = [];
+        await cart.save();
+
+        res.status(200).json({ success: true, message: "Cart cleared successfully", cart });
+    } catch (error) {
+        logger.error("Error clearing cart", { error: error.message, stack: error.stack });
         res.status(500).json({ success: false, message: "Internal Server Error" });
     }
 };

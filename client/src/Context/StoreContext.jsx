@@ -204,6 +204,26 @@ export const ShopContextProvider = ({ children }) => {
 
 
 
+
+
+    // Save cart to localStorage
+    const saveCartToLocalStorage = (cart) => {
+        localStorage.setItem("user_cart", JSON.stringify(cart));
+    };
+
+    // Load cart from localStorage
+    const loadCartFromLocalStorage = () => {
+        const savedCart = localStorage.getItem("user_cart");
+        if (savedCart) {
+            try {
+                const parsedCart = JSON.parse(savedCart);
+                setCart(parsedCart);
+            } catch (e) {
+                console.error("Error parsing saved cart:", e);
+            }
+        }
+    };
+
     // Add To Cart
     const addToCart = async (product, quantity = 1) => {
         if (!token) {
@@ -225,7 +245,6 @@ export const ShopContextProvider = ({ children }) => {
 
             if (response.data.success) {
                 await fetchcartlist(); // refresh cart from server
-
                 toast.success(`${quantity} items added to cart!`);
             } else {
                 toast.info(response.data.message);
@@ -237,6 +256,40 @@ export const ShopContextProvider = ({ children }) => {
             } else {
                 toast.error("Failed to add to cart");
             }
+        }
+    };
+
+    // Fetch Cart List
+    const fetchcartlist = async () => {
+        try {
+            if (!token) {
+                console.error("No authentication token found");
+                return;
+            }
+
+            const res = await axios.get("http://localhost:4000/api/cart/getcart", {
+                headers: { Authorization: `Bearer ${token}` },
+                withCredentials: true,
+            });
+
+            if (res.data.success && res.data.cart?.products) {
+                const productsFromCart = res.data.cart.products.map((p) => ({
+                    ...p.product,
+                    quantity: p.quantity || 1,
+                }));
+
+                setCart(productsFromCart);
+                saveCartToLocalStorage(productsFromCart);
+
+                const updatedCartProducts = {};
+                productsFromCart.forEach((p) => {
+                    updatedCartProducts[p._id] = p.quantity;
+                });
+
+                setCartProducts(updatedCartProducts);
+            }
+        } catch (error) {
+            console.error("Error fetching cart:", error);
         }
     };
 
@@ -281,50 +334,16 @@ export const ShopContextProvider = ({ children }) => {
         setQuantity(value);
     };
 
-    // Fetch Cart List
-    const fetchcartlist = async () => {
-        try {
-            if (!token) {
-                console.error("No authentication token found");
-                return;
-            }
-
-            const res = await axios.get("http://localhost:4000/api/cart/getcart", {
-                headers: { Authorization: `Bearer ${token}` },
-                withCredentials: true,
-            });
-
-            if (res.data.success && res.data.cart?.products) {
-                const productsFromCart = res.data.cart.products.map((p) => ({
-                    ...p.product,
-                    quantity: p.quantity || 1,
-                }));
-
-                setCart(productsFromCart);
-
-                const updatedCartProducts = {};
-                productsFromCart.forEach((p) => {
-                    updatedCartProducts[p._id] = p.quantity;
-                });
-
-                setCartProducts(updatedCartProducts);
-            }
-        } catch (error) {
-            console.error("Error fetching cart:", error);
-        }
-    };
-
-    useEffect(() => {
-        if (token) {
-            fetchcartlist();
-        }
-    }, [token]);
-
     // Remove From Cart
     const handleRemove = async (product) => {
+        if (!product || !product._id) {
+            console.error("Invalid product passed to handleRemove:", product);
+            return;
+        }
+    
         const token = localStorage.getItem("token");
         const prevCart = [...cart];
-
+    
         const updatedCart = cart
             .map((item) =>
                 item._id === product._id
@@ -332,9 +351,10 @@ export const ShopContextProvider = ({ children }) => {
                     : item
             )
             .filter((item) => item.quantity > 0);
-
+    
         setCart(updatedCart);
-
+        saveCartToLocalStorage(updatedCart);
+    
         try {
             const response = await fetch("http://localhost:4000/api/cart/removecart", {
                 method: "DELETE",
@@ -347,32 +367,67 @@ export const ShopContextProvider = ({ children }) => {
                     quantity: product.quantity > 1 ? product.quantity - 1 : 0,
                 }),
             });
-
+    
             if (!response.ok) {
                 throw new Error("Failed to update cart.");
             }
-
-            await fetchcartlist(); // re-sync from server
+    
+            await fetchcartlist();
         } catch (error) {
             console.error("Error removing product:", error.message);
             setCart(prevCart);
+            saveCartToLocalStorage(prevCart);
         }
     };
-
+    
     // Get Cart Count
     const getCartCount = () => cart.length;
 
     // Get Cart Amount
     const getCartAmount = () => {
+        if (!Array.isArray(cart)) return 0;
         return cart.reduce((total, item) => total + item.price * item.quantity, 0);
     };
 
+    // useEffect on token change
+    useEffect(() => {
+        if (token) {
+            fetchcartlist();
+        } else {
+            loadCartFromLocalStorage();
+        }
+    }, [token]);
 
+    const clearCart = async () => {
+        if (!token) {
+            toast.error("User is not authenticated!");
+            return;
+        }
+    
+        try {
+            const response = await axios.delete("http://localhost:4000/api/cart/clearcart", {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+    
+            if (response.data.success) {
+                setCart([]); 
+                setCartProducts({});
+                localStorage.removeItem("user_cart"); 
+                toast.success("Cart cleared successfully!");
+            } else {
+                toast.info(response.data.message || "Could not clear cart");
+            }
+        } catch (error) {
+            console.error("Error clearing cart:", error.response?.data || error.message);
+            toast.error("Failed to clear cart");
+        }
+    };
+    
 
 
 
     const contextValue = {
-        cart, setCart, cartOpen, setCartOpen, addToCart, quantity, updateCartQuantity, getCartCount, list, setList, listOpen, setListOpen, getListCount, getCartAmount, delivery_fee, removeFromWishlist, isLoggedIn, setIsLoggedIn, user, setUser, likedProducts, setLikedProducts, addToWishlist, fetchWishlist, wishlist, handleRemove, cartProducts, handleQuantityChange
+        cart, setCart, cartOpen, setCartOpen, addToCart, quantity, updateCartQuantity, getCartCount, list, setList, listOpen, setListOpen, getListCount, getCartAmount, delivery_fee, removeFromWishlist, isLoggedIn, setIsLoggedIn, user, setUser, likedProducts, setLikedProducts, addToWishlist, fetchWishlist, wishlist, handleRemove, cartProducts, handleQuantityChange, clearCart
     };
 
 
