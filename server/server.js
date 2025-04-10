@@ -9,6 +9,7 @@ const UserRoutes = require("./routes/UserRoutes");
 const wishlistRoutes = require("./routes/wishlistRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
+const AddressRoutes = require("./routes/AddressRoutes");
 const { connectDB } = require("./config/db");
 
 const app = express();
@@ -47,5 +48,8 @@ app.use('/api/cart', cartRoutes)
 
 // Oredr List
 app.use("/api/order", orderRoutes)
+
+// Address
+app.use("/api/address", AddressRoutes)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

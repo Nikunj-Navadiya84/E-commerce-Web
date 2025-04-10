@@ -1,13 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { StoreContext } from '../Context/StoreContext'
+import React, { useContext, useEffect, useState } from 'react';
+import { StoreContext } from '../Context/StoreContext';
 import { Link, useNavigate } from "react-router-dom";
-import assets from '../assets/assets'
+import { MdOutlineDeleteForever } from "react-icons/md";
+import { GrUpdate } from "react-icons/gr";
+import assets from '../assets/assets';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-
 function PlaceOrder() {
+    const { clearCart, getCartAmount, delivery_fee } = useContext(StoreContext);
     const [method, setMethod] = useState('cod');
+    const [savedAddresses, setSavedAddresses] = useState([]);
+    const [selectedAddress, setSelectedAddress] = useState(null);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -19,8 +23,29 @@ function PlaceOrder() {
         country: '',
         phone: ''
     });
+    const navigate = useNavigate();
 
-    const { clearCart, getCartAmount, delivery_fee } = useContext(StoreContext);
+
+    useEffect(() => {
+        const fetchAddresses = async () => {
+            try {
+                const token = localStorage.getItem("token");
+                const res = await axios.get("http://localhost:4000/api/address/get", {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                if (res.status === 200) {
+                    setSavedAddresses(res.data.addresses || []);
+                }
+            } catch (err) {
+                console.error("Failed to fetch addresses:", err);
+            }
+        };
+
+        fetchAddresses();
+    }, []);
 
 
     const onChangeHandler = (event) => {
@@ -31,22 +56,11 @@ function PlaceOrder() {
         }));
     };
 
-    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const address = {
-            firstName: formData.firstName,
-            lastName: formData.lastName,
-            email: formData.email,
-            street: formData.street,
-            city: formData.city,
-            state: formData.state,
-            zipcode: formData.zipcode,
-            country: formData.country,
-            phone: formData.phone
-        };
+        const address = selectedAddress ? selectedAddress.address : formData;
 
         const items = JSON.parse(localStorage.getItem("user_cart") || "[]");
 
@@ -68,17 +82,37 @@ function PlaceOrder() {
 
             if (res.status === 201) {
                 toast.success("Order placed successfully!");
-
                 localStorage.removeItem("user_cart");
                 if (typeof clearCart === 'function') {
                     clearCart();
                 }
-
                 navigate("/");
             }
         } catch (err) {
             console.error(err);
             toast.error("Failed to place order. Try again.");
+        }
+    };
+
+
+    const handleDeleteAddress = async (id) => {
+        try {
+            const token = localStorage.getItem("token");
+            const res = await axios.delete(`http://localhost:4000/api/address/delete/${id}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            if (res.status === 200) {
+                toast.success("Address deleted successfully!");
+                setSavedAddresses((prev) => prev.filter((addr) => addr._id !== id));
+                if (selectedAddress && selectedAddress._id === id) {
+                    setSelectedAddress(null);
+                }
+                window.location.reload();
+            }
+        } catch (err) {
+            console.error("Delete failed:", err);
+            toast.error("Failed to delete address.");
         }
     };
 
@@ -90,42 +124,85 @@ function PlaceOrder() {
             </div>
 
             <form onSubmit={handleSubmit} className='flex md:flex-row sm:flex-col justify-between gap-10'>
-                <div className='flex flex-col gap-4 w-[50%] sm:w-full'>
-                    <div className='flex gap-3'>
-                        <input required onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='First Name' />
-                        <input required onChange={onChangeHandler} name='lastName' value={formData.lastName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Last Name' />
-                    </div>
 
-                    <input required onChange={onChangeHandler} name='email' value={formData.email} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="email" placeholder='Your Email' />
-                    <textarea required onChange={onChangeHandler} name='street' value={formData.street} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" placeholder="Enter your Street here..."></textarea>
-
+                {/* Billing Address Form */}
+                <fieldset disabled={!!selectedAddress} className='flex flex-col gap-4 w-1/3 sm:w-full'>
                     <div className='flex gap-3'>
-                        <input required onChange={onChangeHandler} name='city' value={formData.city} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='City' />
-                        <input required onChange={onChangeHandler} name='state' value={formData.state} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='State' />
+                        <input required={!selectedAddress} onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='First Name' />
+                        <input required={!selectedAddress} onChange={onChangeHandler} name='lastName' value={formData.lastName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Last Name' />
                     </div>
+                    <input required={!selectedAddress} onChange={onChangeHandler} name='email' value={formData.email} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="email" placeholder='Your Email' />
+                    <textarea required={!selectedAddress} onChange={onChangeHandler} name='street' value={formData.street} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" placeholder="Enter your Street here..."></textarea>
 
                     <div className='flex gap-3'>
-                        <input required onChange={onChangeHandler} name='zipcode' value={formData.zipcode} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='ZipCode' />
-                        <input required onChange={onChangeHandler} name='country' value={formData.country} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Country' />
+                        <input required={!selectedAddress} onChange={onChangeHandler} name='city' value={formData.city} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='City' />
+                        <input required={!selectedAddress} onChange={onChangeHandler} name='state' value={formData.state} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='State' />
                     </div>
 
-                    <input required onChange={onChangeHandler} name='phone' value={formData.phone} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='Phone' />
+                    <div className='flex gap-3'>
+                        <input required={!selectedAddress} onChange={onChangeHandler} name='zipcode' value={formData.zipcode} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='ZipCode' />
+                        <input required={!selectedAddress} onChange={onChangeHandler} name='country' value={formData.country} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Country' />
+                    </div>
+
+                    <input required={!selectedAddress} onChange={onChangeHandler} name='phone' value={formData.phone} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='Phone' />
+                </fieldset>
+
+                {/* Saved Address List */}
+                <div className="w-1/3 sm:w-full max-h-[380px] overflow-y-auto">
+                    {savedAddresses.length > 0 ? savedAddresses.map((addr, index) => (
+                        <div key={index} onClick={() => setSelectedAddress(addr)} className={`border border-gray-200 rounded shadow-md p-4 mb-3 cursor-pointer hover:shadow-lg transition ${selectedAddress === addr ? 'ring-2 ring-green-400' : ''}`}>
+
+                            <div className="flex items-start gap-3">
+                                <div>
+                                    <input
+                                        type="radio"
+                                        name="selectedAddress"
+                                        checked={selectedAddress === addr}
+                                        onChange={() => setSelectedAddress(addr)}
+                                        className="mt-1 accent-green-600"
+                                    />
+                                </div>
+
+                                <div className="flex justify-between w-full">
+                                    <div>
+                                        <p className="text-base font-medium text-gray-900">
+                                            {addr.address.firstName} {addr.address.lastName}
+                                        </p>
+                                        <p className="text-sm text-gray-600">
+                                            {addr.address.street}, {addr.address.city}, {addr.address.state}, {addr.address.zipcode}
+                                        </p>
+                                        <p className="text-sm text-gray-600">Phone: {addr.address.phone}</p>
+                                    </div>
+
+                                    <div className="flex items-end justify-end ">
+                                        <div className='flex items-center gap-2'>
+                                            <p onClick={() => handleDeleteAddress(addr._id)} className='cursor-pointer'><MdOutlineDeleteForever className='text-2xl text-red-700' /></p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    )) : (
+                        <p className="text-sm text-gray-600">No saved addresses found.</p>
+                    )}
                 </div>
 
-                <div className='w-[50%] sm:w-full sm:mt-0'>
+                {/* Cart & Payment Info */}
+                <div className='w-1/3 sm:w-full sm:mt-0'>
                     <div>
                         <h1 className='text-lg text-gray-700 font-bold mb-2'>Cart Totals</h1>
                         <div className='flex text-sm text-gray-700 justify-between py-3'>
                             <p>SubTotal</p>
                             <p>${getCartAmount().toFixed(2)}</p>
                         </div>
-
                         <hr />
                         <div className='flex text-sm text-gray-700 justify-between py-3'>
                             <p>Shipping Fee</p>
                             <p>${delivery_fee.toFixed(2)}</p>
                         </div>
-
                         <hr />
                         <div className='flex text-sm text-gray-700 justify-between py-3'>
                             <p>Total</p>
@@ -158,6 +235,7 @@ function PlaceOrder() {
                         </div>
                     </div>
                 </div>
+
             </form>
         </div>
     );

@@ -45,7 +45,8 @@ function OrderConfirmation() {
                 <h2>My <span className='text-green-700'>Order</span></h2>
             </div>
 
-            {orders.length === 0 ? (
+           <div className='max-h-[500px] overflow-y-auto'>
+           {orders.length === 0 ? (
                 <p className='text-center text-gray-600'>No orders placed yet.</p>
             ) : (
                 orders.map((order, index) => (
@@ -88,6 +89,8 @@ function OrderConfirmation() {
                     </div>
                 ))
             )}
+           </div>
+
         </div>
     );
 }
