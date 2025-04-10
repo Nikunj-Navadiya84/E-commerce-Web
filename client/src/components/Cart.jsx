@@ -59,7 +59,7 @@ const Cart = () => {
                                                 {product.name}
                                             </h3>
                                             <p className="text-sm text-gray-700 font-bold mb-2">
-                                                ${(product.price * product.quantity).toFixed(2)}
+                                                ${(product.offerPrice * product.quantity).toFixed(2)}
                                             </p>
 
                                             <div className="flex justify-between items-center">

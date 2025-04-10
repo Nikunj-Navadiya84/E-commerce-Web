@@ -9,12 +9,9 @@ import Add from './pages/ProductAdd';
 import List from './pages/ProductList';
 import Client from './pages/ClientAdd';
 import ClientList from './pages/ClientList';
-import AwardsAdd from './pages/AwardsAdd';
-import AwardsList from './pages/AwardsList';
 import AdminLogs from './pages/AdminLogs';
 import Order from './pages/Order';
 import Changepassword from './componets/changepassword';
-import Profile from './componets/Profile';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -64,18 +61,6 @@ function App() {
                 </PrivateRoute>
               } />
 
-              <Route path="/awards" element={
-                <PrivateRoute>
-                  <AwardsAdd />
-                </PrivateRoute>
-              } />
-
-              <Route path="/awardsList" element={
-                <PrivateRoute>
-                  <AwardsList />
-                </PrivateRoute>
-              } />
-
               <Route path="/order" element={
                 <PrivateRoute>
                   <Order />
@@ -88,11 +73,7 @@ function App() {
                 </PrivateRoute>
               } />
 
-              <Route path="/profile" element={
-                <PrivateRoute>
-                  <Profile />
-                </PrivateRoute>
-              } />
+             
 
               <Route path="/logs" element={
                 <PrivateRoute>

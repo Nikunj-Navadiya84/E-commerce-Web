@@ -1,7 +1,7 @@
 const express = require("express");
 const { placeOrder, userOrder, allOrder, updateStatus } = require("../controllers/oderController");
 const { userMiddleware } = require("../middleware/UserMiddleware");
-const { AdminMiddleware } = require("../middleware/AdminMiddleware");
+
 
 const router = express.Router();
 

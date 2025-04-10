@@ -22,7 +22,6 @@ exports.createClient = async (req, res) => {
             images,
             review,
             date,
-            // user: req.user.id,
         });
 
         await client.save();
@@ -61,7 +60,6 @@ exports.getClient = async (req, res) => {
         });
 
         const client = await Client.find(); 
-        // { user: req.user.id }
 
         if (!client || client.length === 0) {
             logger.warn("No client found", {

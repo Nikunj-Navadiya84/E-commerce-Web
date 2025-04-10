@@ -49,16 +49,6 @@ const Sidebar = ({ isOpen }) => {
             {isOpen && "Client List"}
           </NavLink>
 
-          <NavLink to="/awards" className={`flex items-center gap-3 text-md ${!isOpen ? "justify-center" : ""}`}>
-            <SiCssdesignawards className="text-xl" />
-            {isOpen && "Awards Form"}
-          </NavLink>
-
-          <NavLink to="/awardsList" className={`flex items-center gap-3 text-md ${!isOpen ? "justify-center" : ""}`}>
-            <LiaAwardSolid className="text-xl" />
-            {isOpen && "Awards List"}
-          </NavLink>
-
           <NavLink to="/order" className={`flex items-center gap-3 text-md ${!isOpen ? "justify-center" : ""}`}>
             <BiBarcodeReader className="text-xl" />
             {isOpen && "Order List"}

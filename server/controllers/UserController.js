@@ -87,8 +87,8 @@ exports.login = async (req, res) => {
       method: req.method,
       path: req.originalUrl,
       ip: req.ip,
-      error: error.message, // Fixed variable name
-      stack: error.stack,   // Fixed variable name
+      error: error.message,
+      stack: error.stack,   
       ...getLogMetadata(req)
     });
     res.status(500).json({ message: "Login failed" });
@@ -209,5 +209,42 @@ exports.changepassword = async (req, res) => {
       success: false,
       message: "Internal server error",
     });
+  }
+};
+
+
+// Admin login
+exports.adminLogin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
+      const token = jwt.sign({ role: "admin", email }, process.env.JWT_SECRET, { expiresIn: "90d" });
+
+      logger.info("Admin logged in successfully", {
+        method: req.method,
+        path: req.originalUrl,
+        ip: req.ip
+      });
+
+      return res.json({ success: true, token });
+    } else {
+      logger.warn("Admin login failed: Invalid credentials", {
+        method: req.method,
+        path: req.originalUrl,
+        ip: req.ip
+      });
+
+      return res.status(401).json({ success: false, message: "Invalid credentials" });
+    }
+  } catch (error) {
+    logger.error(`Admin login error: ${error.message}`, {
+      method: req.method,
+      path: req.originalUrl,
+      ip: req.ip,
+      error: error.message,
+      stack: error.stack
+    });
+    return res.status(500).json({ success: false, message: "Something went wrong" });
   }
 };
