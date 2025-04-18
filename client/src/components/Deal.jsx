@@ -132,43 +132,38 @@ function Deal() {
                         exit={{ opacity: 0 }}
                     >
                         <motion.div
-                            className='bg-white p-6 rounded-lg shadow-lg w-full max-w-lg sm:max-w-xl md:max-w-2xl relative'
+                            className='bg-white p-6 rounded-lg shadow-lg w-[90%] sm:w-full max-w-lg sm:max-w-xl md:max-w-2xl relative'
                             initial={{ scale: 0.7 }}
                             animate={{ scale: 1 }}
                             exit={{ scale: 0.7 }}
                         >
                             <button
                                 className='absolute top-2 right-2 text-gray-500 text-lg cursor-pointer'
-                                onClick={closeModal}
+                                onClick={() => setSelectedProduct(null)}
                             >
                                 <FaTimes className='text-2xl' />
                             </button>
 
-                            <div className='flex flex-col sm:flex-row items-center gap-6'>
-                                <div className="w-full sm:w-1/2">
-                                    <img
-                                        src={`http://localhost:4000/${selectedProduct.images?.[0]}`}
-                                        className='border border-gray-200 rounded-lg w-full object-cover'
-                                        alt={selectedProduct.name}
-                                    />
+                            <div className='flex flex-col sm:flex-row items-center sm:items-start gap-6'>
+                                <div>
+                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg w-full object-cover' alt="" />
                                 </div>
-                                <div className='w-full sm:w-1/2'>
-                                    <h2 className='text-gray-700 text-lg font-semibold mb-2'>{selectedProduct.name}</h2>
-                                    <p className='text-gray-500 text-sm mb-2'>{selectedProduct.reviews}</p>
+                                <div className='p-2 sm:p-5'>
+                                    <h2 className='text-gray-700 text-md mb-2'>{selectedProduct.name}</h2>
                                     <p className='text-gray-500 text-sm mb-2'>{selectedProduct.description}</p>
                                     <p className='text-sm text-gray-600 line-through mt-1'>${selectedProduct.price.toFixed(2)}</p>
                                     <p className='text-md text-gray-900 font-bold mt-1'>${selectedProduct.offerPrice.toFixed(2)}</p>
 
-                                    <div className="flex flex-col sm:flex-row items-center gap-3 mt-4">
+                                    <div className="flex items-center space-x-3 mt-4">
                                         <input
                                             type="number"
-                                            className="w-24 px-3 py-2 border rounded"
+                                            className="w-20 px-3 py-2 border rounded"
                                             min="1"
                                             value={quantity}
                                             onChange={handleQuantityChange}
                                         />
                                         <button
-                                            className="bg-gray-600 hover:bg-gray-800 text-white text-sm font-medium px-4 py-3 rounded transition cursor-pointer w-full sm:w-auto"
+                                            className="bg-gray-600 hover:bg-gray-800 text-white text-sm font-medium px-4 py-3 rounded transition cursor-pointer"
                                             onClick={() => {
                                                 addToCart(selectedProduct, quantity);
                                                 closeModal();

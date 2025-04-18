@@ -66,7 +66,7 @@ function Arrivals() {
             </div>
 
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-5 pt-9'>
-                {filteredProducts.slice(0, 4).map((product, index) => (
+                {filteredProducts.slice(0, 8).map((product, index) => (
                     <motion.div
                         key={index}
                         className='border border-gray-200 cursor-pointer rounded-lg overflow-hidden'
@@ -133,7 +133,7 @@ function Arrivals() {
 
                             <div className='flex flex-col sm:flex-row items-center sm:items-start gap-6'>
                                 <div>
-                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg w-64 sm:w-48 md:w-64 object-cover' alt="" />
+                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg w-full object-cover' alt="" />
                                 </div>
                                 <div className='p-2 sm:p-5'>
                                     <h2 className='text-gray-700 text-md mb-2'>{selectedProduct.name}</h2>
