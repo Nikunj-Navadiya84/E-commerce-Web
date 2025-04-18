@@ -18,7 +18,7 @@ const Sidebar = ({ isOpen }) => {
       <div className={`app-sidebar sticky top-0 left-0 h-screen bg-gray-700 text-white p-5 transition-all duration-300 ${isOpen ? "w-64" : "w-20"} z-50 `}>
 
         <div className={`flex items-center ${isOpen ? "justify-between" : "justify-center"} mb-4`}>
-          {!isOpen && <img src={assets.logoSm} alt="" className="w-8" />}
+          {!isOpen && <img src={assets.logo2} alt="" className="w-8" />}
           {isOpen && <img src={assets.logo} alt="" className="w-auto px-5 py-3" />}
         </div>
 
