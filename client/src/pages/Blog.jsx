@@ -1,105 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
-import assets from '../assets/assets';
-import { FaStar } from "react-icons/fa";
-import { FaStarHalfStroke } from "react-icons/fa6";
-
-
-const products = [
-  {
-    id: 1,
-    image: assets.img1,
-    category: "Snack & Spices",
-    name: "Mixed Nuts Berries Pack",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1900s,",
-    price: 45.00,
-    Date: "June 30,2025",
-    reviews: (
-      <div className='flex'>
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStarHalfStroke color="gold" />
-      </div>
-    ),
-  }, {
-    id: 2,
-    image: assets.img2,
-    category: "Snack & Spices",
-    name: "Mixed Nuts Berries Pack",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1900s,",
-    price: 45.00,
-    Date: "June 30,2025",
-    reviews: (
-      <div className='flex'>
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStarHalfStroke color="gold" />
-      </div>
-    ),
-  }, {
-    id: 3,
-    image: assets.img3,
-    category: "Fruits",
-    name: "Mixed Nuts Berries Pack",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1900s,",
-    price: 45.00,
-    Date: "June 30,2025",
-    reviews: (
-      <div className='flex'>
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStarHalfStroke color="gold" />
-      </div>
-    ),
-  }, {
-    id: 4,
-    image: assets.img4,
-    category: "Snack & Spices",
-    name: "Mixed Nuts Berries Pack",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1900s,",
-    price: 45.00,
-    Date: "June 30,2025",
-    reviews: (
-      <div className='flex'>
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStarHalfStroke color="gold" />
-      </div>
-    ),
-  },
-  {
-    id: 5,
-    image: assets.img5,
-    category: "Vegetables",
-    name: "Mixed Nuts Berries Pack",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1900s,",
-    price: 45.00,
-    Date: "June 30,2025",
-    reviews: (
-      <div className='flex'>
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStar color="gold" />
-        <FaStarHalfStroke color="gold" />
-      </div>
-    ),
-  },
-
-];
-
+import axios from "axios";
 
 function Blog() {
   const [selectedCategories, setSelectedCategories] = useState([]);
-
+  const [products, setProducts] = useState([]);
   const categories = ["Snack & Spices", "Fruits", "Vegetables"];
 
   const handleCheckboxChange = (category) => {
@@ -110,30 +15,36 @@ function Blog() {
     );
   };
 
+  // Fetch products
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        closeModal();
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/api/products/list");
+        if (response.data.success && Array.isArray(response.data.products)) {
+          setProducts(response.data.products);
+        } else {
+          setProducts([]);
+        }
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setProducts([]);
       }
     };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    fetchProducts();
   }, []);
-
 
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20">
-      <div className='flex items-center justify-between pt-5'>
-
-        <h1 className='text-3xl  text-green-600 font-semibold '>B<span className=' text-gray-700'>log</span></h1>
-
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-5">
+        <h1 className="text-3xl text-green-600 font-semibold">
+          B<span className="text-gray-700">log</span>
+        </h1>
       </div>
 
-      <div className='flex pt-9 gap-10'>
-
-        <div className="w-200 ">
-          <div className='border border-gray-200 rounded p-5'>
+      <div className="flex flex-col lg:flex-row pt-9 gap-10">
+        {/* Category Filters */}
+        <div className="w-full lg:w-[250px]">
+          <div className="border border-gray-200 rounded p-5">
             <h4 className="text-xl text-gray-700 font-bold mb-5">Categories</h4>
             <hr className="text-gray-200 mb-3" />
             <div>
@@ -155,46 +66,43 @@ function Blog() {
           </div>
         </div>
 
-        <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 '>
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
           {products
-            .filter((product) =>
-              selectedCategories.length === 0 ||
-              selectedCategories.includes("All") ||
-              selectedCategories.includes(product.category)
+            .filter(
+              (product) =>
+                selectedCategories.length === 0 ||
+                selectedCategories.includes("All") ||
+                selectedCategories.includes(product.categories)
             )
-            .map((product) => (
+            .map((product, index) => (
               <motion.div
-                key={product.id}
-                className=' cursor-pointer rounded-lg overflow-hidden'
+                key={index}
+                className="cursor-pointer rounded-lg overflow-hidden shadow-sm border border-gray-100 bg-white"
                 transition={{ duration: 0.9 }}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}>
-
-                <div className='overflow-hidden relative'>
-                  <img src={product.image} className='w-full transition-transform duration-300 hover:rotate-6 hover:scale-110' alt={product.name} />
-                  <hr className='border-gray-200 absolute bottom-0 left-0 w-full' />
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <div className="overflow-hidden relative">
+                  <img
+                    src={`http://localhost:4000/${product.images?.[0]}`}
+                    alt={product.name}
+                    className="w-full h-52 object-cover transition-transform duration-300 hover:rotate-1 hover:scale-105"
+                  />
+                  <hr className="border-gray-200 absolute bottom-0 left-0 w-full" />
                 </div>
-
-                <div className='p-5'>
-                  <div className='flex justify-between'>
-                    <div>
-                      <div className='flex text-gray-500 text-sm mb-2 gap-5 items-center'>
-                        <p>{product.Date}</p>
-                        <p>{product.category}</p>
-                      </div>
-                      <p className='text-gray-800 text-lg mb-2'>{product.name}</p>
-                      <p className='text-gray-500 text-sm mb-2'>{product.description}</p>
-                    </div>
+                <div className="p-5">
+                  <div className="flex flex-col gap-2">
+                    <p className="text-sm text-gray-500">{product.categories}</p>
+                    <p className="text-lg font-semibold text-gray-800">{product.name}</p>
+                    <p className="text-sm text-gray-600">{product.description}</p>
                   </div>
                 </div>
-
               </motion.div>
             ))}
         </div>
-
       </div>
-
     </div>
   );
 }
