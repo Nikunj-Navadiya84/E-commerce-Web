@@ -153,9 +153,9 @@ function Home() {
       <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20 grid gap-4 xl:grid-cols-2">
 
         <motion.div className="w-full h-[300px] flex items-center justify-end bg-cover bg-center rounded px-6 relative overflow-hidden group" style={{ backgroundImage: `url(${assets.img7})` }}
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
           viewport={{ once: true, amount: 0.3 }}>
           {/* Shine Effect on Hover */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/90  -translate-x-full opacity-0 transition-all duration-900 group-hover:translate-x-full group-hover:opacity-900"></div>
@@ -169,10 +169,10 @@ function Home() {
         </motion.div>
 
         <motion.div className="w-full h-[300px] flex items-center justify-end bg-cover bg-center rounded px-6 relative overflow-hidden group" style={{ backgroundImage: `url(${assets.img8})` }}
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, amount: 0.3 }}>
+           initial={{ opacity: 0, y: 50 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           transition={{ delay: 0.3, duration: 0.5 }}
+           viewport={{ once: true, amount: 0.3 }}>
           {/* Shine Effect on Hover */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/90  -translate-x-full opacity-0 transition-all duration-900 group-hover:translate-x-full group-hover:opacity-900"></div>
           <div className="flex flex-col items-start text-sm sm:text-md text-left w-[40%] sm:w-1/4 relative z-10">
@@ -192,7 +192,7 @@ function Home() {
 
         <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4 items-center">
 
-          <motion.div className='flex flex-col items-center text-center h-45 border border-gray-200 shadow-lg rounded p-5'
+          <motion.div className='flex flex-col items-center text-center h-45 border border-gray-200 shadow-sm rounded p-5'
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
@@ -203,7 +203,7 @@ function Home() {
             <span className='text-sm text-gray-400'>Free Shipping on all US Order or Order above $200</span>
           </motion.div>
 
-          <motion.div className='flex flex-col items-center text-center h-45 border border-gray-200 shadow-lg rounded p-5'
+          <motion.div className='flex flex-col items-center text-center h-45 border border-gray-200 shadow-sm rounded p-5'
             initial={{ opacity: 0, y: -100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -213,7 +213,7 @@ function Home() {
             <span className='text-sm text-gray-400'>Contact us 24 hours a day, 7 days a week</span>
           </motion.div>
 
-          <motion.div className='flex flex-col items-center text-center h-45 border border-gray-200 shadow-lg rounded p-5'
+          <motion.div className='flex flex-col items-center text-center h-45 border border-gray-200 shadow-sm rounded p-5'
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -224,8 +224,8 @@ function Home() {
             <span className='text-sm text-gray-400'>Simply return it within 30 days for an exchange</span>
           </motion.div>
 
-          <motion.div className='flex flex-col items-center text-center h-45 border border-gray-200 shadow-lg rounded p-5'
-            initial={{ opacity: 0, x: 100 }}
+          <motion.div className='flex flex-col items-center text-center h-45 border border-gray-200 shadow-sm rounded p-5'
+            initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true, amount: 0.3 }}
