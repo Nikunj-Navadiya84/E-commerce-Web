@@ -105,10 +105,10 @@ function Deal() {
                                 </div>
                             </div>
 
-                            <div className='flex items-center justify-between'>
+                            <div className='sm:flex  items-center justify-between'>
                                 <div>
                                     <p className='text-sm text-gray-600 line-through mt-1'>${product.price.toFixed(2)}</p>
-                                    <p className='text-md text-gray-900 font-bold mt-1'>${product.offerPrice.toFixed(2)}</p>
+                                    <p className='text-md text-gray-900 font-bold mb-3 '>${product.offerPrice.toFixed(2)}</p>
                                 </div>
                                 <button
                                     className='text-sm text-white bg-gray-600 hover:bg-gray-800 py-2 px-3 rounded cursor-pointer'

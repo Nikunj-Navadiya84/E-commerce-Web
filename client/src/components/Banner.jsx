@@ -29,7 +29,7 @@ function BannerSlide({ image, title, price, isActive }) {
                     </motion.span>
 
                     <motion.h1
-                        className="text-4xl sm:text-4xl w-[70%] font-bold text-gray-600 leading-snug"
+                        className="sm:text-4xl text-3xl w-[70%] font-bold text-gray-600 leading-snug"
                         initial={{ opacity: 0, y: 50 }}
                         animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                         transition={{ duration: 1.5, delay: 0.4 }}
@@ -39,7 +39,7 @@ function BannerSlide({ image, title, price, isActive }) {
 
                     <Link to='/categories'>
                         <motion.button
-                            className="flex flex-row items-center gap-2 text-md mt-4 bg-gray-600 hover:bg-gray-800 text-white px-5 py-2 rounded cursor-pointer"
+                            className="flex flex-row items-center gap-2 sm:text-md mt-4 bg-gray-600 hover:bg-gray-800 text-white px-3 py-2 rounded cursor-pointer"
                             initial={{ opacity: 0, y: 50 }}
                             animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                             transition={{ duration: 1.5, delay: 0.6 }}
