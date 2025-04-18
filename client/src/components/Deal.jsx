@@ -62,7 +62,7 @@ function Deal() {
             </div>
 
             {/* Product Grid */}
-            <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-5 pt-9'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-5 pt-9'>
                 {products.slice(0, 4).map((product, index) => (
                     <motion.div
                         key={index}
@@ -105,7 +105,7 @@ function Deal() {
                                 </div>
                             </div>
 
-                            <div className='sm:flex  items-center justify-between'>
+                            <div className='flex  items-center justify-between'>
                                 <div>
                                     <p className='text-sm text-gray-600 line-through mt-1'>${product.price.toFixed(2)}</p>
                                     <p className='text-md text-gray-900 font-bold mb-3 '>${product.offerPrice.toFixed(2)}</p>
