@@ -65,7 +65,7 @@ function Arrivals() {
                 </div>
             </div>
 
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 pt-9'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-5 pt-9'>
                 {filteredProducts.slice(0, 4).map((product, index) => (
                     <motion.div
                         key={index}
