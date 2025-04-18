@@ -7,7 +7,6 @@ import { FaHeart } from "react-icons/fa6";
 import { Slider } from '@mui/material';
 import axios from "axios";
 
-
 function Categories() {
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
@@ -16,12 +15,10 @@ function Categories() {
     const [value, setValue] = useState([1, 1000]);
     const categories = ["Snack & Spices", "Fruits", "Vegetables"];
 
-    // Fetch Product
     useEffect(() => {
         const fetchProducts = async () => {
             try {
                 const response = await axios.get("http://localhost:4000/api/products/list");
-
                 if (response.data.success && Array.isArray(response.data.products)) {
                     setProducts(response.data.products);
                 } else {
@@ -34,8 +31,7 @@ function Categories() {
         };
 
         fetchProducts();
-    }, []); 
-
+    }, []);
 
     const handleCheckboxChange = (category) => {
         setSelectedCategories((prev) =>
@@ -62,24 +58,18 @@ function Categories() {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, []);
 
-
     return (
         <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20">
             <div className='flex items-center justify-between'>
-
                 <div className='pt-5'>
                     <h1 className='text-3xl text-gray-700 pb-2 font-semibold'>All <span className='text-green-600'>Categories</span></h1>
                     <p className='text-sm text-gray-500'>Shop online for new arrivals and get free shipping!</p>
                 </div>
-
             </div>
 
-            <div className='flex pt-9 gap-10'>
-
-
-                <div className='flex flex-col gap-5 '>
-
-                    <div className='border border-gray-200 w-80 rounded p-5'>
+            <div className='flex flex-col lg:flex-row pt-9 gap-10'>
+                <div className='flex flex-col gap-5'>
+                    <div className='border border-gray-200 w-full lg:w-80 rounded p-5'>
                         <h4 className="text-xl text-gray-700 font-bold mb-5">Categories</h4>
                         <hr className="text-gray-200 mb-3" />
                         <div>
@@ -100,7 +90,7 @@ function Categories() {
                         </div>
                     </div>
 
-                    <div className='border border-gray-200 w-80 rounded p-5'>
+                    <div className='border border-gray-200 w-full lg:w-80 rounded p-5'>
                         <h4 className="text-xl text-gray-700 font-bold mb-5">Select Price Range</h4>
                         <div className='text-sm text-gray-400'>
                             <Slider
@@ -110,14 +100,12 @@ function Categories() {
                                 min={1}
                                 max={1000}
                             />
-                            Your select Price is ${value[0]} to ${value[1]}
+                            Your selected Price is ${value[0]} to ${value[1]}
                         </div>
                     </div>
-
                 </div>
 
-
-                <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 '>
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6'>
                     {products
                         .filter((product) =>
                             (selectedCategories.length === 0 || selectedCategories.includes(product.categories)) &&
@@ -138,7 +126,6 @@ function Categories() {
                                 </div>
 
                                 <div className='p-5'>
-
                                     <div className='flex justify-between'>
                                         <div>
                                             <h3 className='text-gray-500 text-sm mb-2'>{product.categories}</h3>
@@ -152,7 +139,6 @@ function Categories() {
                                                 <FaRegHeart className="text-xl text-red-300" />
                                             )}
                                         </button>
-
                                     </div>
 
                                     <div className='flex items-center justify-between'>
@@ -162,26 +148,22 @@ function Categories() {
                                         </div>
                                         <button className='text-sm text-white bg-gray-600 hover:bg-gray-800 py-2 px-3 rounded cursor-pointer' onClick={() => setSelectedProduct(product)}>View</button>
                                     </div>
-
                                 </div>
                             </motion.div>
                         ))}
                 </div>
-
             </div>
 
-
-            {/* Modal for Product Details */}
             <AnimatePresence>
                 {selectedProduct && (
                     <motion.div
-                        className='fixed inset-0  backdrop-brightness-40 flex justify-center items-center z-50'
+                        className='fixed inset-0 backdrop-brightness-40 flex justify-center items-center z-50 overflow-y-auto'
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}>
 
                         <motion.div
-                            className='bg-white p-6 rounded-lg shadow-lg w-full max-w-lg sm:max-w-xl md:max-w-2xl relative'
+                            className='bg-white max-h-[90vh] overflow-auto p-6 rounded-lg shadow-lg w-full max-w-lg sm:max-w-xl md:max-w-2xl relative'
                             initial={{ scale: 0.7 }}
                             animate={{ scale: 1 }}
                             exit={{ scale: 0.7 }}>
@@ -191,33 +173,25 @@ function Categories() {
                                 <FaTimes className='text-2xl' />
                             </button>
 
-                            <div className='flex items-center'>
-                                <div>
-                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg  bg-cover' alt="" />
+                            <div className='flex flex-col md:flex-row items-center gap-6'>
+                                <div className='w-full md:w-1/2'>
+                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg w-full object-cover' alt="" />
                                 </div>
-                                <div className='p-5'>
+                                <div className='p-1 md:p-5 w-full'>
                                     <h2 className='text-gray-700 text-md mb-2'>{selectedProduct.name}</h2>
-
                                     <p className='text-gray-500 text-sm mb-2'>{selectedProduct.reviews}</p>
-
                                     <p className='text-gray-500 text-sm mb-2'>{selectedProduct.description}</p>
-
                                     <p className='text-sm text-gray-600 line-through mt-1'>${selectedProduct.price.toFixed(2)}</p>
                                     <p className='text-md text-gray-900 font-bold mt-1'>${selectedProduct.offerPrice.toFixed(2)}</p>
 
-                                    <div className="flex items-center space-x-3">
-
-                                        <input type="number" className="w-20 px-3 py-2 border rounded" min="1" value={quantity} onChange={handleQuantityChange} />
-
-                                        <button className="bg-gray-600 hover:bg-gray-800 text-white text-sm font-medium px-4 py-3 rounded transition cursor-pointer" onClick={() => { addToCart(selectedProduct, quantity); closeModal() }}>
+                                    <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3 mt-3">
+                                        <input type="number" className="w-16 sm:w-20 px-3 py-2 border rounded" min="1" value={quantity} onChange={handleQuantityChange} />
+                                        <button className="bg-gray-600 hover:bg-gray-800 text-white text-sm font-medium px-3 py-2 sm:px-4 sm:py-3 rounded transition cursor-pointer" onClick={() => { addToCart(selectedProduct, quantity); closeModal() }}>
                                             Add To Cart
                                         </button>
-
                                     </div>
-
                                 </div>
                             </div>
-
                         </motion.div>
                     </motion.div>
                 )}
