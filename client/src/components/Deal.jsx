@@ -49,13 +49,13 @@ function Deal() {
         <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20">
             <div className='flex justify-between items-center flex-wrap gap-3'>
                 <div>
-                    <h1 className='text-[clamp(1.2rem,2vw,2rem)] text-gray-700 pb-2 font-medium'>
+                    <h1 className='sm:text-4xl text-3xl text-gray-700 pb-2 font-medium'>
                         Day of the <span className='text-green-600'>Deal</span>
                     </h1>
                     <p className='text-sm text-gray-500'>Don’t wait. The time will never be just right.</p>
                 </div>
                 <Link to='/categories'>
-                    <button className='text-white text-sm bg-gray-700 py-3 px-4 rounded cursor-pointer hover:bg-gray-900'>
+                    <button className='text-white text-sm bg-gray-700 py-2 px-3 rounded cursor-pointer hover:bg-gray-900'>
                         View All Products
                     </button>
                 </Link>
