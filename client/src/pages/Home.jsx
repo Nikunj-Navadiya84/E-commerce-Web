@@ -120,30 +120,32 @@ function Home() {
       <Deal />
 
       {/* Sale */}
-      <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20" >
+      <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20">
 
-        <div className='flex flex-col items-end justify-center bg-cover bg-center h-[400px] rounded-lg' style={{ backgroundImage: `url(${assets.img6})` }}>
-
+        <div className='flex flex-col items-end justify-center bg-cover bg-center h-[300px] sm:h-[350px] md:h-[400px] rounded-lg'
+          style={{ backgroundImage: `url(${assets.img6})` }}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true, amount: 0.3 }}
-            className='flex flex-col justify-end items-end px-10'
+            className='flex flex-col justify-end items-end px-5 sm:px-10 text-end'
           >
-            <h2 className="text-4xl text-gray-700 font-semibold">Fresh Fruits</h2>
-            <p className="text-4xl text-gray-700 font-semibold mb-3">Healthy Products</p>
-            <p className="text-lg text-green-800 mb-3">
-              30% off sale <span className="text-lg text-gray-500">Hurry up!!!</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-700 font-semibold">Fresh Fruits</h2>
+            <p className="text-2xl sm:text-3xl md:text-4xl text-gray-700 font-semibold mb-2 sm:mb-3">Healthy Products</p>
+            <p className="text-sm sm:text-base md:text-lg text-green-800 mb-2 sm:mb-3">
+              30% off sale <span className="text-sm sm:text-base text-gray-500">Hurry up!!!</span>
             </p>
             <Link to='/categories'>
-              <button className='text-sm bg-gray-600 hover:bg-gray-800 text-white py-2 px-2 rounded cursor-pointer'>Shop now</button>
+              <button className='text-xs sm:text-sm bg-gray-600 hover:bg-gray-800 text-white py-2 px-3 sm:px-4 rounded cursor-pointer'>
+                Shop now
+              </button>
             </Link>
           </motion.div>
-
         </div>
 
       </div>
+
 
       <Arrivals />
 
