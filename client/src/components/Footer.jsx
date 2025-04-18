@@ -33,12 +33,8 @@ function Footer() {
                     <div>
                         <img src={assets.logo} alt="Grabit Logo" className="w-40 mx-auto sm:mx-0" />
                         <p className="text-sm text-gray-500 py-5">
-                            Grabit is the biggest market of grocery products. Get your daily needs from our store.
+                            QuickCart is the biggest market of grocery products. Get your daily needs from our store.
                         </p>
-                        <div className="grid sm:w-1/2  lg:w-full sm:grid-cols-2 lg:grid-cols-1   xl:grid-cols-2 gap-4 cursor-pointer">
-                            <img src={assets.android} className="w-30 rounded" alt="Android App" />
-                            <img src={assets.apple} className="w-30 rounded" alt="iOS App" />
-                        </div>
                     </div>
 
                     {/* Reusable Dropdown Component */}
@@ -83,8 +79,6 @@ function Footer() {
                                         <a href="#" className="hover:text-green-800">Sign in</a>
                                         <a href="#" className="hover:text-green-800">View Cart</a>
                                         <a href="#" className="hover:text-green-800">Return Policy</a>
-                                        <a href="#" className="hover:text-green-800">Become a Vendor</a>
-                                        <a href="#" className="hover:text-green-800">Affiliate Program</a>
                                         <a href="#" className="hover:text-green-800">Payments</a>
                                     </>
                                 )}
@@ -98,18 +92,18 @@ function Footer() {
                                                         <IoLocationOutline className="text-2xl text-green-900" />
                                                     </div>
                                                     <div>
-                                                        <p className="text-sm text-gray-500">2548 Broaddus Maple Court, Madisonville KY 4783, USA.</p>
+                                                        <p className="text-sm text-gray-500">303, 3rd floor, Bangalore, Karnataka, India.</p>
                                                     </div>
                                                 </div>
 
                                                 <div className="flex items-center gap-2">
                                                     <FaWhatsapp className="text-2xl text-green-900" />
-                                                    <p className="text-sm text-gray-500">+00 9876543210</p>
+                                                    <p className="text-sm text-gray-500">+91 9876543210</p>
                                                 </div>
 
                                                 <div className="flex items-center gap-2">
                                                     <MdOutlineMail className="text-2xl text-green-900" />
-                                                    <p className="text-sm text-gray-500">example@email.com</p>
+                                                    <p className="text-sm text-gray-500">nikunjnavadiya7@email.com</p>
                                                 </div>
                                             </div>
                                             {/* Social Media Icons */}
@@ -131,7 +125,7 @@ function Footer() {
 
                 <hr className="text-gray-200 mt-5" />
                 <div className="flex flex-col sm:flex-row items-center justify-between py-5 text-center sm:text-left">
-                    <p className="text-sm text-gray-500">Copyright © Grabit all rights reserved. Powered by Grabit.</p>
+                    <p className="text-sm text-gray-500">Copyright © Grabit all rights reserved. Powered by QuickCart.</p>
                     <img src={assets.payment} alt="Payment Methods" className="mt-3 sm:mt-0" />
                 </div>
             </div>
