@@ -35,13 +35,13 @@ function Blog() {
 
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-5">
-        <h1 className="text-3xl text-green-600 font-semibold">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-3xl text-green-600 font-semibold py-5">
           B<span className="text-gray-700">log</span>
         </h1>
       </div>
 
-      <div className="flex flex-col lg:flex-row pt-9 gap-10">
+      <div className="flex flex-col lg:flex-row gap-10">
         {/* Category Filters */}
         <div className="w-full lg:w-[250px]">
           <div className="border border-gray-200 rounded p-5">

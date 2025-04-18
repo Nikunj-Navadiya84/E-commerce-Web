@@ -12,7 +12,7 @@ function About() {
         <div>
 
             <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20">
-                <h1 className="text-3xl text-green-700 font-semibold my-5">A<span className='text-gray-800'>bout</span></h1>
+                <h1 className="text-3xl text-green-600 font-semibold py-5">A<span className='text-gray-800'>bout</span></h1>
 
                 <div className=" flex flex-wrap md:flex-nowrap gap-5 items-center">
 

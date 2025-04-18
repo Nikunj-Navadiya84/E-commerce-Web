@@ -62,7 +62,7 @@ function Categories() {
         <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20">
             <div className='flex items-center justify-between'>
                 <div className='pt-5'>
-                    <h1 className='text-3xl text-gray-700 pb-2 font-semibold'>All <span className='text-green-600'>Categories</span></h1>
+                    <h1 className='text-3xl  text-green-600 pb-2 font-semibold'>All <span className='text-gray-700'>Categories</span></h1>
                     <p className='text-sm text-gray-500'>Shop online for new arrivals and get free shipping!</p>
                 </div>
             </div>

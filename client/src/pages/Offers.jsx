@@ -8,9 +8,9 @@ function Offers() {
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20'>
 
-      <h1 className='text-3xl text-gray-700 pb-2 font-semibold pt-5'>O<span className='text-green-700'>ffers</span></h1>
+      <h1 className='text-3xl text-gray-700 font-semibold py-5'>O<span className='text-green-700'>ffers</span></h1>
 
-      <div className="grid gap-4 xl:grid-cols-2 pt-9">
+      <div className="grid gap-4 xl:grid-cols-2">
 
         <motion.div className="w-full h-[300px] flex items-center justify-end bg-cover bg-center rounded px-6 relative overflow-hidden group" style={{ backgroundImage: `url(${assets.offer2})` }}
           initial={{ opacity: 0, x: -100 }}
