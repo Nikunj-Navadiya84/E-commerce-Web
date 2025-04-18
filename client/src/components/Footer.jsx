@@ -27,7 +27,7 @@ function Footer() {
         <div className="bg-gray-50">
             <hr className="text-gray-200" />
             <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-20">
-                <div className="grid  lg:grid-cols-5 gap-7 pb-20">
+                <div className="grid  lg:grid-cols-5 gap-7 pb-10">
 
                     {/* Company Info */}
                     <div>
