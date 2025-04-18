@@ -1,4 +1,13 @@
+const fs = require("fs");
+const path = require("path");
 const winston = require("winston");
+
+const logDir = path.join(__dirname, "logs");
+
+// Ensure the logs directory exists
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir, { recursive: true });
+}
 
 const logger = winston.createLogger({
   level: "info",
@@ -8,7 +17,7 @@ const logger = winston.createLogger({
   ),
   transports: [
     new winston.transports.Console(),
-    new winston.transports.File({ filename: "./logs/app.log" }),
+    new winston.transports.File({ filename: path.join(logDir, "app.log") }),
   ],
 });
 
