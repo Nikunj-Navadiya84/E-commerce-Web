@@ -67,7 +67,7 @@ function Home() {
             <div className="flex flex-col items-center text-center bg-gray-100 p-4 m-1 rounded shadow-md transition-all">
               <LuVegan className="text-4xl text-green-600 mb-1" />
               <p className="text-lg font-semibold text-gray-700 cursor-pointer">Vegetables</p>
-              <span className="text-gray-500">348 Items</span>
+              <span className="text-gray-500">48 Items</span>
             </div>
           </motion.div>
 
@@ -80,7 +80,7 @@ function Home() {
           >
             <div className="flex flex-col items-center text-center bg-gray-100 p-4 m-1 rounded shadow-md transition-all">
               <GiCoffeePot className="text-4xl text-green-600 mb-1" />
-              <p className="text-lg font-semibold text-gray-700 cursor-pointer">Dairy & Milk</p>
+              <p className="text-lg font-semibold text-gray-700 cursor-pointer">Dairy</p>
               <span className="text-gray-500">48 Items</span>
             </div>
           </motion.div>
@@ -94,7 +94,7 @@ function Home() {
           >
             <div className="flex flex-col items-center text-center bg-gray-100 p-4 m-1 rounded shadow-md transition-all">
               <PiPopcornThin className="text-4xl text-green-600 mb-1" />
-              <p className="text-lg font-semibold text-gray-700 cursor-pointer">Snack & Spice</p>
+              <p className="text-lg font-semibold text-gray-700 cursor-pointer">Snack</p>
               <span className="text-gray-500">59 Items</span>
             </div>
           </motion.div>
@@ -108,8 +108,8 @@ function Home() {
           >
             <div className="flex flex-col items-center text-center bg-gray-100 p-4 m-1 rounded shadow-md transition-all">
               <RiDrinks2Line className="text-4xl text-green-600 mb-1" />
-              <p className="text-lg font-semibold text-gray-700 cursor-pointer">Juice & Drinks</p>
-              <span className="text-gray-500">845 Items</span>
+              <p className="text-lg font-semibold text-gray-700 cursor-pointer">Juice</p>
+              <span className="text-gray-500">84 Items</span>
             </div>
           </motion.div>
 
