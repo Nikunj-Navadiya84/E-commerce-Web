@@ -15,7 +15,7 @@ const banners = [
 
 function BannerSlide({ image, title, price, isActive }) {
     return (
-        <div className="relative sm:px-[5vw] md:px-[7vw] lg:px-[9vw] sm:py-[5vw] px-4 py-20 min-h-[500px] bg-cover bg-no-repeat bg-center flex items-center justify-start" style={{ backgroundImage: `url(${image})` }}>
+        <div className="relative sm:px-[5vw] md:px-[7vw] lg:px-[9vw] sm:py-[5vw] px-4 py-20 min-h-[600px] bg-cover bg-no-repeat bg-center flex items-center justify-start" style={{ backgroundImage: `url(${image})` }}>
 
             <div className="px-4">
                 <div className="">
@@ -29,7 +29,7 @@ function BannerSlide({ image, title, price, isActive }) {
                     </motion.span>
 
                     <motion.h1
-                        className="sm:text-4xl text-3xl w-[70%] font-bold text-gray-600 leading-snug"
+                        className="sm:text-5xl text-3xl w-[70%] font-bold text-gray-600 leading-snug"
                         initial={{ opacity: 0, y: 50 }}
                         animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                         transition={{ duration: 1.5, delay: 0.4 }}

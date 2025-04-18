@@ -8,8 +8,8 @@ function Account() {
 
     return (
         <div>
-            <div className='text-3xl font-semibold text-gray-700'>
-                <h2>User <span className='text-green-700'>Account</span></h2>
+            <div className='text-3xl font-medium text-green-700'>
+                <h2>User <span className=' text-gray-700'>Account</span></h2>
             </div>
 
             <div className="container mx-auto p-6">

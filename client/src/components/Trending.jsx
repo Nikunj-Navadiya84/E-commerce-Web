@@ -73,7 +73,7 @@ function Trending() {
                         transition={{ delay: 0.2 + index * 0.1, duration: 1 }}
                         viewport={{ once: true, amount: 0.3 }}>
 
-                        <h1 className='text-3xl font-medium'>{category} <span className='text-green-600'>Items</span></h1>
+                        <h1 className='text-xl font-medium'>{category} <span className='text-green-600'>Items</span></h1>
 
                         <div className='flex flex-col gap-5'>
                             {products.slice(

@@ -95,10 +95,10 @@ function ChangePassword() {
 
     return (
         <div>
-            <h1 className="text-3xl text-gray-700 font-semibold mb-3">Change <span className='text-green-700'> Password</span></h1>
+            <h1 className="text-3xl text-green-700 font-medium mb-3">Change <span className='text-gray-700'> Password</span></h1>
 
             <div className='container mx-auto p-6'>
-                <div className='flex flex-col w-1/3 items-center gap-3'>
+                <div className='flex flex-col sm:w-1/3 items-center gap-3'>
 
                     <input type="text" className='w-full border border-gray-200 rounded py-2 px-3' placeholder='Email' onChange={(e) => setEmail(e.target.value)} value={user?.email || email} required />
 
