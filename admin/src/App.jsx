@@ -11,7 +11,6 @@ import Client from './pages/ClientAdd';
 import ClientList from './pages/ClientList';
 import AdminLogs from './pages/AdminLogs';
 import Order from './pages/Order';
-import Changepassword from './componets/changepassword';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -66,14 +65,6 @@ function App() {
                   <Order />
                 </PrivateRoute>
               } />
-
-              <Route path="/changepassword" element={
-                <PrivateRoute>
-                  <Changepassword />
-                </PrivateRoute>
-              } />
-
-             
 
               <Route path="/logs" element={
                 <PrivateRoute>
