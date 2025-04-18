@@ -103,7 +103,7 @@ function Footer() {
 
                                                 <div className="flex items-center gap-2">
                                                     <MdOutlineMail className="text-2xl text-green-900" />
-                                                    <p className="text-sm text-gray-500">nikunjnavadiya7@email.com</p>
+                                                    <p className="text-sm text-gray-500">nikunjnavadiya7@gmail.com</p>
                                                 </div>
                                             </div>
                                             {/* Social Media Icons */}
