@@ -52,7 +52,7 @@ function Trending() {
             <div className='grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-5 items-center'>
 
 
-                <motion.div className="flex flex-col h-[400px] bg-cover bg-center rounded px-6" style={{ backgroundImage: `url(${assets.img9})` }}
+                <motion.div className="flex flex-col h-[420px] bg-cover bg-center rounded px-6" style={{ backgroundImage: `url(${assets.img9})` }}
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1, duration: 1 }}
@@ -78,9 +78,9 @@ function Trending() {
                         <div className='flex flex-col gap-5'>
                             {products.slice(
                                 category === "Trending" ? 0 :
-                                    category === "Top Rated" ? 3 :
-                                        category === "Top Selling" ? 6 : 0,
-                                category === "Trending" ? 3 :
+                                    category === "Top Rated" ? 2 :
+                                        category === "Top Selling" ? 5 : 0,
+                                category === "Trending" ? 4 :
                                     category === "Top Rated" ? 6 :
                                         category === "Top Selling" ? 9 : 3
                             ).map((product, index) => (

@@ -121,7 +121,7 @@ function Categories() {
                                 viewport={{ once: true, amount: 0.3 }}>
 
                                 <div className='overflow-hidden relative'>
-                                    <img src={`http://localhost:4000/${product.images?.[0]}`} className='w-full transition-transform duration-300 hover:scale-105' alt="" />
+                                    <img src={`http://localhost:4000/${product.images?.[0]}`} className='w-full h-70 object-cover transition-transform duration-300 hover:scale-105' alt="" />
                                     <hr className='border-gray-200 absolute bottom-0 left-0 w-full' />
                                 </div>
 
@@ -175,7 +175,7 @@ function Categories() {
 
                             <div className='flex flex-col md:flex-row items-center gap-6'>
                                 <div className='w-full md:w-1/2'>
-                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg w-full object-cover' alt="" />
+                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg w-300 h-full object-cover' alt="" />
                                 </div>
                                 <div className='p-1 md:p-5 w-full'>
                                     <h2 className='text-gray-700 text-md mb-2'>{selectedProduct.name}</h2>

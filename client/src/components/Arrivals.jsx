@@ -76,7 +76,7 @@ function Arrivals() {
                         viewport={{ once: true, amount: 0.3 }}
                     >
                         <div className='overflow-hidden relative'>
-                            <img src={`http://localhost:4000/${product.images?.[0]}`} className='w-full transition-transform duration-300 hover:scale-105' alt="" />
+                            <img src={`http://localhost:4000/${product.images?.[0]}`} className='w-full h-70 object-cover transition-transform duration-300 hover:scale-105' alt="" />
                             <hr className='border-gray-200 absolute bottom-0 left-0 w-full' />
                         </div>
 
@@ -113,49 +113,36 @@ function Arrivals() {
             <AnimatePresence>
                 {selectedProduct && (
                     <motion.div
-                        className='fixed inset-0 backdrop-brightness-40 flex justify-center items-center z-50'
+                        className='fixed inset-0 backdrop-brightness-40 flex justify-center items-center z-50 overflow-y-auto'
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                    >
+                        exit={{ opacity: 0 }}>
+
                         <motion.div
-                            className='bg-white p-6 rounded-lg shadow-lg w-[90%] sm:w-full max-w-lg sm:max-w-xl md:max-w-2xl relative'
+                            className='bg-white max-h-[90vh] overflow-auto p-6 rounded-lg shadow-lg w-full max-w-lg sm:max-w-xl md:max-w-2xl relative'
                             initial={{ scale: 0.7 }}
                             animate={{ scale: 1 }}
-                            exit={{ scale: 0.7 }}
-                        >
+                            exit={{ scale: 0.7 }}>
                             <button
                                 className='absolute top-2 right-2 text-gray-500 text-lg cursor-pointer'
-                                onClick={() => setSelectedProduct(null)}
-                            >
+                                onClick={() => setSelectedProduct(null)}>
                                 <FaTimes className='text-2xl' />
                             </button>
 
-                            <div className='flex flex-col sm:flex-row items-center sm:items-start gap-6'>
-                                <div>
-                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg w-full object-cover' alt="" />
+                            <div className='flex flex-col md:flex-row items-center gap-6'>
+                                <div className='w-full md:w-1/2'>
+                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg w-300 h-full object-cover' alt="" />
                                 </div>
-                                <div className='p-2 sm:p-5'>
+                                <div className='p-1 md:p-5 w-full'>
                                     <h2 className='text-gray-700 text-md mb-2'>{selectedProduct.name}</h2>
+                                    <p className='text-gray-500 text-sm mb-2'>{selectedProduct.reviews}</p>
                                     <p className='text-gray-500 text-sm mb-2'>{selectedProduct.description}</p>
                                     <p className='text-sm text-gray-600 line-through mt-1'>${selectedProduct.price.toFixed(2)}</p>
                                     <p className='text-md text-gray-900 font-bold mt-1'>${selectedProduct.offerPrice.toFixed(2)}</p>
 
-                                    <div className="flex items-center space-x-3 mt-4">
-                                        <input
-                                            type="number"
-                                            className="w-20 px-3 py-2 border rounded"
-                                            min="1"
-                                            value={quantity}
-                                            onChange={handleQuantityChange}
-                                        />
-                                        <button
-                                            className="bg-gray-600 hover:bg-gray-800 text-white text-sm font-medium px-4 py-3 rounded transition cursor-pointer"
-                                            onClick={() => {
-                                                addToCart(selectedProduct, quantity);
-                                                closeModal();
-                                            }}
-                                        >
+                                    <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3 mt-3">
+                                        <input type="number" className="w-16 sm:w-20 px-3 py-2 border rounded" min="1" value={quantity} onChange={handleQuantityChange} />
+                                        <button className="bg-gray-600 hover:bg-gray-800 text-white text-sm font-medium px-3 py-2 sm:px-4 sm:py-3 rounded transition cursor-pointer" onClick={() => { addToCart(selectedProduct, quantity); closeModal() }}>
                                             Add To Cart
                                         </button>
                                     </div>
