@@ -11,20 +11,21 @@ const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const AddressRoutes = require("./routes/AddressRoutes");
 const { connectDB } = require("./config/db");
+const cloudinary = require("./config/cloudinary");
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 connectDB();
 
 // Apply CORS middleware with options
-
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174'],
+    origin: ['http://localhost:5173', 'http://localhost:5174', 'https://e-commerce-poxqrj2qw-nikunj-navadiya84s-projects.vercel.app'],
     methods: 'GET,POST,PUT,DELETE',
     credentials: true
 }));
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use("/uploads", express.static("uploads"));
 
