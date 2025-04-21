@@ -6,7 +6,7 @@ const logger = require("../Logger/logger.js");
 
 router.get("/logs", async (req, res) => {
     try {
-        const logFilePath = path.join(__dirname, "../logs/app.log");
+        const logFilePath = path.join(__dirname, "../logger/logs/app.log");
 
         if (!fs.existsSync(logFilePath)) {
             return res.status(404).json({ success: false, message: "Log file not found" });
