@@ -3669,3 +3669,633 @@
 {"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:10:25.137Z","username":"67f75860e1a4e68c8d43b575"}
 {"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"67f7566ae1a4e68c8d424fd5","timestamp":"2025-04-22T11:10:28.121Z","username":"67f75860e1a4e68c8d43b575"}
 {"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:10:28.154Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:12:06.870Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:12:06.898Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:12:56.445Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:12:56.451Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:10.552Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:10.559Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:19.422Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:19.432Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:19.437Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:19.446Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:33.761Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:33.766Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:35.645Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:35.649Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:35.655Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:13:35.660Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7564ee1a4e68c8d423b9b","quantity":1,"timestamp":"2025-04-22T11:13:43.179Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:13:43.204Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:13.271Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:13.275Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:13.279Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:13.282Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.955Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.958Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.963Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.966Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.969Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.974Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.977Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.980Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.983Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.986Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.990Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:14.993Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:17.265Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:17.270Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:17.274Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:17.277Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.588Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.591Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.594Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.598Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.601Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.604Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.610Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.617Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.621Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.624Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.634Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:19.641Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7564ee1a4e68c8d423b9b","quantity":1,"timestamp":"2025-04-22T11:14:21.926Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:14:21.955Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:24.879Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:24.883Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:24.888Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:24.894Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"68071a2ff9b62322e778413b","quantity":1,"timestamp":"2025-04-22T11:14:26.685Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:14:26.701Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"68071a2ff9b62322e778413b","quantity":8,"timestamp":"2025-04-22T11:14:32.597Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:14:32.637Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.943Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.948Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.952Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.956Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.960Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.963Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.968Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.973Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.981Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.985Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.989Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:35.995Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:38.637Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:38.641Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:38.645Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:14:38.649Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:13.137Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:13.159Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:13.173Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:13.195Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:15.388Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:15.397Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:15.404Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:15.412Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f75607e1a4e68c8d420651","quantity":1,"timestamp":"2025-04-22T11:36:23.688Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:36:23.725Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:29.502Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:29.508Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:29.515Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:29.523Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Product quantity updated in cart and stock adjusted","method":"PUT","newQuantity":9,"path":"/api/cart/updatecart","productId":"67f75607e1a4e68c8d420651","stockChange":1,"timestamp":"2025-04-22T11:36:37.064Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:36:37.142Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated in cart and stock adjusted","method":"PUT","newQuantity":10,"path":"/api/cart/updatecart","productId":"67f75607e1a4e68c8d420651","stockChange":1,"timestamp":"2025-04-22T11:36:37.262Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:36:37.301Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:41.695Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:41.700Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:41.707Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:41.715Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:42.869Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:42.875Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:42.883Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:42.887Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:43.335Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:43.340Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:43.348Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:43.353Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:43.824Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:43.832Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:43.838Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:43.846Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.082Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.091Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.264Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.271Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.279Z","username":"Unknown"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.286Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.430Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.435Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.441Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.446Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.634Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.641Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.648Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.656Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.850Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.859Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.866Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:44.874Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:45.577Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:45.582Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:45.588Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:45.596Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:45.840Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:45.848Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:45.854Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:45.860Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.121Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.128Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.133Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.143Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.368Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.372Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.379Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.384Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.601Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.609Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.614Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.625Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.820Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.825Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.829Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:46.833Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.000Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.009Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.016Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.020Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.244Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.253Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.270Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.276Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.728Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.735Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.745Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:47.751Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.012Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.018Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.026Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.030Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.399Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.404Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.412Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.423Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.707Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.715Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.729Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:48.736Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:49.046Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:49.053Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:49.062Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:49.068Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:49.257Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:49.262Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:49.272Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:49.278Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:50.092Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:50.100Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:50.112Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:50.119Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:50.440Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:50.445Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:50.454Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:50.459Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.096Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.106Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.111Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.115Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.342Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.348Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.355Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.359Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.558Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.564Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.570Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.574Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.820Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.824Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.830Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:51.838Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:52.045Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:52.053Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:52.058Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:36:52.062Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:39:26.528Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:39:26.539Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:39:26.548Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:39:26.561Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:39:26.599Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:39:26.606Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:39:26.651Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:39:26.656Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:39:33.210Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:39:33.239Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:39:33.255Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:39:33.309Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:39:37.241Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:39:37.248Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:39:37.259Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:39:37.264Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":3,"path":"/api/cart/updatecart","productId":"67f75698e1a4e68c8d427123","timestamp":"2025-04-22T11:44:52.564Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:44:52.605Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":4,"path":"/api/cart/updatecart","productId":"67f75698e1a4e68c8d427123","timestamp":"2025-04-22T11:44:53.190Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:44:53.221Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":5,"path":"/api/cart/updatecart","productId":"67f75698e1a4e68c8d427123","timestamp":"2025-04-22T11:44:53.714Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:44:53.747Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:00.588Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:00.597Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:00.601Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:00.610Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"67f75607e1a4e68c8d420651","timestamp":"2025-04-22T11:45:16.142Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:45:16.173Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"67f75698e1a4e68c8d427123","timestamp":"2025-04-22T11:45:20.811Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:45:20.834Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:45:23.575Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:45:23.598Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"67f7564ee1a4e68c8d423b9b","timestamp":"2025-04-22T11:45:26.226Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:45:26.252Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"68071a2ff9b62322e778413b","timestamp":"2025-04-22T11:45:28.737Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart is empty","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:45:28.749Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:32.106Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:32.113Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:32.122Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:32.126Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Received Updating Request for....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:45:46.971Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Successfully Updated....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:45:46.983Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:47.010Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:47.017Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:47.023Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:47.027Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:52.299Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:52.302Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:52.314Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:45:52.317Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:45:53.815Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:45:53.830Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":2,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:46:00.156Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:46:00.180Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":3,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:46:00.342Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:46:00.365Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":4,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:46:04.439Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:46:04.459Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":5,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:46:04.896Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:46:04.916Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:46:12.768Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:46:12.773Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:46:12.780Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:46:12.786Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:47:32.201Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:47:32.205Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:47:32.210Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:47:32.214Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f75607e1a4e68c8d420651","quantity":1,"timestamp":"2025-04-22T11:48:23.760Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:48:23.784Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:27.908Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:27.914Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:27.923Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:27.927Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Received Updating Request for....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:48:35.895Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Successfully Updated....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:48:35.904Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:35.925Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:35.929Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:35.935Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:35.939Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:48:39.044Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:48:39.058Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:48:39.797Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:48:39.821Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:48:40.005Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:48:40.026Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:50.194Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:50.201Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:50.209Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:48:50.213Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":9,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:48:55.199Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:48:55.223Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":10,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:48:55.445Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:48:55.465Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":11,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:49:00.442Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:00.470Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":12,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:49:00.773Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:00.799Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":13,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:49:00.995Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:01.018Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":14,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:49:01.191Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:01.208Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":15,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:49:01.397Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:01.415Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:04.503Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:04.508Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:04.512Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:04.516Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:11.487Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:11.492Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:11.497Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:11.501Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Received Updating Request for....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:49:16.618Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Successfully Updated....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:49:16.625Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:16.648Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:16.653Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:16.657Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:16.662Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:20.294Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:20.306Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:20.324Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:49:20.353Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:20.357Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:20.389Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:20.409Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:49:20.422Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:30.776Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:30.782Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:30.803Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:49:30.814Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:49:30.824Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:30.840Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:49:30.859Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:30.874Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f75607e1a4e68c8d420651","quantity":1,"timestamp":"2025-04-22T11:49:43.863Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:43.882Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":16,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:49:52.552Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:52.581Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":17,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:49:53.231Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:49:53.255Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:09.587Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:09.590Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:09.594Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:09.598Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:19.108Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:19.113Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:19.119Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:19.125Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Received Updating Request for....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:50:24.766Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Successfully Updated....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:50:24.776Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:24.803Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:24.807Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:24.811Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:24.818Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Received Updating Request for....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:50:30.201Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Successfully Updated....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:50:30.205Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:30.228Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:30.232Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:30.238Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:30.243Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:35.381Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:35.392Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:35.409Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:35.440Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:50:35.459Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:50:35.514Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:50:35.528Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:50:35.577Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:50:37.192Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:50:37.216Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7564ee1a4e68c8d423b9b","quantity":1,"timestamp":"2025-04-22T11:50:47.841Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:50:47.864Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7564ee1a4e68c8d423b9b","quantity":1,"timestamp":"2025-04-22T11:50:48.568Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:50:48.609Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7564ee1a4e68c8d423b9b","quantity":1,"timestamp":"2025-04-22T11:50:49.149Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:50:49.180Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7564ee1a4e68c8d423b9b","quantity":1,"timestamp":"2025-04-22T11:50:49.396Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:50:49.435Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7564ee1a4e68c8d423b9b","quantity":1,"timestamp":"2025-04-22T11:50:49.675Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:50:49.696Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7564ee1a4e68c8d423b9b","quantity":1,"timestamp":"2025-04-22T11:50:49.917Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:50:49.951Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:59.081Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:59.090Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:59.096Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:50:59.101Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":2,"path":"/api/cart/updatecart","productId":"67f75607e1a4e68c8d420651","timestamp":"2025-04-22T11:51:09.408Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:51:09.433Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":3,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:51:10.782Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:51:10.827Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:18.182Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:18.191Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:18.201Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:18.206Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Received Updating Request for....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:51:24.079Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Successfully Updated....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:51:24.087Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:24.118Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:24.125Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:24.129Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:24.132Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:30.338Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:30.351Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:30.384Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:30.392Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:51:30.407Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:51:30.414Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:51:30.443Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:51:30.455Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:58.632Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:58.651Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:58.673Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:51:58.698Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:51:58.708Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:51:58.713Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:51:58.776Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:51:58.780Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:05.837Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:05.846Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:05.871Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:05.886Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:52:05.907Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:05.919Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:52:05.955Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:05.960Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:08.070Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:08.079Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:08.100Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:08.115Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:52:08.137Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:08.143Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:52:08.194Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:08.200Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"67f75607e1a4e68c8d420651","timestamp":"2025-04-22T11:52:16.654Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:16.711Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"67f7564ee1a4e68c8d423b9b","timestamp":"2025-04-22T11:52:21.224Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:21.258Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":4,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:52:24.214Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:24.253Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":5,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:52:25.202Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:25.241Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:39.579Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:39.609Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:39.626Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:52:39.644Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:39.658Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:52:39.673Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:39.734Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:52:39.766Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:52:56.258Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:56.304Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"67f75607e1a4e68c8d420651","timestamp":"2025-04-22T11:52:59.321Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart is empty","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:52:59.346Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:05.999Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:06.006Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:06.011Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:06.017Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:09.852Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:09.858Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:09.868Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:09.873Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:53:13.683Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:13.723Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":7,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:19.997Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:20.032Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":8,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:20.287Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:20.319Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":9,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:20.465Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:20.504Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":10,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:20.627Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:20.661Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":11,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:20.798Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:20.855Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":12,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:20.969Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:21.011Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":13,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:21.157Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:21.232Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":14,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:21.344Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:21.391Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":15,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:21.481Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:21.522Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":16,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:21.678Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:21.725Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":17,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:21.859Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:21.939Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":18,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:22.035Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:22.092Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":19,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:22.216Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:22.255Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":20,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:22.391Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:22.437Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":21,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:22.590Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:22.653Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":22,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:22.766Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:22.823Z","username":"6801f431ef611b5bd5f9557f"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:25.878Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:25.886Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:25.893Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:25.899Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Received Updating Request for....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:38.041Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Successfully Updated....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:53:38.053Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:38.080Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:38.087Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:38.099Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:38.103Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:53:41.676Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:41.699Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":3,"timestamp":"2025-04-22T11:53:46.282Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:46.319Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:56.247Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:56.257Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:56.264Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:53:56.275Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:53:59.486Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:53:59.508Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:54:10.969Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:54:10.998Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":7,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:54:22.403Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:54:22.437Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":8,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:54:22.590Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:54:22.624Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":9,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:54:27.277Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:54:27.303Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":10,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:54:27.476Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:54:27.505Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":11,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:54:27.673Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:54:27.700Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":12,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:54:27.874Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:54:27.902Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:35.226Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:35.232Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:35.245Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:35.253Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Received Updating Request for....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:54:45.906Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Successfully Updated....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:54:45.920Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:45.939Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:45.943Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:45.948Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:45.958Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":13,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:54:51.493Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:54:51.523Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":14,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:54:51.900Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:54:51.924Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all client","method":"GET","path":"/api/client/list","timestamp":"2025-04-22T11:54:55.527Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 2 client","method":"GET","path":"/api/client/list","timestamp":"2025-04-22T11:54:55.533Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all client","method":"GET","path":"/api/client/list","timestamp":"2025-04-22T11:54:55.538Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 2 client","method":"GET","path":"/api/client/list","timestamp":"2025-04-22T11:54:55.543Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:56.642Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:56.646Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:56.651Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:54:56.657Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:55:02.271Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart is empty","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:55:02.329Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:55:05.655Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:55:05.680Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:55:19.183Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:55:19.192Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:55:19.198Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:55:19.203Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":10,"timestamp":"2025-04-22T11:55:32.063Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:55:32.111Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:55:38.305Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:55:38.313Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:55:38.321Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:55:38.327Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":12,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:55:56.269Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:55:56.300Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":13,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:55:56.908Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:55:56.936Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:56:02.262Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:56:02.271Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:56:02.283Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:56:02.295Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product quantity updated","method":"PUT","newQuantity":14,"path":"/api/cart/updatecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:56:09.024Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:56:09.054Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product fully removed from cart","method":"DELETE","path":"/api/cart/removecart","productId":"67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:57:18.785Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart is empty","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:57:18.827Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:22.503Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:22.510Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:22.520Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:22.526Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Received Updating Request for....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:57:31.528Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Successfully Updated....Product ID: 67f7562ae1a4e68c8d422099","method":"PUT","path":"/api/products/update/67f7562ae1a4e68c8d422099","timestamp":"2025-04-22T11:57:31.542Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:31.575Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:31.582Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:31.588Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:31.593Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:35.219Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:35.229Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:35.236Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:57:35.243Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":1,"timestamp":"2025-04-22T11:57:36.726Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:57:36.747Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f7562ae1a4e68c8d422099","quantity":3,"timestamp":"2025-04-22T11:57:47.191Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:57:47.227Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:03.652Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:03.659Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:03.665Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:03.670Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f75607e1a4e68c8d420651","quantity":1,"timestamp":"2025-04-22T11:58:08.618Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:58:08.633Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Product added to cart","method":"POST","path":"/api/cart/addcart","productId":"67f75607e1a4e68c8d420651","quantity":132,"timestamp":"2025-04-22T11:58:22.540Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:58:22.594Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:29.109Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:29.125Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:29.145Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:29.156Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:58:29.174Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:58:29.180Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Wishlist fetched successfully","method":"GET","path":"/api/wishlist/getwishlist","timestamp":"2025-04-22T11:58:29.223Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Cart retrieved successfully","method":"GET","path":"/api/cart/getcart","timestamp":"2025-04-22T11:58:29.228Z","username":"67f75860e1a4e68c8d43b575"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:33.612Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:33.619Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:33.628Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:33.634Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:35.774Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:35.781Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetching all products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:35.787Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 Products","method":"GET","path":"/api/products/list","timestamp":"2025-04-22T11:58:35.792Z","username":"Unknown"}
