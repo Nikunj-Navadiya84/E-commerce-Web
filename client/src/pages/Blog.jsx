@@ -67,7 +67,7 @@ function Blog() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 flex-1">
           {products
             .filter(
               (product) =>
@@ -88,7 +88,7 @@ function Blog() {
                   <img
                     src={`http://localhost:4000/${product.images?.[0]}`}
                     alt={product.name}
-                    className="w-full h-52 object-cover transition-transform duration-300 hover:rotate-1 hover:scale-105"
+                    className="w-full h-60 object-cover transition-transform duration-300 hover:rotate-1 hover:scale-105"
                   />
                   <hr className="border-gray-200 absolute bottom-0 left-0 w-full" />
                 </div>
