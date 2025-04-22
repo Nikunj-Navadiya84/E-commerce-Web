@@ -18,7 +18,6 @@ function Header() {
     const location = useLocation();
     const dropdownRef = useRef(null);
 
-   
     useEffect(() => {
         if (!isLoggedIn && location.pathname === "/profile") {
             navigate("/login", { replace: true });
@@ -26,7 +25,6 @@ function Header() {
         }
     }, [isLoggedIn, location, navigate]);
 
-   
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -50,7 +48,7 @@ function Header() {
                 <Link to='/categories'><p className='flex items-center gap-1 hover:text-green-800'>Categories<FaAngleDown /></p></Link>
                 <Link to='/about'><p className='flex items-center gap-1 hover:text-green-800'>About<FaAngleDown /></p></Link>
                 <Link to='/blog'><p className='flex items-center gap-1 hover:text-green-800'>Blog<FaAngleDown /></p></Link>
-                <Link to='/offers'><p className='flex items-center gap-1 hover:text-green-800'><BiSolidOffer />Offers</p></Link>
+                <Link to='/offers'><p className='flex items-center gap-1 text-green-700'><BiSolidOffer />Offers</p></Link>
             </div>
 
             {/* Right Icons */}
@@ -59,31 +57,34 @@ function Header() {
 
                     {/* User Profile/Login */}
                     <div className="relative" ref={dropdownRef}>
-                        <p className="cursor-pointer" onClick={() => isLoggedIn ? navigate('/profile') : navigate('/login')}>
-                            <RiUserLine />
+                        <p className="flex items-center cursor-pointer gap-2" onClick={() => isLoggedIn ? navigate('/profile') : navigate('/login')}>
+                            <RiUserLine className='text-xl' />
+                            <span className='hidden xl:inline text-[16px]'>Login</span>
                         </p>
                     </div>
 
                     {/* Wishlist */}
                     <Link
                         to={isLoggedIn ? '/wishlist' : '/login'}
-                        className='relative'
+                        className='relative flex items-center gap-2'
                         onClick={() => isLoggedIn ? null : navigate('/login')}>
-                        <CiHeart />
+                        <CiHeart className='text-2xl' />
+                        <span className='hidden xl:inline text-[16px]'>Wishlist</span>
                         {isLoggedIn && (
-                            <p className='absolute right-[0px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>
+                            <p className='absolute left-[10px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>
                                 {getListCount()}
                             </p>
                         )}
                     </Link>
 
                     {/* Cart */}
-                    <div className='relative'>
+                    <div className='relative flex items-center gap-2'>
                         <SlHandbag
                             onClick={() => isLoggedIn ? setCartOpen(true) : navigate('/login')}
                             className='cursor-pointer' />
+                        <span className='hidden xl:inline text-[16px]'>Cart</span>
                         {isLoggedIn && (
-                            <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>
+                            <p className='absolute left-[10px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>
                                 {getCartCount()}
                             </p>
                         )}
