@@ -70,7 +70,7 @@ function Viewcart() {
                                 </p>
 
                                 <button
-                                    className="text-red-500 text-sm w-full"
+                                    className="text-red-400 hover:text-red-600 cursor-pointer text-sm w-full"
                                     onClick={() => handleRemove(item)}
                                 >
                                     <RiDeleteBin5Line className="text-2xl mx-auto" />
@@ -82,38 +82,41 @@ function Viewcart() {
             </div>
 
             {/* Bill Summary */}
-            <div className='w-full sm:w-1/2 xl:w-1/4 py-10 sm:py-20'>
-                <h2 className='text-xl text-gray-700 font-medium mb-3'>
-                    Bill <span className='text-green-700'>Summary</span>
-                </h2>
+            <div className="w-full flex justify-end">
+                <div className='w-full flex flex-col gap-5 sm:w-1/2 xl:w-1/4 py-10 sm:py-20'>
+                    <h2 className='text-xl text-gray-700 font-medium mb-3'>
+                        Bill <span className='text-green-700'>Summary</span>
+                    </h2>
 
-                <div className='text-sm text-gray-700 space-y-3'>
-                    <div className='flex justify-between'>
-                        <p>SubTotal</p>
-                        <p>${getCartAmount().toFixed(2)}</p>
+                    <div className='text-sm text-gray-700 space-y-3'>
+                        <div className='flex justify-between'>
+                            <p>SubTotal</p>
+                            <p>${getCartAmount().toFixed(2)}</p>
+                        </div>
+                        <hr />
+                        <div className='flex justify-between'>
+                            <p>Shipping Fee</p>
+                            <p>${delivery_fee.toFixed(2)}</p>
+                        </div>
+                        <hr />
+                        <div className='flex justify-between font-semibold'>
+                            <p>Total</p>
+                            <p>${(getCartAmount() === 0 ? 0 : (getCartAmount() + delivery_fee)).toFixed(2)}</p>
+                        </div>
                     </div>
-                    <hr />
-                    <div className='flex justify-between'>
-                        <p>Shipping Fee</p>
-                        <p>${delivery_fee.toFixed(2)}</p>
-                    </div>
-                    <hr />
-                    <div className='flex justify-between font-semibold'>
-                        <p>Total</p>
-                        <p>${(getCartAmount() === 0 ? 0 : (getCartAmount() + delivery_fee)).toFixed(2)}</p>
-                    </div>
+
+                    {cart.length > 0 && (
+                        <div className='mt-5'>
+                            <Link to='/placeOrder'>
+                                <button className="text-sm bg-gray-700 hover:bg-gray-900 text-white px-3 py-2 rounded">
+                                    Checkout
+                                </button>
+                            </Link>
+                        </div>
+                    )}
                 </div>
-
-                {cart.length > 0 && (
-                    <div className='mt-5'>
-                        <Link to='/placeOrder'>
-                            <button className=" text-sm bg-gray-700 hover:bg-gray-900 text-white px-3 py-2 rounded">
-                                Checkout
-                            </button>
-                        </Link>
-                    </div>
-                )}
             </div>
+
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { StoreContext } from '../Context/StoreContext';
 import { Link, useNavigate } from "react-router-dom";
-import { MdOutlineDeleteForever } from "react-icons/md";
+import { RiDeleteBin5Line } from "react-icons/ri";
 import assets from '../assets/assets';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -170,7 +170,7 @@ function PlaceOrder() {
 
                                     <div className="flex items-end justify-end ">
                                         <div className='flex items-center gap-2'>
-                                            <p onClick={() => handleDeleteAddress(addr._id)} className='cursor-pointer'><MdOutlineDeleteForever className='text-2xl text-red-700' /></p>
+                                            <p onClick={() => handleDeleteAddress(addr._id)} className='cursor-pointer'><RiDeleteBin5Line className='text-2xl text-red-400 hover:text-red-600' /></p>
                                         </div>
                                     </div>
 

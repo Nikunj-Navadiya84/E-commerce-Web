@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FaTimes } from "react-icons/fa";
 import { StoreContext } from "../Context/StoreContext";
-import { CiSquareRemove } from "react-icons/ci";
+import { RiDeleteBin5Line } from "react-icons/ri";
 import CartTotal from "./CartTotal";
 
 const Cart = () => {
@@ -95,10 +95,10 @@ const Cart = () => {
                                                 </div>
                                                 <div>
                                                     <button
-                                                        className="text-red-500 text-sm cursor-pointer"
+                                                        className="text-red-400 hover:text-red-600 text-sm cursor-pointer"
                                                         onClick={() => handleRemove(product)}
                                                     >
-                                                        <CiSquareRemove className="text-2xl" />
+                                                        <RiDeleteBin5Line className="text-2xl" />
                                                     </button>
                                                 </div>
                                             </div>
