@@ -3,6 +3,7 @@ export const StoreContext = createContext();
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2';
 
 export const ShopContextProvider = ({ children }) => {
 
@@ -334,26 +335,33 @@ export const ShopContextProvider = ({ children }) => {
     };
 
     // Remove From Cart
+   
+
     const handleRemove = async (product) => {
         if (!product || !product._id) {
             console.error("Invalid product passed to handleRemove:", product);
             return;
         }
-
+    
+        const result = await Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to remove this item from the cart?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, remove it!',
+        });
+    
+        if (!result.isConfirmed) return;
+    
         const token = localStorage.getItem("token");
         const prevCart = [...cart];
-
-        const updatedCart = cart
-            .map((item) =>
-                item._id === product._id
-                    ? { ...item, quantity: item.quantity - 1 }
-                    : item
-            )
-            .filter((item) => item.quantity > 0);
-
+        const updatedCart = cart.filter((item) => item._id !== product._id);
+    
         setCart(updatedCart);
         saveCartToLocalStorage(updatedCart);
-
+    
         try {
             const response = await fetch("http://localhost:4000/api/cart/removecart", {
                 method: "DELETE",
@@ -363,21 +371,39 @@ export const ShopContextProvider = ({ children }) => {
                 },
                 body: JSON.stringify({
                     productId: product._id,
-                    quantity: product.quantity > 1 ? product.quantity - 1 : 0,
                 }),
             });
-
+    
             if (!response.ok) {
-                throw new Error("Failed to update cart.");
+                throw new Error("Failed to remove product from cart.");
             }
-
+    
             await fetchcartlist();
+    
+            // Show success popup
+            Swal.fire({
+                title: 'Removed!',
+                text: 'Product has been removed from your cart.',
+                icon: 'success',
+                timer: 1500,
+                showConfirmButton: false
+            });
+    
         } catch (error) {
             console.error("Error removing product:", error.message);
             setCart(prevCart);
             saveCartToLocalStorage(prevCart);
+    
+            // Show error popup
+            Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong while removing the product.',
+                icon: 'error',
+            });
         }
     };
+    
+    
 
     // Get Cart Count
     const getCartCount = () => cart.length;

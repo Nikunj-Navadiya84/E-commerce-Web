@@ -16,11 +16,11 @@ function About() {
 
                 <div className=" flex flex-wrap md:flex-nowrap gap-5 items-center">
 
-                    <div className="w-210">
+                    <div className="w-223">
                         <img src={assets.about1} className="rounded shadow-md w-full object-cover" alt="" />
                     </div>
 
-                    <div className="flex flex-col gap-5  items-center w-210">
+                    <div className="flex flex-col gap-6  items-center w-219">
                         <img src={assets.about2} className="rounded shadow-md w-full object-cover" alt="" />
                         <img src={assets.about3} className="rounded shadow-md w-full object-cover" alt="" />
                     </div>

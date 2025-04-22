@@ -164,19 +164,12 @@ exports.removeFromCart = async (req, res) => {
             return res.status(404).json({ success: false, message: "Product not found in cart" });
         }
 
-        const productInCart = cart.products[productIndex];
-
-        if (productInCart.quantity > 1) {
-            productInCart.quantity -= 1;
-            logger.info("Product quantity decremented in cart", { ...getLogMetadata(req, req.user), productId, remainingQuantity: productInCart.quantity });
-        } else {
-            cart.products.splice(productIndex, 1);
-            logger.info("Product removed from cart", { ...getLogMetadata(req, req.user), productId });
-        }
+        cart.products.splice(productIndex, 1); // ❌ Directly remove product, skip quantity check
+        logger.info("Product fully removed from cart", { ...getLogMetadata(req, req.user), productId });
 
         await cart.save();
 
-        res.status(200).json({ success: true, message: "Cart updated successfully", cart });
+        res.status(200).json({ success: true, message: "Product removed from cart", cart });
     } catch (error) {
         logger.error("Error removing from cart", { error: error.message, stack: error.stack, ...getLogMetadata(req, req.user) });
         res.status(500).json({ success: false, message: "Internal Server Error" });
