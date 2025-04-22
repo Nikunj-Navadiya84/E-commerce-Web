@@ -24,8 +24,8 @@ import client1 from './client1.jpg'
 import client2 from './client2.jpg'
 import topquotes from './topquotes.svg'
 import bottomquotes from './bottomquotes.svg'
-import offer1 from './offer1.jpg'
-import offer2 from './offer2.jpg'
+import offer1 from './offer1.png'
+import offer2 from './offer2.png'
 
 
 const assets = {

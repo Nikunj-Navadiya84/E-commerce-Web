@@ -16,31 +16,29 @@ function About() {
 
                 <div className=" flex flex-wrap md:flex-nowrap gap-5 items-center">
 
-                    <div className="w-250">
+                    <div className="w-210">
                         <img src={assets.about1} className="rounded shadow-md w-full object-cover" alt="" />
                     </div>
 
-                    <div className="flex flex-col gap-5  items-center">
+                    <div className="flex flex-col gap-5  items-center w-210">
                         <img src={assets.about2} className="rounded shadow-md w-full object-cover" alt="" />
                         <img src={assets.about3} className="rounded shadow-md w-full object-cover" alt="" />
                     </div>
 
-                    <div className=" ">
+                    <div className="pl-10">
                         <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
                             Who We <span className="text-green-600">Are?</span>
                         </h2>
-                        <p className="text-lg text-gray-800  mt-4">We’re here to serve only the best products for you. Enriching your homes with the best essentials.</p>
+                        <p className="text-xl text-gray-800  mt-4">We’re here to serve only the best products for you. Enriching your homes with the best essentials.</p>
 
                         <p className="text-sm text-gray-600  mt-3">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur aliquam, eos ullam sequi ipsam veniam inventore.
-                            Earum omnis possimus ab ratione repellendus? Qui ratione natus odit alias laborum error quaerat?
+                        We’re here to bring you only the best. Our products are carefully selected to enrich your home with style, comfort, and functionality. Because your space deserves the finest essentials that make everyday living easier, better, and more beautiful.
                         </p>
                         <p className="text-sm text-gray-600  mt-3">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda aperiam cupiditate fugit officiis a voluptatum debitis molestias omnis.
+                        At our core, we believe in quality. That’s why we offer only premium products designed to elevate your home. From practical essentials to elegant touches, we make it easy to create a space that reflects your taste and lifestyle.
                         </p>
                         <p className="text-sm text-gray-600  mt-3">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, impedit quam? Dolorum praesentium, reiciendis corporis rerum quos dicta nobis?
-                            Quam totam culpa iure dolore aperiam quo, eius eligendi expedita nulla.
+                        Your home deserves the best—and we’re here to deliver it. With thoughtfully curated essentials, we aim to enhance your living experience. Trust us to provide products that blend quality, purpose, and beauty into every corner of your space.
                         </p>
                     </div>
                 </div>

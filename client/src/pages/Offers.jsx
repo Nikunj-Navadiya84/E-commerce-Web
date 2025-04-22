@@ -12,14 +12,14 @@ function Offers() {
 
       <div className="grid gap-4 xl:grid-cols-2">
 
-        <motion.div className="w-full h-[300px] flex items-center justify-end bg-cover bg-center rounded px-6 relative overflow-hidden group" style={{ backgroundImage: `url(${assets.offer2})` }}
+        <motion.div className="w-full h-[330px] flex items-center justify-end bg-cover bg-center rounded px-6 relative overflow-hidden group" style={{ backgroundImage: `url(${assets.offer2})` }}
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.3 }}>
           {/* Shine Effect on Hover */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/90  -translate-x-full opacity-0 transition-all duration-900 group-hover:translate-x-full group-hover:opacity-900"></div>
-          <div className="flex flex-col items-start text-sm sm:text-md text-left w-[40%] sm:w-1/4 relative z-10">
+          <div className="flex flex-col items-start text-sm sm:text-md text-left w-[50%] xl:w-[50%] sm:w-1/4 relative z-10">
             <h1 className="text-3xl text-gray-800 mb-2 font-semibold">Fresh Fruits & veggies</h1>
             <p className="text-md text-gray-500 mb-2">The Flavor Of Something Special</p>
             <Link to='/categories'>
@@ -28,7 +28,7 @@ function Offers() {
           </div>
         </motion.div>
 
-        <motion.div className="w-full h-[300px] flex items-center justify-end bg-cover bg-center rounded px-6 relative overflow-hidden group" style={{ backgroundImage: `url(${assets.offer1})` }}
+        <motion.div className="w-full h-[330px] flex items-center justify-end bg-cover bg-center rounded px-6 relative overflow-hidden group" style={{ backgroundImage: `url(${assets.offer1})` }}
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
@@ -36,7 +36,7 @@ function Offers() {
         >
           {/* Shine Effect on Hover */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/90  -translate-x-full opacity-0 transition-all duration-900 group-hover:translate-x-full group-hover:opacity-900"></div>
-          <div className="flex flex-col items-start text-sm sm:text-md text-left w-[40%] sm:w-1/4 relative z-10">
+          <div className="flex flex-col items-start text-sm sm:text-md text-left w-[50%] xl:w-[50%]  sm:w-1/4 relative z-10">
             <h1 className="text-3xl text-gray-800 mb-2 font-semibold">Tasty Snack & Fastfood</h1>
             <p className="text-md text-gray-500 mb-2">A Healthy Meal For Everyone</p>
             <Link to='/categories'>

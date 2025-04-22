@@ -78,9 +78,9 @@ function Header() {
                     </Link>
 
                     {/* Cart */}
-                    <div className='relative flex items-center gap-2'>
+                    <div onClick={() => isLoggedIn ? setCartOpen(true) : navigate('/login')} className='relative flex items-center gap-2'>
                         <SlHandbag
-                            onClick={() => isLoggedIn ? setCartOpen(true) : navigate('/login')}
+                            
                             className='cursor-pointer' />
                         <span className='hidden xl:inline text-[16px]'>Cart</span>
                         {isLoggedIn && (
