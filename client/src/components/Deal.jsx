@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { StoreContext } from '../Context/StoreContext';
+import { BiSolidStar } from "react-icons/bi";
+import { BiSolidStarHalf } from "react-icons/bi";
+import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
@@ -11,6 +15,7 @@ function Deal() {
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const closeModal = () => setSelectedProduct(null);
+    const [imageIndex, setImageIndex] = useState(0);
     const { addToCart, handleQuantityChange, quantity, likedProducts, removeFromWishlist, addToWishlist } = useContext(StoreContext);
 
     // Fetch Product
@@ -44,6 +49,12 @@ function Deal() {
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, []);
+
+    useEffect(() => {
+        if (selectedProduct) {
+            setImageIndex(0);
+        }
+    }, [selectedProduct]);
 
     return (
         <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20">
@@ -85,7 +96,7 @@ function Deal() {
                             <div className='flex justify-between'>
                                 <div>
                                     <h3 className='text-gray-500 text-sm mb-2'>{product.categories}</h3>
-                                    <p className='text-gray-800 text-sm mb-2'>{product.name}</p>
+                                    <p onClick={() => setSelectedProduct(product)} className='text-gray-800 text-sm mb-2'>{product.name}</p>
                                 </div>
                                 <div>
                                     <button
@@ -110,12 +121,7 @@ function Deal() {
                                     <p className='text-sm text-gray-600 line-through mt-1'>${product.price.toFixed(2)}</p>
                                     <p className='text-md text-gray-900 font-bold mb-3 '>${product.offerPrice.toFixed(2)}</p>
                                 </div>
-                                <button
-                                    className='text-sm text-white bg-gray-600 hover:bg-gray-800 py-2 px-3 rounded cursor-pointer'
-                                    onClick={() => setSelectedProduct(product)}
-                                >
-                                    View
-                                </button>
+                                <button className='text-sm text-white bg-gray-600 hover:bg-gray-800 py-2 px-3 rounded cursor-pointer' onClick={() => { addToCart(product, 1) }}>By Now</button>
                             </div>
                         </div>
                     </motion.div>
@@ -136,6 +142,7 @@ function Deal() {
                             initial={{ scale: 0.7 }}
                             animate={{ scale: 1 }}
                             exit={{ scale: 0.7 }}>
+
                             <button
                                 className='absolute top-2 right-2 text-gray-500 text-lg cursor-pointer'
                                 onClick={() => setSelectedProduct(null)}>
@@ -143,19 +150,37 @@ function Deal() {
                             </button>
 
                             <div className='flex flex-col md:flex-row items-center gap-6'>
-                                <div className='w-full md:w-1/2'>
-                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg w-60 h-40 object-cover' alt="" />
+                                <div className="relative flex flex-col w-full md:w-1/2 justify-center items-center">
+                                    <img
+                                        src={`http://localhost:4000/${selectedProduct.images?.[imageIndex]}`}
+                                        className="border border-gray-200 rounded-lg w-60 h-40 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
+                                        alt="Product image"
+                                    />
+                                    <div className="absolute inset-[-45px] flex justify-between items-center gap-4 px-4">
+                                        <button
+                                            className="text-gray-600 text-lg cursor-pointer hover:text-gray-800 focus:outline-none"
+                                            onClick={() => setImageIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : selectedProduct.images.length - 1))}>
+                                            <MdOutlineKeyboardDoubleArrowLeft className="text-4xl text-gray-400" />
+                                        </button>
+                                        <button
+                                            className="text-gray-600 text-lg cursor-pointer hover:text-gray-800 focus:outline-none"
+                                            onClick={() => setImageIndex((prevIndex) => (prevIndex < selectedProduct.images.length - 1 ? prevIndex + 1 : 0))}>
+                                            <MdOutlineKeyboardDoubleArrowRight className="text-4xl text-gray-400" />
+                                        </button>
+                                    </div>
                                 </div>
+
                                 <div className='p-1 md:p-5 w-full'>
                                     <h2 className='text-gray-700 text-md mb-2'>{selectedProduct.name}</h2>
+                                    <div className='flex items-center gap-1 text-yellow-500'><BiSolidStar /><BiSolidStar /><BiSolidStar /><BiSolidStar /><BiSolidStarHalf /></div>
                                     <p className='text-gray-500 text-sm mb-2'>{selectedProduct.reviews}</p>
                                     <p className='text-gray-500 text-sm mb-2'>{selectedProduct.description}</p>
                                     <p className='text-sm text-gray-600 line-through mt-1'>${selectedProduct.price.toFixed(2)}</p>
                                     <p className='text-md text-gray-900 font-bold mt-1'>${selectedProduct.offerPrice.toFixed(2)}</p>
 
-                                    <div className="flex flex-col sm:flex-row  space-y-3 sm:space-y-0 sm:space-x-3 mt-3">
+                                    <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 mt-3">
                                         <input type="number" className="w-16 sm:w-20 px-3 py-2 border rounded" min="1" value={quantity} onChange={handleQuantityChange} />
-                                        <button className="bg-gray-600  hover:bg-gray-800 text-white text-sm font-medium px-3 py-2 sm:px-4 sm:py-3 rounded transition cursor-pointer" onClick={() => { addToCart(selectedProduct, quantity); closeModal() }}>
+                                        <button className="bg-gray-600 hover:bg-gray-800 text-white text-sm font-medium px-3 py-2 sm:px-4 sm:py-3 rounded transition cursor-pointer" onClick={() => { addToCart(selectedProduct, quantity); closeModal() }}>
                                             Add To Cart
                                         </button>
                                     </div>
@@ -165,6 +190,7 @@ function Deal() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
         </div>
     );
 }
