@@ -126,7 +126,7 @@ function Deal() {
             <AnimatePresence>
                 {selectedProduct && (
                     <motion.div
-                        className='fixed inset-0 backdrop-brightness-40 flex justify-center items-center z-50 overflow-y-auto'
+                        className='fixed inset-0 backdrop-brightness-40 flex justify-center items-center z-50 overflow-y-auto p-10'
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}>
@@ -144,7 +144,7 @@ function Deal() {
 
                             <div className='flex flex-col md:flex-row items-center gap-6'>
                                 <div className='w-full md:w-1/2'>
-                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg w-300 h-full object-cover' alt="" />
+                                    <img src={`http://localhost:4000/${selectedProduct.images?.[0]}`} className='border border-gray-200 rounded-lg w-60 h-40 object-cover' alt="" />
                                 </div>
                                 <div className='p-1 md:p-5 w-full'>
                                     <h2 className='text-gray-700 text-md mb-2'>{selectedProduct.name}</h2>
@@ -153,9 +153,9 @@ function Deal() {
                                     <p className='text-sm text-gray-600 line-through mt-1'>${selectedProduct.price.toFixed(2)}</p>
                                     <p className='text-md text-gray-900 font-bold mt-1'>${selectedProduct.offerPrice.toFixed(2)}</p>
 
-                                    <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3 mt-3">
+                                    <div className="flex flex-col sm:flex-row  space-y-3 sm:space-y-0 sm:space-x-3 mt-3">
                                         <input type="number" className="w-16 sm:w-20 px-3 py-2 border rounded" min="1" value={quantity} onChange={handleQuantityChange} />
-                                        <button className="bg-gray-600 hover:bg-gray-800 text-white text-sm font-medium px-3 py-2 sm:px-4 sm:py-3 rounded transition cursor-pointer" onClick={() => { addToCart(selectedProduct, quantity); closeModal() }}>
+                                        <button className="bg-gray-600  hover:bg-gray-800 text-white text-sm font-medium px-3 py-2 sm:px-4 sm:py-3 rounded transition cursor-pointer" onClick={() => { addToCart(selectedProduct, quantity); closeModal() }}>
                                             Add To Cart
                                         </button>
                                     </div>
