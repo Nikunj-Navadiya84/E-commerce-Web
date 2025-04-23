@@ -124,7 +124,7 @@ exports.updateQuantityInCart = async (req, res) => {
     const difference = parsedQuantity - currentQty;
 
     if (difference > 0 && product.quantity < difference) {
-      return res.status(400).json({ success: false, message: "Insufficient stock" });
+      return res.status(400).json({ success: false, message: "Out of stock" });
     }
 
     if (parsedQuantity === 0) {
