@@ -19,10 +19,8 @@ export const ShopContextProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     const [likedProducts, setLikedProducts] = useState({});
     const [wishlist, setWishList] = useState([]);
-    const backendUrl = process.env.REACT_APP_BACKEND_URL;
-
-
-
+ 
+    
     // Fetch user data
     const fetchUser = async () => {
         const token = localStorage.getItem("token");
@@ -91,7 +89,7 @@ export const ShopContextProvider = ({ children }) => {
 
         try {
             const response = await axios.post(
-                `${backendUrl}/api/wishlist/addwishlist`,
+                "http://localhost:4000/api/wishlist/addwishlist",
                 { productId: product._id },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -126,7 +124,7 @@ export const ShopContextProvider = ({ children }) => {
 
         try {
             const response = await axios.delete(
-                `${backendUrl}/api/wishlist/removewishlist`,
+                "http://localhost:4000/api/wishlist/removewishlist",
                 {
                     data: { productId: product._id },
                     headers: { Authorization: `Bearer ${token}` },
