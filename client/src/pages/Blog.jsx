@@ -95,7 +95,7 @@ function Blog() {
                 <div className="p-5">
                   <div className="flex flex-col gap-2">
                     <p className="text-sm text-gray-500">{product.categories}</p>
-                    <p className="text-lg font-semibold text-gray-800">{product.name}</p>
+                    <p className="text-md font-semibold text-gray-800">{product.name}</p>
                     <p className="text-sm text-gray-600">{product.description}</p>
                   </div>
                 </div>
