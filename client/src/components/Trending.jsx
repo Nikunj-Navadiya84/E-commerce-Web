@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import assets from '../assets/assets';
 import { motion, AnimatePresence } from "framer-motion";
-import { MdShoppingCartCheckout } from "react-icons/md";
+import { FaCartArrowDown } from "react-icons/fa6";
 import { StoreContext } from '../Context/StoreContext';
 import { FaTimes } from "react-icons/fa";
 import { Link } from 'react-router-dom';
@@ -104,7 +104,7 @@ function Trending() {
                                                 <p className='text-md text-gray-900'>$ {product.price.toFixed(2)}</p>
                                             </div>
                                             <div>
-                                                <MdShoppingCartCheckout  className='text-green-600 text-2xl cursor-pointer' onClick={() => setSelectedProduct(product)} />
+                                                <FaCartArrowDown  className='text-green-600 text-2xl cursor-pointer' onClick={() => setSelectedProduct(product)} />
                                             </div>
                                         </div>
                                     </div>
