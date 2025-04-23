@@ -113,7 +113,13 @@ function Arrivals() {
                                     <p className='text-sm text-gray-600 line-through mt-1'>${product.price.toFixed(2)}</p>
                                     <p className='text-md text-gray-900 font-bold mt-1'>${product.offerPrice.toFixed(2)}</p>
                                 </div>
-                                <button className='text-sm text-white bg-gray-600 hover:bg-gray-800 py-2 px-3 rounded cursor-pointer' onClick={() => { addToCart(product, 1) }}>By Now</button>
+                                <button
+                                    disabled={product.quantity === 0}
+                                    className={`text-sm text-white py-2 px-3 rounded cursor-pointer ${product.quantity === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'}`}
+                                    onClick={() => product.quantity > 0 && addToCart(product, 1)}
+                                >
+                                    {product.quantity === 0 ? "Out of Stock" : "Buy Now"}
+                                </button>
                             </div>
                         </div>
                     </motion.div>
@@ -172,9 +178,20 @@ function Arrivals() {
 
                                     <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 mt-3">
                                         <input type="number" className="w-16 sm:w-20 px-3 py-2 border rounded" min="1" value={quantity} onChange={handleQuantityChange} />
-                                        <button className="bg-gray-600 hover:bg-gray-800 text-white text-sm font-medium px-3 py-2 sm:px-4 sm:py-3 rounded transition cursor-pointer" onClick={() => { addToCart(selectedProduct, quantity); closeModal() }}>
-                                            Add To Cart
+
+                                        <button
+                                            disabled={selectedProduct.quantity === 0}
+                                            className={`text-sm text-white py-2 px-3 rounded cursor-pointer ${selectedProduct.quantity === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'}`}
+                                            onClick={() => {
+                                                if (selectedProduct.quantity > 0) {
+                                                  addToCart(selectedProduct, quantity);
+                                                  closeModal();
+                                                }
+                                              }}
+                                        >
+                                            {selectedProduct.quantity === 0 ? "Out of Stock" : "Add To Cart"}
                                         </button>
+
                                     </div>
                                 </div>
                             </div>
