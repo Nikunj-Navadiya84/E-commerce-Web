@@ -7,14 +7,15 @@
     "client",
     "server"
   ],
-  "scripts": {
-    "admin": "npm run dev --workspace=admin",
-    "client": "npm run dev --workspace=client",
-    "server": "npm run dev --workspace=server",
-    "dev": "concurrently \"npm run admin\" \"npm run client\" \"npm run server\"",
-    "install:all": "npm install",
-    "build:all": "npm run build --workspaces"
-  },
+ "scripts": {
+  "start": "npm run start --workspace=server",
+  "admin": "npm run dev --workspace=admin",
+  "client": "npm run dev --workspace=client",
+  "server": "npm run dev --workspace=server",
+  "dev": "concurrently \"npm run admin\" \"npm run client\" \"npm run server\"",
+  "install:all": "npm install",
+  "build:all": "npm run build --workspaces"
+},
   "devDependencies": {
     "concurrently": "^8.2.2"
   }
