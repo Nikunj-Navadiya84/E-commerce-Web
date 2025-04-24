@@ -11,6 +11,7 @@ const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const AddressRoutes = require("./routes/AddressRoutes");
 const { connectDB } = require("./config/db");
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
