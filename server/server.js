@@ -56,10 +56,8 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 const path = require('path');
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-// Catch-all to serve index.html for any route not found
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
