@@ -53,3 +53,14 @@ app.use("/api/address", AddressRoutes)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
+
+// add this code
+app.get('/', (req, res) => {
+    res.send('API is running...');
+  });
+
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
