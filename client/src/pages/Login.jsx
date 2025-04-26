@@ -16,11 +16,6 @@ const Login = () => {
     const [isPasswordValid, setIsPasswordValid] = useState(false);
 
     // Validate password: at least 8 characters, including an uppercase letter, a lowercase letter, a number, and a special character
-    const validatePassword = (password) => {
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        setIsPasswordValid(passwordRegex.test(password));
-    };
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!email || !password || (!isLogin && !name)) {
@@ -28,15 +23,17 @@ const Login = () => {
             return;
         }
 
-        // Strong password validation check (only during signup)
-        if (!isLogin && !isPasswordValid) {
+        // Strong password validation
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(password)) {
+            setMessage("Password must be at least 8 characters, include uppercase, lowercase, number, and special character.");
             toast.error("Weak password! Follow password rules.");
             return;
         }
 
         try {
             if (isLogin) {
-                const response = await axios.post("http://localhost:4000/api/user/login", { email, password });
+                const response = await axios.post("/api/user/login", { email, password });
                 localStorage.setItem("token", response.data.token);
                 localStorage.setItem("isLoggedIn", "true");
                 setIsLoggedIn(true);
@@ -44,7 +41,7 @@ const Login = () => {
                 toast.success("Login successful!");
                 navigate("/");
             } else {
-                const response = await axios.post("http://localhost:4000/api/user/signup", { name, email, password });
+                const response = await axios.post("/api/user/signup", { name, email, password });
                 localStorage.setItem("token", response.data.token);
                 setName("");
                 setEmail("");
@@ -59,12 +56,15 @@ const Login = () => {
         }
     };
 
+
     return (
-        <div className="flex justify-center items-center max-h-screen pt-20 pb-25">
-            <form onSubmit={handleSubmit} className="flex flex-col items-center w-[100%] sm:max-w-96 m-auto space-y-4 text-gray-800">
-                <div className="inline-flex items-center gap-2 mb-2 mt-10">
-                    <p className="text-3xl text-gray-700 mb-5">{currentState}</p>
+        <div className="flex justify-center items-center px-4 py-20">
+            <form onSubmit={handleSubmit} className="flex flex-col items-center w-full max-w-sm space-y-4 text-gray-800">
+
+                <div className="flex items-center gap-2 mb-2 mt-10">
+                    <p className="text-3xl text-gray-700">{currentState}</p>
                 </div>
+
                 {currentState !== "Login" && (
                     <input
                         type="text"
@@ -75,6 +75,7 @@ const Login = () => {
                         required
                     />
                 )}
+
                 <input
                     type="email"
                     onChange={(e) => setEmail(e.target.value)}
@@ -83,6 +84,7 @@ const Login = () => {
                     placeholder="Email"
                     required
                 />
+
                 <input
                     type="password"
                     onChange={(e) => {
@@ -94,29 +96,35 @@ const Login = () => {
                     placeholder="Password"
                     required
                 />
-                {/* Password validation message (Only for Sign Up) */}
+
                 {!isLogin && !isPasswordValid && password && (
-                    <p className="text-red-500 text-sm">Password must be at least 8 characters long, include an uppercase letter, lowercase letter, number, and special character.</p>
+                    <p className="text-red-500 text-sm text-left w-full">
+                        Password must be at least 8 characters long, include an uppercase letter, lowercase letter, number, and special character.
+                    </p>
                 )}
 
                 <div className="w-full flex justify-between text-sm text-gray-600">
                     <p className="cursor-pointer hover:underline">Forgot Your Password?</p>
                     {currentState === "Login" ? (
-                        <button onClick={() => { setCurrentState("Sign Up"); setIsLogin(false); }} className="cursor-pointer hover:underline">
+                        <button type="button" onClick={() => { setCurrentState("Sign Up"); setIsLogin(false); }} className="cursor-pointer hover:underline">
                             Create Account
                         </button>
                     ) : (
-                        <button onClick={() => { setCurrentState("Login"); setIsLogin(true); }} className="cursor-pointer hover:underline">
+                        <button type="button" onClick={() => { setCurrentState("Login"); setIsLogin(true); }} className="cursor-pointer hover:underline">
                             Login Here
                         </button>
                     )}
                 </div>
+
                 {message && <p className="text-red-500 text-sm">{message}</p>}
-                <button className="bg-black text-white font-light w-full px-8 py-2 cursor-pointer rounded-md hover:bg-gray-900 transition">
+
+                <button className="bg-black text-white font-light w-full px-8 py-2 rounded-md hover:bg-gray-900 transition">
                     {currentState === "Login" ? "Sign In" : "Sign Up"}
                 </button>
+
             </form>
         </div>
+
     );
 };
 
