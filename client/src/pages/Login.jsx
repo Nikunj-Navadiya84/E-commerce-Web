@@ -13,11 +13,24 @@ const Login = () => {
     const navigate = useNavigate();
     const { setIsLoggedIn, setUser } = useContext(StoreContext);
     const [message, setMessage] = useState("");
+    const [isPasswordValid, setIsPasswordValid] = useState(false);
+
+    // Validate password: at least 8 characters, including an uppercase letter, a lowercase letter, a number, and a special character
+    const validatePassword = (password) => {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        setIsPasswordValid(passwordRegex.test(password));
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!email || !password || (!isLogin && !name)) {
             setMessage("All fields are required.");
+            return;
+        }
+
+        // Strong password validation check (only during signup)
+        if (!isLogin && !isPasswordValid) {
+            toast.error("Weak password! Follow password rules.");
             return;
         }
 
@@ -72,12 +85,20 @@ const Login = () => {
                 />
                 <input
                     type="password"
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                        setPassword(e.target.value);
+                        validatePassword(e.target.value);
+                    }}
                     value={password}
                     className="w-full px-3 py-2 border border-gray-800 rounded-md focus:ring-2 focus:ring-gray-600 outline-none"
                     placeholder="Password"
                     required
                 />
+                {/* Password validation message (Only for Sign Up) */}
+                {!isLogin && !isPasswordValid && password && (
+                    <p className="text-red-500 text-sm">Password must be at least 8 characters long, include an uppercase letter, lowercase letter, number, and special character.</p>
+                )}
+
                 <div className="w-full flex justify-between text-sm text-gray-600">
                     <p className="cursor-pointer hover:underline">Forgot Your Password?</p>
                     {currentState === "Login" ? (
