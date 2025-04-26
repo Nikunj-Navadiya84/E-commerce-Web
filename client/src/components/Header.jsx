@@ -19,8 +19,8 @@ function Header() {
     const dropdownRef = useRef(null);
 
     useEffect(() => {
-        if (!isLoggedIn && location.pathname === "/profile") {
-            navigate("/login", { replace: true });
+        if (!isLoggedIn && location.pathname == "/profile") {
+            navigate("/", { replace: true });
             window.location.reload();
         }
     }, [isLoggedIn, location, navigate]);

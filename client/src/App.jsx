@@ -29,6 +29,7 @@ function App() {
         <hr className='border-gray-300' />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/categories' element={<Categories />} />
           <Route path='/blog' element={<Blog />} />
           <Route path='/about' element={<About />} />
@@ -39,7 +40,6 @@ function App() {
           <Route path='/wishlist' element={<WishList />} />
           <Route path='/login' element={<Login />} />
           <Route path='/changepassword' element={<ChangePassword />} />
-          <Route path='/profile' element={<Profile />} />
         </Routes>
         <Footer />
       </BrowserRouter>
