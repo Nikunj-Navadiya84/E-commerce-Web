@@ -33,7 +33,7 @@ const Login = () => {
 
         try {
             if (isLogin) {
-                const response = await axios.post("/api/user/login", { email, password });
+                const response = await axios.post("http://localhost:4000/api/user/login", { email, password });
                 localStorage.setItem("token", response.data.token);
                 localStorage.setItem("isLoggedIn", "true");
                 setIsLoggedIn(true);
@@ -41,7 +41,7 @@ const Login = () => {
                 toast.success("Login successful!");
                 navigate("/");
             } else {
-                const response = await axios.post("/api/user/signup", { name, email, password });
+                const response = await axios.post("http://localhost:4000/api/user/signup", { name, email, password });
                 localStorage.setItem("token", response.data.token);
                 setName("");
                 setEmail("");
