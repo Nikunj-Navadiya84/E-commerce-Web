@@ -4,8 +4,7 @@ import { Link } from "react-router";
 
 
 function CartTotal() {
-
-    const { getCartAmount, delivery_fee } = useContext(StoreContext);
+    const { getCartAmount, delivery_fee, setCartOpen } = useContext(StoreContext);
 
     return (
         <div className='w-full '>
@@ -32,9 +31,9 @@ function CartTotal() {
 
             <div className='flex gap-5 mt-3'>
 
-                <Link to='./viewCart'><button className="text-sm bg-gray-600 hover:bg-gray-800 text-white px-3 py-2 rounded cursor-pointer"  >View Cart</button></Link>
+                <Link to='/viewCart' ><button onClick={() => setCartOpen(false)} className="text-sm bg-gray-600 hover:bg-gray-800 text-white px-3 py-2 rounded cursor-pointer"  >View Cart</button></Link>
 
-                <Link to='/placeOrder'><button className="text-sm bg-gray-600 hover:bg-gray-800 text-white px-3 py-2 rounded cursor-pointer">Checkout</button></Link>
+                <Link to='/placeOrder' ><button onClick={() => setCartOpen(false)} className="text-sm bg-gray-600 hover:bg-gray-800 text-white px-3 py-2 rounded cursor-pointer">Checkout</button></Link>
 
             </div>
 

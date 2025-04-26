@@ -24,7 +24,7 @@ function Profile() {
         localStorage.removeItem('token')
         localStorage.removeItem('wishlist')
         localStorage.removeItem("user_cart");
-        navigate('/', { replace: true });
+        navigate('/');
     };
 
     return (
