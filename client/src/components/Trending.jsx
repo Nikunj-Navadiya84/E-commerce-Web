@@ -62,7 +62,7 @@ function Trending() {
             <div className='grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-5 items-center'>
 
 
-                <motion.div className="flex flex-col 2xl:h-[400px] xl:h-[495px] lg:h-[200px] md:h-[100px] sm:h-[100px] bg-cover bg-center rounded px-6" style={{ backgroundImage: `url(${assets.img9})` }}
+                <motion.div className="flex flex-col h-[400px] 2xl:h-[400px] xl:h-[495px] sm:h-[500px] md:h-[405px] lg:h-screen bg-cover bg-center rounded px-6" style={{ backgroundImage: `url(${assets.img9})` }}
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1, duration: 1 }}
