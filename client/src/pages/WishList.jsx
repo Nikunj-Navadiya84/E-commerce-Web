@@ -42,7 +42,7 @@ function WishList() {
 
     return (
         <>
-            <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-5">
+            <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-5 overflow-x-hidden">
                 <div className="flex items-center mb-5">
                     <h2 className="sm:text-4xl text-3xl text-gray-700 font-medium">
                         Your <span className="text-green-700">WishList</span>
@@ -81,14 +81,14 @@ function WishList() {
                                         </div>
 
                                         {/* Name */}
-                                        <p className="text-gray-700">{item.name}</p>
+                                        <p onClick={() => setSelectedProduct(item)} className="text-gray-700 cursor-pointer">{item.name}</p>
 
                                         {/* Category */}
                                         <p className="text-gray-700">{item.categories}</p>
 
                                         {/* Original Price */}
                                         <p className="text-gray-500 line-through">${item.price.toFixed(2)}</p>
-         
+
                                         {/* Offer Price */}
                                         <p className="text-gray-900 font-medium">${item.offerPrice.toFixed(2)}</p>
 
@@ -111,8 +111,8 @@ function WishList() {
                 </div>
             </div>
 
-              {/* Modal for Product Details */}
-              <AnimatePresence>
+            {/* Modal for Product Details */}
+            <AnimatePresence>
                 {selectedProduct && (
                     <motion.div
                         className='fixed inset-0 backdrop-brightness-40 flex justify-center items-center z-50 overflow-y-auto p-10'
@@ -139,7 +139,7 @@ function WishList() {
                                         className="border border-gray-200 rounded-lg w-60 h-40 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                                         alt="Product image"
                                     />
-                                    <div className="absolute inset-[-45px] flex justify-between items-center gap-4 px-4">
+                                    <div className="absolute top-0 flex justify-between items-center gap-4 px-4 w-full">
                                         <button
                                             className="text-gray-600 text-lg cursor-pointer hover:text-gray-800 focus:outline-none"
                                             onClick={() => setImageIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : selectedProduct.images.length - 1))}>

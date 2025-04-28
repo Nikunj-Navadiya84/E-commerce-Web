@@ -13,7 +13,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [open, setOpen] = useState(false);
-    const { cartOpen, setCartOpen, getCartCount, listOpen, setListOpen, getListCount, isLoggedIn } = useContext(StoreContext);
+    const { cartOpen, setCartOpen, getCartCount, listOpen, setListOpen, getListCount, isLoggedIn, user } = useContext(StoreContext);
     const navigate = useNavigate();
     const location = useLocation();
     const dropdownRef = useRef(null);
@@ -59,7 +59,7 @@ function Header() {
                     <div className="relative" ref={dropdownRef}>
                         <p className="flex items-center cursor-pointer gap-2" onClick={() => isLoggedIn ? navigate('/profile') : navigate('/login')}>
                             <RiUserLine className='text-xl' />
-                            <span className='hidden xl:inline text-[16px]'>Login</span>
+                            <span className='hidden xl:inline text-[16px]'>{isLoggedIn ? user.name : 'Login'}</span>
                         </p>
                     </div>
 
