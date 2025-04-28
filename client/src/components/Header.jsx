@@ -59,7 +59,7 @@ function Header() {
                     <div className="relative" ref={dropdownRef}>
                         <p className="flex items-center cursor-pointer gap-2" onClick={() => isLoggedIn ? navigate('/profile') : navigate('/login')}>
                             <RiUserLine className='text-xl' />
-                            <span className='hidden xl:inline text-[16px]'>{isLoggedIn ? user.name : 'Login'}</span>
+                            <span className='hidden xl:inline text-[16px]'>{isLoggedIn ? <span className='text-green-600'>{user.name}</span> : 'Login'}</span>
                         </p>
                     </div>
 

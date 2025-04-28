@@ -294,12 +294,10 @@ export const ShopContextProvider = ({ children }) => {
     // Update Quantity
     const updateCartQuantity = async (product, newQuantity) => {
         if (!token) {
-            toast.error("User is not authenticated!");
             return;
         }
 
         if (!product || !product._id || isNaN(newQuantity) || newQuantity < 0) {
-            toast.error("Invalid product or quantity!");
             return;
         }
 
@@ -317,12 +315,9 @@ export const ShopContextProvider = ({ children }) => {
 
             if (response.data.success) {
                 await fetchcartlist(); // Sync updated cart
-                toast.success("Cart updated!");
-            } else {
-                toast.info(response.data.message || "Failed to update cart");
             }
         } catch (error) {
-            toast.error(error.response?.data?.message || "Failed to update cart");
+            console.error(error.response?.data?.message || "Failed to update cart");
         }
     };
 
@@ -409,7 +404,12 @@ export const ShopContextProvider = ({ children }) => {
     // Get Cart Amount
     const getCartAmount = () => {
         if (!Array.isArray(cart)) return 0;
-        return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+        return cart.reduce((total, item) => total + item.offerPrice * item.quantity, 0);
+    };
+
+     const getOfferAmount = () => {
+        if (!Array.isArray(cart)) return 0;
+        return cart.reduce((total, item) => total + (item.price -item.offerPrice) * item.quantity, 0);
     };
 
     // useEffect on token change
@@ -448,7 +448,7 @@ export const ShopContextProvider = ({ children }) => {
 
 
     const contextValue = {
-        cart, setCart, cartOpen, setCartOpen, addToCart, quantity, updateCartQuantity, getCartCount, list, setList, listOpen, setListOpen, getListCount, getCartAmount, delivery_fee, removeFromWishlist, isLoggedIn, setIsLoggedIn, user, setUser, likedProducts, setLikedProducts, addToWishlist, fetchWishlist, wishlist, handleRemove, cartProducts, handleQuantityChange, clearCart, 
+        cart, setCart, cartOpen, setCartOpen, addToCart, quantity, updateCartQuantity, getCartCount, list, setList, listOpen, setListOpen, getListCount, getCartAmount, delivery_fee, removeFromWishlist, isLoggedIn, setIsLoggedIn, user, setUser, likedProducts, setLikedProducts, addToWishlist, fetchWishlist, wishlist, handleRemove, cartProducts, handleQuantityChange, clearCart, getOfferAmount, 
     };
 
 

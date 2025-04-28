@@ -125,53 +125,65 @@ function Categories() {
                             (selectedCategories.length === 0 || selectedCategories.includes(product.categories)) &&
                             (product.price >= value[0] && product.price <= value[1])
                         )
-                        .map((product, index) => (
-                            <motion.div
-                                key={index}
-                                className='border border-gray-200 cursor-pointer rounded-lg overflow-hidden'
-                                transition={{ duration: 0.9 }}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.3 }}>
+                        .length === 0 ? (
+                        <div className="col-span-full text-center text-lg text-gray-600">
+                            No products available in this price range.
+                        </div>
+                    ) : (
+                        products
+                            .filter((product) =>
+                                (selectedCategories.length === 0 || selectedCategories.includes(product.categories)) &&
+                                (product.price >= value[0] && product.price <= value[1])
+                            )
+                            .map((product, index) => (
+                                <motion.div
+                                    key={index}
+                                    className='border border-gray-200 cursor-pointer rounded-lg overflow-hidden'
+                                    transition={{ duration: 0.9 }}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}>
 
-                                <div className='overflow-hidden relative'>
-                                    <img src={`http://localhost:4000/${product.images?.[0]}`} className='w-100  h-50 object-cover transition-transform duration-300 hover:scale-105' alt="" />
-                                    <hr className='border-gray-200 absolute bottom-0 left-0 w-full' />
-                                </div>
-
-                                <div className='p-5'>
-                                    <div className='flex justify-between'>
-                                        <div>
-                                            <h3 className='text-gray-500 text-sm mb-2'>{product.categories}</h3>
-                                            <p onClick={() => setSelectedProduct(product)} className='text-gray-800 text-sm mb-2'>{product.name}</p>
-                                        </div>
-
-                                        <button className="cursor-pointer" onClick={() => likedProducts[product._id] ? removeFromWishlist(product) : addToWishlist(product)}>
-                                            {likedProducts[product._id] ? (
-                                                <FaHeart className="text-xl text-red-500" />
-                                            ) : (
-                                                <FaRegHeart className="text-xl text-red-300" />
-                                            )}
-                                        </button>
+                                    <div className='overflow-hidden relative'>
+                                        <img src={`http://localhost:4000/${product.images?.[0]}`} className='w-100  h-50 object-cover transition-transform duration-300 hover:scale-105' alt="" />
+                                        <hr className='border-gray-200 absolute bottom-0 left-0 w-full' />
                                     </div>
 
-                                    <div className='flex items-center justify-between'>
-                                        <div>
-                                            <p className='text-sm text-gray-600 line-through mt-1'>${product.price.toFixed(2)}</p>
-                                            <p className='text-md text-gray-900 font-bold mt-1'>${product.offerPrice.toFixed(2)}</p>
+                                    <div className='p-5'>
+                                        <div className='flex justify-between'>
+                                            <div>
+                                                <h3 className='text-gray-500 text-sm mb-2'>{product.categories}</h3>
+                                                <p onClick={() => setSelectedProduct(product)} className='text-gray-800 text-sm mb-2'>{product.name}</p>
+                                            </div>
+
+                                            <button className="cursor-pointer" onClick={() => likedProducts[product._id] ? removeFromWishlist(product) : addToWishlist(product)}>
+                                                {likedProducts[product._id] ? (
+                                                    <FaHeart className="text-xl text-red-500" />
+                                                ) : (
+                                                    <FaRegHeart className="text-xl text-red-300" />
+                                                )}
+                                            </button>
                                         </div>
-                                        <button
-                                            disabled={product.quantity === 0}
-                                            className={`text-sm text-white py-2 px-3 rounded cursor-pointer ${product.quantity === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'}`}
-                                            onClick={() => product.quantity > 0 && addToCart(product, 1)}
-                                        >
-                                            {product.quantity === 0 ? "Out of Stock" : "Buy Now"}
-                                        </button>
+
+                                        <div className='flex items-center justify-between'>
+                                            <div>
+                                                <p className='text-sm text-gray-600 line-through mt-1'>${product.price.toFixed(2)}</p>
+                                                <p className='text-md text-gray-900 font-bold mt-1'>${product.offerPrice.toFixed(2)}</p>
+                                            </div>
+                                            <button
+                                                disabled={product.quantity === 0}
+                                                className={`text-sm text-white py-2 px-3 rounded cursor-pointer ${product.quantity === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'}`}
+                                                onClick={() => product.quantity > 0 && addToCart(product, 1)}
+                                            >
+                                                {product.quantity === 0 ? "Out of Stock" : "Buy Now"}
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            ))
+                    )}
                 </div>
+
             </div>
 
             <AnimatePresence>
@@ -231,14 +243,14 @@ function Categories() {
                                             className={`text-sm text-white py-2 px-3 rounded cursor-pointer ${selectedProduct.quantity === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'}`}
                                             onClick={() => {
                                                 if (selectedProduct.quantity > 0) {
-                                                  addToCart(selectedProduct, quantity);
-                                                  closeModal();
+                                                    addToCart(selectedProduct, quantity);
+                                                    closeModal();
                                                 }
-                                              }}
+                                            }}
                                         >
                                             {selectedProduct.quantity === 0 ? "Out of Stock" : "Add To Cart"}
                                         </button>
-                                        
+
                                     </div>
                                 </div>
                             </div>

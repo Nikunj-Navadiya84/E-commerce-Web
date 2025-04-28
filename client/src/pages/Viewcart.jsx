@@ -4,7 +4,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import { Link } from "react-router";
 
 function Viewcart() {
-    const { cart, updateCartQuantity, getCartAmount, delivery_fee, handleRemove } = useContext(StoreContext);
+    const { cart, updateCartQuantity, getCartAmount, delivery_fee, handleRemove ,getOfferAmount} = useContext(StoreContext);
 
     return (
         <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-5'>
@@ -42,7 +42,7 @@ function Viewcart() {
                                 <h3 className="text-sm text-gray-700 w-full">{item.name}</h3>
 
                                 <p className="text-sm text-gray-700 w-full ">
-                                    ${item.price.toFixed(2)}
+                                    ${item.offerPrice.toFixed(2)}
                                 </p>
 
                                 <div className="flex items-center justify-center w-full ">
@@ -66,7 +66,7 @@ function Viewcart() {
                                 </div>
 
                                 <p className="text-sm text-gray-700 font-bold w-full">
-                                    ${(item.price * item.quantity).toFixed(2)}
+                                    ${(item.offerPrice * item.quantity).toFixed(2)}
                                 </p>
 
                                 <button
@@ -92,6 +92,11 @@ function Viewcart() {
                         <div className='flex justify-between'>
                             <p>SubTotal</p>
                             <p>${getCartAmount().toFixed(2)}</p>
+                        </div>
+                        <hr />
+                        <div className='flex justify-between'>
+                            <p>Saved On the Total</p>
+                            <p>${getOfferAmount().toFixed(2)}</p>
                         </div>
                         <hr />
                         <div className='flex justify-between'>

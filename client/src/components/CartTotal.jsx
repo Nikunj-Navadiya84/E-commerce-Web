@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 
 function CartTotal() {
-    const { getCartAmount, delivery_fee, setCartOpen } = useContext(StoreContext);
+    const { getCartAmount, getOfferAmount, delivery_fee, setCartOpen } = useContext(StoreContext);
 
     return (
         <div className='w-full '>
@@ -16,6 +16,12 @@ function CartTotal() {
                 <p>SubTotal</p>
                 <p>${getCartAmount().toFixed(2)}</p>
             </div>
+            <hr />
+
+            <div className='flex text-sm text-gray-700 justify-between py-3'>
+                <p>Saved On the Total</p>
+                <p>${getOfferAmount().toFixed(2)}</p>
+            </div>
 
             <hr />
             <div className='flex text-sm text-gray-700 justify-between py-3'>
@@ -25,8 +31,8 @@ function CartTotal() {
 
             <hr />
             <div className='flex text-sm text-gray-700 justify-between py-3'>
-                <p>Total</p>
-                <p>${(getCartAmount() === 0 ? 0 : (getCartAmount() + delivery_fee)).toFixed(2)}</p>
+                <p className='font-semibold'>Total</p>
+                <p className='font-semibold'>${(getCartAmount() === 0 ? 0 : (getCartAmount() + delivery_fee)).toFixed(2)}</p>
             </div>
 
             <div className='flex gap-5 mt-3'>
