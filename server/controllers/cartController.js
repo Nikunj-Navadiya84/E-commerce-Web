@@ -9,7 +9,9 @@ const getLogMetadata = (req, user = null) => ({
   ip: req.ip,
 });
 
-// Add to Cart
+
+
+
 exports.addToCart = async (req, res) => {
   try {
     if (!req.user) {
@@ -21,42 +23,64 @@ exports.addToCart = async (req, res) => {
     const userId = req.user._id;
 
     const product = await Product.findById(productId);
-    if (!product || product.quantity < quantity) {
-      return res.status(400).json({ success: false, message: "Product out of stock" });
+    if (!product || product.quantity === 0) {
+      return res.status(404).json({ success: false, message: "Product not available or out of stock" });
     }
 
     let cart = await Cart.findOne({ user: userId });
-
     if (!cart) {
-      cart = new Cart({
-        user: userId,
-        products: [{ product: productId, quantity }],
-      });
+      cart = new Cart({ user: userId, products: [] });
+    }
+
+    const existingProduct = cart.products.find(p => p.product.toString() === productId);
+    const existingQty = existingProduct ? existingProduct.quantity : 0;
+    const newQuantity = existingQty + quantity;
+
+    // Check stock availability
+    if (newQuantity > product.quantity + existingQty) {
+      return res.status(400).json({ success: false, message: "Not enough stock available" });
+    }
+
+    // Update cart and stock
+    if (existingProduct) {
+      existingProduct.quantity = newQuantity;
+      product.quantity -= quantity; // reduce only added quantity
     } else {
-      const existingProduct = cart.products.find(p => p.product.toString() === productId);
-      if (existingProduct) {
-        if (product.quantity < existingProduct.quantity + quantity) {
-          return res.status(400).json({ success: false, message: "Not enough stock" });
-        }
-        existingProduct.quantity += quantity;
-      } else {
-        cart.products.push({ product: productId, quantity });
-      }
+      cart.products.push({ product: productId, quantity });
+      product.quantity -= quantity;
+    }
+
+    // Avoid negative stock (extra safety)
+    if (product.quantity < 0) {
+      return res.status(400).json({ success: false, message: "Invalid stock operation" });
     }
 
     await cart.save();
-
-    product.quantity -= quantity;
     await product.save();
 
-    logger.info("Product added to cart", { ...getLogMetadata(req, req.user), productId, quantity });
+    logger.info("Product added/updated in cart and stock updated", {
+      ...getLogMetadata(req, req.user),
+      productId,
+      quantity,
+      remainingStock: product.quantity
+    });
+
     return res.status(200).json({ success: true, message: "Cart updated", cart });
 
   } catch (error) {
-    logger.error("Error updating cart", { error: error.message, stack: error.stack, ...getLogMetadata(req, req.user) });
+    logger.error("Error updating cart", {
+      error: error.message,
+      stack: error.stack,
+      ...getLogMetadata(req, req.user)
+    });
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
+
+
+
+
+
 
 // Get Cart
 exports.getCart = async (req, res) => {

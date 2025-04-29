@@ -19,8 +19,8 @@ export const ShopContextProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     const [likedProducts, setLikedProducts] = useState({});
     const [wishlist, setWishList] = useState([]);
- 
-    
+
+
     // Fetch user data
     const fetchUser = async () => {
         const token = localStorage.getItem("token");
@@ -243,19 +243,21 @@ export const ShopContextProvider = ({ children }) => {
 
             if (response.data.success) {
                 await fetchcartlist(); // refresh cart from server
-                toast.success(`${quantity} items added to cart!`);
+                toast.success(`${quantity} item(s) added to cart!`);
             } else {
                 toast.info(response.data.message);
             }
         } catch (error) {
-            console.error("Error adding to cart:", error.response?.data);
-            if (error.response?.data?.message === "Product already in cart") {
-                toast.info("Product is already in your cart!");
-            } else {
-                toast.error("Failed to add to cart");
+            const errorMessage = error.response?.data?.message;
+
+            if (errorMessage === "Not enough stock available") {
+                toast.warning("Requested quantity exceeds available stock!");
+            } else{
+                toast.error("Product is out of stock!");
             }
         }
     };
+
 
     // Fetch Cart List
     const fetchcartlist = async () => {
@@ -328,14 +330,14 @@ export const ShopContextProvider = ({ children }) => {
     };
 
     // Remove From Cart
-   
+
 
     const handleRemove = async (product) => {
         if (!product || !product._id) {
             console.error("Invalid product passed to handleRemove:", product);
             return;
         }
-    
+
         const result = await Swal.fire({
             title: 'Are you sure?',
             text: "Do you want to remove this item from the cart?",
@@ -345,16 +347,16 @@ export const ShopContextProvider = ({ children }) => {
             cancelButtonColor: '#3085d6',
             confirmButtonText: 'Yes, remove it!',
         });
-    
+
         if (!result.isConfirmed) return;
-    
+
         const token = localStorage.getItem("token");
         const prevCart = [...cart];
         const updatedCart = cart.filter((item) => item._id !== product._id);
-    
+
         setCart(updatedCart);
         saveCartToLocalStorage(updatedCart);
-    
+
         try {
             const response = await fetch("http://localhost:4000/api/cart/removecart", {
                 method: "DELETE",
@@ -366,13 +368,13 @@ export const ShopContextProvider = ({ children }) => {
                     productId: product._id,
                 }),
             });
-    
+
             if (!response.ok) {
                 throw new Error("Failed to remove product from cart.");
             }
-    
+
             await fetchcartlist();
-    
+
             // Show success popup
             Swal.fire({
                 title: 'Removed!',
@@ -381,12 +383,12 @@ export const ShopContextProvider = ({ children }) => {
                 timer: 1500,
                 showConfirmButton: false
             });
-    
+
         } catch (error) {
             console.error("Error removing product:", error.message);
             setCart(prevCart);
             saveCartToLocalStorage(prevCart);
-    
+
             // Show error popup
             Swal.fire({
                 title: 'Error!',
@@ -395,8 +397,8 @@ export const ShopContextProvider = ({ children }) => {
             });
         }
     };
-    
-    
+
+
 
     // Get Cart Count
     const getCartCount = () => cart.length;
@@ -407,9 +409,9 @@ export const ShopContextProvider = ({ children }) => {
         return cart.reduce((total, item) => total + item.offerPrice * item.quantity, 0);
     };
 
-     const getOfferAmount = () => {
+    const getOfferAmount = () => {
         if (!Array.isArray(cart)) return 0;
-        return cart.reduce((total, item) => total + (item.price -item.offerPrice) * item.quantity, 0);
+        return cart.reduce((total, item) => total + (item.price - item.offerPrice) * item.quantity, 0);
     };
 
     // useEffect on token change
@@ -448,7 +450,7 @@ export const ShopContextProvider = ({ children }) => {
 
 
     const contextValue = {
-        cart, setCart, cartOpen, setCartOpen, addToCart, quantity, updateCartQuantity, getCartCount, list, setList, listOpen, setListOpen, getListCount, getCartAmount, delivery_fee, removeFromWishlist, isLoggedIn, setIsLoggedIn, user, setUser, likedProducts, setLikedProducts, addToWishlist, fetchWishlist, wishlist, handleRemove, cartProducts, handleQuantityChange, clearCart, getOfferAmount, 
+        cart, setCart, cartOpen, setCartOpen, addToCart, quantity, updateCartQuantity, getCartCount, list, setList, listOpen, setListOpen, getListCount, getCartAmount, delivery_fee, removeFromWishlist, isLoggedIn, setIsLoggedIn, user, setUser, likedProducts, setLikedProducts, addToWishlist, fetchWishlist, wishlist, handleRemove, cartProducts, handleQuantityChange, clearCart, getOfferAmount,
     };
 
 
