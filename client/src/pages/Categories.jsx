@@ -152,6 +152,7 @@ function Categories() {
                                     <div className='p-5'>
                                         <div className='flex justify-between'>
                                             <div>
+                                            <span className='text-gray-500 text-xs mb-3'>{product.weight}</span>
                                                 <h3 className='text-gray-500 text-sm mb-2'>{product.categories}</h3>
                                                 <p onClick={() => setSelectedProduct(product)} className='text-gray-800 text-sm mb-2'>{product.name}</p>
                                             </div>
