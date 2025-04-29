@@ -185,8 +185,10 @@ function WishList() {
                                 <div className="relative flex flex-col w-full md:w-1/2 justify-center items-center">
                                     <img
                                         src={`http://localhost:4000/${selectedProduct.images?.[imageIndex]}`}
+                                        loading="lazy"
                                         className="border border-gray-200 rounded-lg w-60 h-40 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                                         alt="Product image"
+
                                     />
                                     <div className="absolute inset-[-45px] flex justify-between items-center gap-4 px-4">
                                         <button

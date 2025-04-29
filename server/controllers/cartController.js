@@ -9,9 +9,6 @@ const getLogMetadata = (req, user = null) => ({
   ip: req.ip,
 });
 
-
-
-
 exports.addToCart = async (req, res) => {
   try {
     if (!req.user) {
@@ -76,11 +73,6 @@ exports.addToCart = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
-
-
-
-
-
 
 // Get Cart
 exports.getCart = async (req, res) => {
