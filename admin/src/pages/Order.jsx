@@ -130,7 +130,7 @@ function Order() {
                         ))}
                       </ul>
                     </td>
-                    <td className="py-2 px-4 text-center">$ {order.amount}</td>
+                    <td className="py-2 px-4 text-center">$ {order.amount.toFixed(2)}</td>
                     <td className="py-2 px-4 text-center">
                       {order.payment ? (
                         <span className="text-green-600 font-medium">Done</span>

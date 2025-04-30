@@ -155,7 +155,7 @@ const List = () => {
                     <td className="py-2 px-2 text-center">${(item.offerPrice || 0).toFixed(2)}</td>
                     <td className="py-2 px-2 text-center">{item.quantity}</td>
                     <td className="py-2 px-2 text-center">
-                      <span className={`px-3 py-1 rounded text-white text-xs sm:text-sm ${item.quantity > 0 ? "bg-green-600" : "bg-red-300"}`}>
+                      <span className={`inline-block w-28 text-center px-3 py-2 rounded text-white text-xs sm:text-sm ${item.quantity > 0 ? "bg-green-600" : "bg-red-300"}`}>
                         {item.quantity > 0 ? "Available" : "Out of Stock"}
                       </span>
                     </td>

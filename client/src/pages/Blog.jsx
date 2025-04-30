@@ -86,7 +86,7 @@ function Blog() {
               >
                 <div className="overflow-hidden relative">
                   <img
-                    src={`http://localhost:4000/${product.images?.[0]}`}
+                    src={`${product.images?.[0].url}`}
                     alt={product.name}
                     className="w-full h-60 object-cover transition-transform duration-300 hover:rotate-1 hover:scale-105"
                   />
