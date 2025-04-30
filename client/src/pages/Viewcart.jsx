@@ -33,7 +33,7 @@ function Viewcart() {
                             >
                                 <div className="w-full  flex justify-center">
                                     <img
-                                        src={`http://localhost:4000/${item.images?.[0]}`}
+                                        src={`${item.images?.[0].url}`}
                                         alt={item.name}
                                         className="w-16 h-16 object-cover rounded"
                                     />

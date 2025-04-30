@@ -17,28 +17,36 @@ function Client() {
   const [description, setDescription] = useState("");
   const [review, setReview] = useState("");
 
-
   useEffect(() => {
     if (clientData) {
       setName(clientData.name);
       setDescription(clientData.description);
       setReview(clientData.review);
-      setImage(clientData.images);
+
+      // Handle existing image preview (assuming single image)
+      if (clientData.images && clientData.images.length > 0) {
+        const img = clientData.images[0];
+        const path = typeof img === "string" ? img : img.url;
+        const fullUrl = path.startsWith("http") ? path : `http://localhost:4000/${path}`;
+        setImage(fullUrl);
+      }
     }
   }, [clientData]);
 
   const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+    }
   };
 
-
-  // Add & Update Client Review
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
     formData.append("review", review);
+
     if (image instanceof File) {
       formData.append("images", image);
     }
@@ -50,7 +58,7 @@ function Client() {
         : "http://localhost:4000/api/client/add";
       const method = clientData ? "put" : "post";
 
-      const response = await axios[method](url, formData, {
+      await axios[method](url, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -66,7 +74,6 @@ function Client() {
         setDescription("");
         setReview("");
         setImage(null);
-
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Something went wrong!");
@@ -78,18 +85,24 @@ function Client() {
     <div className="main-content">
       <h1 className="text-xl shadow p-5">{clientData ? "Update Client Review" : "Add Client Review"}</h1>
 
-      <form className="max-w-xl p-6 " onSubmit={handleSubmit}>
-
+      <form className="max-w-xl p-6" onSubmit={handleSubmit}>
         <div className="text-sm">
           <p className="mb-2">Upload Client Image</p>
           <label className="w-full flex flex-col px-4 py-3 border bg-white border-gray-300 rounded cursor-pointer">
             <span className="text-gray-500">Single Image Add</span>
-            <input type="file" accept="image/*" onChange={handleImageChange} className="hidden w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28" />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="hidden"
+            />
           </label>
           {image ? (
-            <img className="w-20 sm:w-24 md:w-28 mt-2"
-              src={image instanceof File ? URL.createObjectURL(image) : `http://localhost:4000/${image}`}
-              alt="Preview" />
+            <img
+              className="w-20 sm:w-24 md:w-28 mt-2"
+              src={image instanceof File ? URL.createObjectURL(image) : image}
+              alt="Preview"
+            />
           ) : (
             <img className="w-20 sm:w-24 md:w-28 mt-5" src={assets.upload_area} alt="Upload Placeholder" />
           )}
@@ -97,22 +110,46 @@ function Client() {
 
         <div className="text-sm">
           <p className="my-2">Client Name</p>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white" placeholder="Type Here" required />
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white"
+            placeholder="Type Here"
+            required
+          />
         </div>
 
         <div className="text-sm">
           <p className="my-2">Client Description</p>
-          <ReactQuill theme="snow" value={description} onChange={setDescription} className="w-full text-2xl bg-white" placeholder="Write Content Here"/>
+          <ReactQuill
+            theme="snow"
+            value={description}
+            onChange={setDescription}
+            className="w-full text-2xl bg-white"
+            placeholder="Write Content Here"
+          />
         </div>
 
         <div className="text-sm">
           <p className="my-2">Client Reviews 0 to 5</p>
-          <input type="number" value={review} onChange={(e) => setReview(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white" placeholder="Type reviews" required />
+          <input
+            type="number"
+            value={review}
+            onChange={(e) => setReview(e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white"
+            placeholder="Type reviews"
+            required
+            min="0"
+            max="5"
+            step="0.1"
+          />
         </div>
 
-        <button type="submit" className="w-full py-3 mt-4 bg-black text-white rounded cursor-pointer text-md">
+        <button
+          type="submit"
+          className="w-full py-3 mt-4 bg-black text-white rounded cursor-pointer text-md"
+        >
           {clientData ? "Update Client Review" : "Add Client Review"}
         </button>
       </form>

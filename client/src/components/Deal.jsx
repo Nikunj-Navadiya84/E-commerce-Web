@@ -85,7 +85,7 @@ function Deal() {
                     >
                         <div className='relative overflow-hidden'>
                             <img
-                                src={`http://localhost:4000/${product.images?.[0]}`}
+                                src={`${product.images?.[0].url}`}
                                 className=' h-70 w-full object-cover transition-transform duration-300 hover:scale-105'
                                 alt={product.name}
                             />
@@ -150,7 +150,7 @@ function Deal() {
                             exit={{ scale: 0.7 }}>
 
                             <button
-                                className='absolute top-2 right-2 text-gray-500 text-lg cursor-pointer'
+                                className='absolute top-2 right-2 text-gray-500 text-lg cursor-pointer z-50'
                                 onClick={() => setSelectedProduct(null)}>
                                 <FaTimes className='text-2xl' />
                             </button>
@@ -158,7 +158,7 @@ function Deal() {
                             <div className='flex flex-col md:flex-row items-center gap-6'>
                                 <div className="relative flex flex-col w-full md:w-1/2 justify-center items-center">
                                     <img
-                                        src={`http://localhost:4000/${selectedProduct.images?.[imageIndex]}`}
+                                        src={`${selectedProduct.images?.[imageIndex].url}`}
                                         className="border border-gray-200 rounded-lg w-60 h-40 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                                         alt="Product image"
                                     />

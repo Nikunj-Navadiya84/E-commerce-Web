@@ -87,7 +87,7 @@ function Arrivals() {
                         viewport={{ once: true, amount: 0.3 }}
                     >
                         <div className='overflow-hidden relative'>
-                            <img src={`http://localhost:4000/${product.images?.[0]}`} className='w-full h-70 object-cover transition-transform duration-300 hover:scale-105' alt="" />
+                            <img src={`${product.images?.[0].url}`} className='w-full h-70 object-cover transition-transform duration-300 hover:scale-105' alt="" />
                             <hr className='border-gray-200 absolute bottom-0 left-0 w-full' />
                         </div>
 
@@ -142,7 +142,7 @@ function Arrivals() {
                             exit={{ scale: 0.7 }}>
 
                             <button
-                                className='absolute top-2 right-2 text-gray-500 text-lg cursor-pointer'
+                                className='absolute top-2 right-2 text-gray-500 text-lg cursor-pointer z-50'
                                 onClick={() => setSelectedProduct(null)}>
                                 <FaTimes className='text-2xl' />
                             </button>
@@ -150,7 +150,7 @@ function Arrivals() {
                             <div className='flex flex-col md:flex-row items-center gap-6'>
                                 <div className="relative flex flex-col w-full md:w-1/2 justify-center items-center">
                                     <img
-                                        src={`http://localhost:4000/${selectedProduct.images?.[imageIndex]}`}
+                                        src={`${selectedProduct.images?.[imageIndex].url}`}
                                         className="border border-gray-200 rounded-lg w-60 h-40 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                                         alt="Product image"
                                     />

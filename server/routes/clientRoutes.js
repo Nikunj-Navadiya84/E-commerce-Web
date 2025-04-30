@@ -5,9 +5,9 @@ const { createClient, getClient, updateClient, deleteClient} = require("../contr
 
 const router = express.Router();
 
-router.post("/add",  upload.single("images"), createClient);
+router.post("/add",  upload.array("images", 1), createClient);
 router.get("/list", getClient);
-router.put("/update/:id",  upload.single("images"), updateClient);
+router.put("/update/:id",  upload.array("images", 1), updateClient);
 router.delete("/delete/:id", deleteClient);
 
 

@@ -36,11 +36,14 @@ const Add = () => {
       setDiscountPercentage(product.discountPercentage);
       setStatus(product.quantity === 0 ? "Out of Stock" : "Available");
       setImages(
-        product.images.map((img) => ({
-          preview: img.startsWith("http") ? img : `http://localhost:4000/${img}`,
-          isExisting: true,
-          originalPath: img,
-        }))
+        product.images.map((img) => {
+          const path = typeof img === "string" ? img : img.url;
+          return {
+            preview: path.startsWith("http") ? path : `http://localhost:4000/${path}`,
+            isExisting: true,
+            originalPath: path,
+          };
+        })
       );
     }
   }, [location.state]);

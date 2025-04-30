@@ -54,7 +54,7 @@ function OrderConfirmation() {
                         {order.items.map((item, i) => (
                             <div key={i} className='py-4 border-t border-gray-200 text-gray-700 flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
                                 <div className='md:w-1/3 flex items-start gap-6 text-sm'>
-                                    <img className='w-16 sm:w-20' src={`http://localhost:4000/${item.images?.[0]}`} alt="" />
+                                    <img className='w-16 sm:w-20' src={`${item.images?.[0].url}`} alt="" />
                                     <div>
                                         <p className='sm:text-base font-medium'>{item.name}</p>
                                         <div className='flex items-center gap-3 mt-2 text-base text-gray-700'>

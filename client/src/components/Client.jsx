@@ -12,7 +12,7 @@ function ClientSlide({ image, name, description, review }) {
         <div className="relative flex flex-col items-center justify-center bg-gray-100 rounded-lg p-6 shadow-md min-h-[350px] sm:min-h-[300px] max-w-[700px] mx-auto w-full">
             <img src={assets.topquotes} className="absolute top-4 left-4 w-6 sm:w-8" alt="top quote" />
             <div className="flex flex-col items-center text-center px-2 pb-5">
-                <img src={`http://localhost:4000/${image}`} className="rounded-full w-20 h-20 mb-3 object-cover" alt="client" />
+                <img src={`${image[0].url}`} className="rounded-full w-20 h-20 mb-3 object-cover" alt="client" />
                 <p className="text-sm sm:text-base text-gray-600 max-w-xl mb-3" dangerouslySetInnerHTML={{ __html: description }}></p>
                 <h1 className="text-md sm:text-lg font-medium text-gray-700 mb-2">{name}</h1>
                 <div className="text-lg flex">{review}</div>

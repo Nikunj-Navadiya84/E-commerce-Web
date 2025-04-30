@@ -1,7 +1,7 @@
-const fs = require("fs");
-const path = require("path");
 const Product = require("../models/product");
 const logger = require("../Logger/logger");
+const cloudinary = require("../utils/cloudinary");
+const fs = require("fs");
 
 const getLogMetadata = (req) => ({
   username: req.user ? req.user.id : "Unknown",
@@ -9,162 +9,153 @@ const getLogMetadata = (req) => ({
 });
 
 
-// Add Product
+// Create Product
 exports.createProduct = async (req, res) => {
   try {
     const { name, categories, description, weight, price, quantity = 0, discountPercentage = 0 } = req.body;
-    const images = req.files?.map(file => file.path) || [];
+
+    let images = [];
+
+    if (req.files && req.files.length > 0) {
+      for (let file of req.files) {
+        const result = await cloudinary.uploader.upload(file.path, { folder: "products" });
+        images.push({ url: result.secure_url, public_id: result.public_id });
+        fs.unlinkSync(file.path); // Delete temp file
+      }
+    }
+
     const status = quantity > 0 ? "Available" : "Out of Stock";
     const offerPrice = discountPercentage > 0 ? price - (price * discountPercentage) / 100 : price;
 
-    const product = new Product({
-      name,
-      categories,
-      description,
-      weight,
-      price,
-      offerPrice,
-      discountPercentage,
-      images,
-      quantity,
-      status,
-    });
+    const product = new Product({ name, categories, description, weight, price, offerPrice, discountPercentage, images, quantity, status });
 
     await product.save();
 
-    logger.info(`Product Created Successfully....Product Id: ${product._id}`, {
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      ...getLogMetadata(req),
-    });
+    logger.info(`Product Created: ${product._id}`, { method: req.method, path: req.originalUrl, ...getLogMetadata(req) });
 
     res.status(201).json({ success: true, message: "Product created successfully", product });
 
   } catch (error) {
-    logger.error("Error creating product", {
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      error: err.message,
-      stack: err.stack,
-      ...getLogMetadata(req),
-    });
-
+    logger.error("Error creating product", { error: error.message, stack: error.stack, ...getLogMetadata(req) });
     res.status(500).json({ success: false, message: "Error creating product", error: error.message });
   }
 };
 
 
-// View product
+// Get All Products
 exports.getProducts = async (req, res) => {
   try {
-    logger.info("Fetching all products", {
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      ...getLogMetadata(req),
-    });
-
     const products = await Product.find();
+    if (!products.length) return res.status(404).json({ success: false, message: "No products found" });
 
-    if (!products || products.length === 0) {
-      logger.warn("No products found", {
-        method: req.method,
-        path: req.originalUrl,
-        ip: req.ip,
-        ...getLogMetadata(req),
-      });
-      return res.status(404).json({ success: false, message: "No products found" });
-    }
+    logger.info(`Fetched ${products.length} products`, { method: req.method, path: req.originalUrl, ...getLogMetadata(req) });
 
-    logger.info(`Fetched ${products.length} Products`, {
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      ...getLogMetadata(req),
-    });
-
-    return res.status(200).json({ success: true, message: "Products fetched successfully", products });
-
+    res.status(200).json({ success: true, message: "Products fetched", products });
   } catch (err) {
-    logger.error("Error fetching products", {
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      error: err.message,
-      stack: err.stack,
-      ...getLogMetadata(req),
-    });
-
-    return res.status(500).json({ success: false, message: "Error fetching products", error: err.message });
+    logger.error("Error fetching products", { error: err.message, ...getLogMetadata(req) });
+    res.status(500).json({ success: false, message: "Error fetching products", error: err.message });
   }
 };
 
 
-// Update Product
+// update Product
 exports.updateProduct = async (req, res) => {
   try {
-    let editid = req.params.id;
-    const { name, categories, description, weight, price, removedImages = [], quantity, discountPercentage } = req.body;
+    const editid = req.params.id;
 
-    logger.info(`Received Updating Request for....Product ID: ${editid}`, {
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      ...getLogMetadata(req)
-    });
+    const {
+      name, categories, description, weight,
+      price, quantity, discountPercentage,
+      removedImages = []
+    } = req.body;
+
+    const removedImagesArray = Array.isArray(removedImages) ? removedImages : [];
+
+    const extractPublicId = (url) => {
+      const parts = url.split("/");
+      const fileName = parts[parts.length - 1];
+      return `products/${fileName.split(".")[0]}`;
+    };
+
+    const normalizedRemovedImages = removedImagesArray.map(item =>
+      item.includes("cloudinary.com") ? extractPublicId(item) : item
+    );
 
     const oldProduct = await Product.findById(editid);
     if (!oldProduct) {
-      logger.warn(`Product ID: ${editid} not found`, {
-        method: req.method,
-        path: req.originalUrl,
-        ip: req.ip,
-        ...getLogMetadata(req)
-      });
       return res.status(404).json({ success: false, message: "Product not found" });
     }
 
-    // Determine status based on quantity
-    const status = quantity > 0 ? "Available" : "Out of Stock";
-    const offerPrice = discountPercentage > 0 ? price - (price * discountPercentage) / 100 : price;
+    const validRemovedImages = oldProduct.images
+      .filter((img) => normalizedRemovedImages.includes(img.public_id))
+      .map((img) => img.public_id);
 
-    let updatedData = { name, categories, description, weight, price, quantity, status, discountPercentage, offerPrice };
+    await Promise.all(
+      validRemovedImages.map(async (public_id) => {
+        try {
+          await cloudinary.uploader.destroy(public_id);
+          logger.info("Deleted image from Cloudinary", { public_id });
+        } catch (cloudErr) {
+          logger.warn("Failed to delete image from Cloudinary", { public_id, error: cloudErr.message });
+        }
+      })
+    );
 
-    // Remove undefined fields
-    Object.keys(updatedData).forEach(key => updatedData[key] === undefined && delete updatedData[key]);
-
-    const existingImages = oldProduct.images.filter(img => !removedImages.includes(img));
-
-    deleteImages(removedImages);
+    let existingImages = oldProduct.images.filter(
+      (img) => !normalizedRemovedImages.includes(img.public_id)
+    );
 
     if (req.files && req.files.length > 0) {
-      updatedData.images = [...existingImages, ...req.files.map(file => file.path)];
-    } else {
-      updatedData.images = existingImages;
+      for (let file of req.files) {
+        try {
+          const result = await cloudinary.uploader.upload(file.path, {
+            folder: "products"
+          });
+
+          existingImages.push({
+            url: result.secure_url,
+            public_id: result.public_id
+          });
+        } catch (uploadErr) {
+          logger.error("Image upload failed", { error: uploadErr.message });
+        } finally {
+          try {
+            fs.unlinkSync(file.path);
+          } catch (err) {
+            logger.warn("Failed to delete local file", { error: err.message });
+          }
+        }
+      }
     }
 
-    const updatedProduct = await Product.findByIdAndUpdate(editid, updatedData, { new: true });
+    const status = quantity > 0 ? "Available" : "Out of Stock";
+    const offerPrice = discountPercentage > 0
+      ? price - (price * discountPercentage) / 100
+      : price;
 
-    logger.info(`Successfully Updated....Product ID: ${editid}`, {
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      ...getLogMetadata(req)
+    const updatedData = {
+      name, categories, description, weight,
+      price, quantity, discountPercentage,
+      status, offerPrice,
+      images: existingImages
+    };
+
+    Object.keys(updatedData).forEach(
+      (key) => updatedData[key] === undefined && delete updatedData[key]
+    );
+
+    const updatedProduct = await Product.findByIdAndUpdate(editid, updatedData, {
+      new: true
     });
 
-    res.status(200).json({ success: true, message: "Product updated", product: updatedProduct });
+    res.status(200).json({
+      success: true,
+      message: "Product updated successfully",
+      product: updatedProduct
+    });
 
   } catch (err) {
-    logger.error(`Error updating product ID: ${req.params.id}`, {
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      error: err.message,
-      stack: err.stack,
-      ...getLogMetadata(req),
-    });
+    logger.error("Error updating product", { error: err.message, ...getLogMetadata(req) });
     res.status(500).json({ success: false, message: "Error updating product", error: err.message });
   }
 };
@@ -173,58 +164,20 @@ exports.updateProduct = async (req, res) => {
 // Delete Product
 exports.deleteProduct = async (req, res) => {
   try {
-    let productId = req.params.id;
-    logger.info(`Received Delete Request for....Product ID: ${productId}`, {
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      ...getLogMetadata(req)
-    });
+    const productId = req.params.id;
+    const product = await Product.findById(productId);
+    if (!product) return res.status(404).json({ success: false, message: "Product not found" });
 
-    let product = await Product.findById(productId);
-    if (!product) {
-      logger.warn(`Not Found Product with ID: ${productId}`, {
-        method: req.method,
-        path: req.originalUrl,
-        ip: req.ip,
-        ...getLogMetadata(req)
-      });
-      return res.status(404).send({ success: false, message: "Product not found" });
+    for (let img of product.images) {
+      await cloudinary.uploader.destroy(img.public_id);
     }
 
-    deleteImages(product.images);
     await Product.findByIdAndDelete(productId);
-    logger.info(`Successfully Deleted....Product ID: ${productId}`, {
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      ...getLogMetadata(req)
-    });
-    res.status(200).send({ success: true, message: "Product successfully deleted" });
+
+    res.status(200).json({ success: true, message: "Product deleted successfully" });
+
   } catch (err) {
-    logger.error(`Error deleting product ID: ${req.params.id}`, {
-      method: req.method,
-      path: req.originalUrl,
-      ip: req.ip,
-      error: err.message,
-      stack: err.stack,
-      ...getLogMetadata(req)
-    });
-    res.status(500).send({ success: false, message: "Internal Server Error", error: err.message });
+    logger.error("Error deleting product", { error: err.message, ...getLogMetadata(req) });
+    res.status(500).json({ success: false, message: "Error deleting product", error: err.message });
   }
-};
-
-
-// uplods in delete Images
-const deleteImages = (images) => {
-  images.forEach((imagePath) => {
-    const fullPath = path.join(__dirname, "..", imagePath);
-    fs.unlink(fullPath, (err) => {
-      if (err) {
-        console.error(`Error deleting image: ${fullPath}`, err.message);
-      } else {
-        console.log(`Deleted image: ${fullPath}`);
-      }
-    });
-  });
 };

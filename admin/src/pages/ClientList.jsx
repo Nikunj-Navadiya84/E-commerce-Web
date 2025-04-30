@@ -93,7 +93,7 @@ function ClientList() {
                 <tr key={client._id} className="text-left md:text-center hover:bg-gray-100">
                   <td className="py-3 w-1/12 px-4">
                     <img
-                      src={`http://localhost:4000/${client.images}`}
+                      src={client.images[0].url}
                       alt=""
                       className="w-14 h-14 sm:w-16 sm:h-16 object-cover mx-auto"
                     />

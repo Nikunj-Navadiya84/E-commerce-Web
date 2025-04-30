@@ -1,14 +1,21 @@
-const multer = require("multer");
-const path = require("path");
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
+
+const tempDir = path.join(__dirname, '../uploads');
+
+// Ensure temp folder exists
+if (!fs.existsSync(tempDir)) {
+  fs.mkdirSync(tempDir, { recursive: true });
+}
 
 const storage = multer.diskStorage({
-  destination: "uploads/", // Ensure the folder exists
-  filename: (req, file, cb) => {
-    const uniqueName = `${Date.now()}-${path.parse(file.originalname).name}.webp`;
-    cb(null, uniqueName);
+  destination: function (req, file, cb) {
+    cb(null, tempDir);
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
   },
 });
 
-const upload = multer({ storage });
-
-module.exports = upload; 
+module.exports = multer({ storage });
