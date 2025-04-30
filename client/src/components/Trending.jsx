@@ -104,7 +104,7 @@ function Trending() {
                                                 <p className='text-md text-gray-900'>$ {product.price.toFixed(2)}</p>
                                             </div>
                                             <div>
-                                                <FaCartArrowDown  className='text-green-600 text-2xl cursor-pointer' onClick={() => setSelectedProduct(product)} />
+                                                <FaCartArrowDown className='text-green-600 text-2xl cursor-pointer' onClick={() => setSelectedProduct(product)} />
                                             </div>
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@ function Trending() {
                                         className="border border-gray-200 rounded-lg w-60 h-40 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                                         alt="Product image"
                                     />
-                                    <div className="absolute inset-[-45px] flex justify-between items-center gap-4 px-4">
+                                    <div className="absolute inset-[-34px] flex justify-between items-center gap-4 px-4">
                                         <button
                                             className="text-gray-600 text-lg cursor-pointer hover:text-gray-800 focus:outline-none"
                                             onClick={() => setImageIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : selectedProduct.images.length - 1))}>
@@ -175,14 +175,14 @@ function Trending() {
                                             className={`text-sm text-white py-2 px-3 rounded cursor-pointer ${selectedProduct.quantity === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'}`}
                                             onClick={() => {
                                                 if (selectedProduct.quantity > 0) {
-                                                  addToCart(selectedProduct, quantity);
-                                                  closeModal();
+                                                    addToCart(selectedProduct, quantity);
+                                                    closeModal();
                                                 }
-                                              }}
+                                            }}
                                         >
                                             {selectedProduct.quantity === 0 ? "Out of Stock" : "Add To Cart"}
                                         </button>
-                                        
+
                                     </div>
                                 </div>
                             </div>
