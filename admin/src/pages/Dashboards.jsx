@@ -15,6 +15,7 @@ function Dashboards() {
   const [endDate, setEndDate] = useState('Dec');
   const token = localStorage.getItem("token");
   const [activeTab, setActiveTab] = useState("Active Orders");
+  const [totalUsers, setTotalUsers] = useState(0);
 
   const datas = [
     { name: 'Jan', sales: 4000, price: 2400, quantity: 2400 },
@@ -33,8 +34,26 @@ function Dashboards() {
 
   useEffect(() => {
     fetchList();
+    fetchUsers(); 
   }, []);
 
+  const fetchUsers = async () => {
+      try {
+      const response = await axios.get('http://localhost:4000/api/user/all');
+  
+      if (response.data.success) {
+        setTotalUsers(response.data.users.length);
+      } else {
+        console.warn("Response failed");
+        setTotalUsers(0);
+      }
+    } catch (error) {
+      console.error("Error fetching users:", error.response?.data || error.message);
+      setTotalUsers(0);
+    }
+  };
+  
+  
   const fetchList = async () => {
     try {
       if (!token) return;
@@ -156,7 +175,7 @@ function Dashboards() {
                   </div>
                   <div className="flex-1">
                     <p className="text-gray-700 dark:text-gray-300 text-md mb-2">Total Customers</p>
-                    <p className="text-2xl text-gray-900 dark:text-white">0</p>
+                    <p className="text-2xl text-gray-900 dark:text-white">{totalUsers}</p>
                     <div className="flex justify-end">
                       <span className="flex items-center text-green-500 font-medium">
                         <IoMdTrendingUp size={18} className="mr-1 " /> 25%

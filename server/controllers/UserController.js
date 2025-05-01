@@ -213,6 +213,17 @@ exports.changepassword = async (req, res) => {
 };
 
 
+exports.usertotal = async (req , res) => {
+  try {
+    const users = await User.find({});
+    res.json({ success: true, users });
+  } catch (error) {
+    console.error("User fetch error:", error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+}
+
+
 // Admin login
 exports.adminLogin = async (req, res) => {
   try {
