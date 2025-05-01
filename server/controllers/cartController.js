@@ -210,8 +210,7 @@ exports.removeFromCart = async (req, res) => {
   }
 };
 
-// Clear Cart
-exports.clearCart = async (req, res) => {
+exports.clearCart = async (req, res, isOrderPlaced = false) => {
   try {
     if (!req.user) {
       logger.warn("Unauthorized attempt to clear cart", getLogMetadata(req));
@@ -225,18 +224,20 @@ exports.clearCart = async (req, res) => {
       return res.status(404).json({ success: false, message: "Cart not found" });
     }
 
-    for (const item of cart.products) {
-      const product = await Product.findById(item.product);
-      if (product) {
-        product.quantity += item.quantity;
-        await product.save();
+    if (!isOrderPlaced) {
+      for (const item of cart.products) {
+        const product = await Product.findById(item.product);
+        if (product) {
+          product.quantity += item.quantity;
+          await product.save();
+        }
       }
     }
 
     cart.products = [];
     await cart.save();
 
-    logger.info("Cart cleared", { ...getLogMetadata(req, req.user) });
+    logger.info("Cart cleared", { ...getLogMetadata(req, req.user), isOrderPlaced });
     res.status(200).json({ success: true, message: "Cart cleared successfully", cart });
   } catch (error) {
     logger.error("Error clearing cart", { error: error.message, stack: error.stack, ...getLogMetadata(req, req.user) });

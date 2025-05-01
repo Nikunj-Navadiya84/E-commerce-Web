@@ -164,7 +164,7 @@ const Cart = () => {
                                         className="border border-gray-200 rounded-lg w-60 h-40 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                                         alt="Product image"
                                     />
-                                    <div className="absolute inset-[-34px] flex justify-between items-center gap-4 px-4">
+                                    <div className="absolute 2xl:inset-[-45px] sm:inset-[90px] md:inset-[-45px] inset-[-25px] flex justify-between items-center gap-4 px-4">
                                         <button
                                             className="text-gray-600 text-lg cursor-pointer hover:text-gray-800 focus:outline-none"
                                             onClick={() => setImageIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : selectedProduct.images.length - 1))}>
@@ -180,7 +180,8 @@ const Cart = () => {
 
                                 <div className='p-1 md:p-5 w-full'>
                                     <h2 className='text-gray-700 text-md mb-2'>{selectedProduct.name}</h2>
-                                    <div className='flex items-center gap-1 text-yellow-500'><BiSolidStar /><BiSolidStar /><BiSolidStar /><BiSolidStar /><BiSolidStarHalf /></div>
+                                    <span className='text-gray-500 text-xs '>{selectedProduct.weight}</span>
+                                    <div className='flex items-center gap-1 mt-2 text-yellow-500'><BiSolidStar /><BiSolidStar /><BiSolidStar /><BiSolidStar /><BiSolidStarHalf /></div>
                                     <p className='text-gray-500 text-sm mb-2'>{selectedProduct.reviews}</p>
                                     <p className='text-gray-500 text-sm mb-2'>{selectedProduct.description}</p>
                                     <p className='text-sm text-gray-600 line-through mt-1'>${selectedProduct.price.toFixed(2)}</p>
