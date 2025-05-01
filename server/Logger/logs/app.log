@@ -4710,3 +4710,9 @@
 {"ip":"::1","level":"info","message":"Fetched 12 products","method":"GET","path":"/api/products/list","timestamp":"2025-05-01T12:03:37.464Z","username":"Unknown"}
 {"ip":"::1","level":"info","message":"Fetched 12 products","method":"GET","path":"/api/products/list","timestamp":"2025-05-01T12:03:37.515Z","username":"Unknown"}
 {"ip":"::1","level":"info","message":"Fetched 12 products","method":"GET","path":"/api/products/list","timestamp":"2025-05-01T12:03:56.855Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 products","method":"GET","path":"/api/products/list","timestamp":"2025-05-01T12:17:07.690Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 products","method":"GET","path":"/api/products/list","timestamp":"2025-05-01T12:17:07.750Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 products","method":"GET","path":"/api/products/list","timestamp":"2025-05-01T12:17:31.113Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"Fetched 12 products","method":"GET","path":"/api/products/list","timestamp":"2025-05-01T12:17:31.163Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"All orders fetched for admin","method":"GET","orderCount":6,"path":"/api/order/allOrder","timestamp":"2025-05-01T12:17:45.312Z","username":"Unknown"}
+{"ip":"::1","level":"info","message":"All orders fetched for admin","method":"GET","orderCount":6,"path":"/api/order/allOrder","timestamp":"2025-05-01T12:17:45.354Z","username":"Unknown"}

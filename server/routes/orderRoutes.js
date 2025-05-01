@@ -1,5 +1,5 @@
 const express = require("express");
-const { placeOrder, userOrder, allOrder, updateStatus } = require("../controllers/oderController");
+const { placeOrder, userOrder, allOrder, updateStatus, totalpaid } = require("../controllers/oderController");
 const { userMiddleware } = require("../middleware/UserMiddleware");
 
 
@@ -11,6 +11,8 @@ router.post("/userOrder", userMiddleware, userOrder);
 
 router.get("/allOrder", allOrder);
 router.post("/updateStatus",  updateStatus);
+
+router.get("/paid", totalpaid);
 
 
 

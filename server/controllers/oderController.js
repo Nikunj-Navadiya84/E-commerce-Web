@@ -99,3 +99,16 @@ exports.updateStatus = async (req, res) => {
         res.status(500).json({ success: false, message: "Server error. Could not update order status." });
     }
 };
+
+exports.totalpaid = async (req, res) => {
+    try {
+        const paidOrders = await Order.find({ payment: true });
+        res.status(200).json({
+          success: true,
+          totalPaidOrders: paidOrders.length,
+          data: paidOrders
+        });
+      } catch (err) {
+        res.status(500).json({ success: false, message: "Failed to fetch paid orders", error: err.message });
+      }
+}
