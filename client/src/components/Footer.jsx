@@ -98,7 +98,7 @@ function Footer() {
 
                                                 <div className="flex items-center gap-2">
                                                     <FaWhatsapp className="text-2xl text-green-900" />
-                                                    <p className="text-sm text-gray-500">+91 9876543210</p>
+                                                    <p className="text-sm text-gray-500">+91 8460361497</p>
                                                 </div>
 
                                                 <div className="flex items-center gap-2">
