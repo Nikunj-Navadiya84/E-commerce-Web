@@ -81,6 +81,9 @@ const Cart = () => {
                                             <h3 onClick={() => setSelectedProduct(product)} className="text-xs sm:text-sm text-gray-700 mb-2 cursor-pointer">
                                                 {product.name}
                                             </h3>
+                                            <p className="text-xs sm:text-sm text-gray-700 line-through mb-2">
+                                                ${(product.price * product.quantity).toFixed(2)}
+                                            </p>
                                             <p className="text-xs sm:text-sm text-gray-700 font-bold mb-2">
                                                 ${(product.offerPrice * product.quantity).toFixed(2)}
                                             </p>

@@ -7,7 +7,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 function PlaceOrder() {
-    const { clearCart, getCartAmount, delivery_fee } = useContext(StoreContext);
+    const { clearCart, getCartAmount, delivery_fee, getOfferAmount } = useContext(StoreContext);
     const [method, setMethod] = useState('cod');
     const [savedAddresses, setSavedAddresses] = useState([]);
     const [selectedAddress, setSelectedAddress] = useState(null);
@@ -189,19 +189,27 @@ function PlaceOrder() {
                     <div>
                         <h1 className='text-lg text-gray-700 font-bold mb-2'>Cart Totals</h1>
                         <div className='flex text-sm text-gray-700 justify-between py-3'>
-                            <p>SubTotal</p>
-                            <p>${getCartAmount().toFixed(2)}</p>
-                        </div>
-                        <hr />
-                        <div className='flex text-sm text-gray-700 justify-between py-3'>
-                            <p>Shipping Fee</p>
-                            <p>${delivery_fee.toFixed(2)}</p>
-                        </div>
-                        <hr />
-                        <div className='flex text-sm text-gray-700 justify-between py-3'>
-                            <p>Total</p>
-                            <p>${(getCartAmount() === 0 ? 0 : (getCartAmount() + delivery_fee)).toFixed(2)}</p>
-                        </div>
+                <p>SubTotal</p>
+                <p>${getCartAmount().toFixed(2)}</p>
+            </div>
+            <hr />
+
+            <div className='flex text-sm text-gray-700 justify-between py-3'>
+                <p>Saved On the Total</p>
+                <p>- ${getOfferAmount().toFixed(2)}</p>
+            </div>
+
+            <hr />
+            <div className='flex text-sm text-gray-700 justify-between py-3'>
+                <p>Shipping Fee</p>
+                <p>+ ${delivery_fee.toFixed(2)}</p>
+            </div>
+
+            <hr />
+            <div className='flex text-sm text-gray-700 justify-between py-3'>
+                <p className='font-semibold'>Total</p>
+                <p className='font-semibold'>${(getCartAmount() === 0 ? 0 : (getCartAmount() - getOfferAmount() + delivery_fee)).toFixed(2)}</p>
+            </div>
 
                         <div className='flex flex-col sm:flex-row gap-5 mt-3'>
                             <Link to='/viewCart'>

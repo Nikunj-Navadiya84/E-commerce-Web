@@ -406,7 +406,7 @@ export const ShopContextProvider = ({ children }) => {
     // Get Cart Amount
     const getCartAmount = () => {
         if (!Array.isArray(cart)) return 0;
-        return cart.reduce((total, item) => total + item.offerPrice * item.quantity, 0);
+        return cart.reduce((total, item) => total + item.price * item.quantity, 0);
     };
 
     const getOfferAmount = () => {

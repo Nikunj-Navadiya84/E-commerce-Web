@@ -5,17 +5,21 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Login = () => {
-    const [currentState, setCurrentState] = useState("Login");
+    const [isLogin, setIsLogin] = useState(true);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isLogin, setIsLogin] = useState(true);
-    const navigate = useNavigate();
-    const { setIsLoggedIn, setUser } = useContext(StoreContext);
     const [message, setMessage] = useState("");
     const [isPasswordValid, setIsPasswordValid] = useState(false);
 
-    // Validate password: at least 8 characters, including an uppercase letter, a lowercase letter, a number, and a special character
+    const navigate = useNavigate();
+    const { setIsLoggedIn, setUser } = useContext(StoreContext);
+
+    const validatePassword = (pass) => {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        setIsPasswordValid(passwordRegex.test(pass));
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!email || !password || (!isLogin && !name)) {
@@ -23,10 +27,9 @@ const Login = () => {
             return;
         }
 
-        // Strong password validation
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         if (!passwordRegex.test(password)) {
-            setMessage("Password must be at least 8 characters, include uppercase, lowercase, number, and special character.");
+            setMessage("Password must be strong.");
             toast.error("Weak password! Follow password rules.");
             return;
         }
@@ -47,7 +50,6 @@ const Login = () => {
                 setEmail("");
                 setPassword("");
                 setIsLogin(true);
-                setCurrentState("Login");
                 toast.success("Signup successful! Please log in.");
             }
         } catch (error) {
@@ -56,16 +58,14 @@ const Login = () => {
         }
     };
 
-
     return (
         <div className="flex justify-center items-center px-4 py-20">
             <form onSubmit={handleSubmit} className="flex flex-col items-center w-full max-w-sm space-y-4 text-gray-800">
-
                 <div className="flex items-center gap-2 mb-2 mt-10">
-                    <p className="text-3xl text-gray-700">{currentState}</p>
+                    <p className="text-3xl text-gray-700">{isLogin ? "Login" : "Sign Up"}</p>
                 </div>
 
-                {currentState !== "Login" && (
+                {!isLogin && (
                     <input
                         type="text"
                         onChange={(e) => setName(e.target.value)}
@@ -97,34 +97,54 @@ const Login = () => {
                     required
                 />
 
-                {!isLogin && !isPasswordValid && password && (
-                    <p className="text-red-500 text-sm text-left w-full">
-                        Password must be at least 8 characters long, include an uppercase letter, lowercase letter, number, and special character.
-                    </p>
-                )}
-
                 <div className="w-full flex justify-between text-sm text-gray-600">
                     <p className="cursor-pointer hover:underline">Forgot Your Password?</p>
-                    {currentState === "Login" ? (
-                        <button type="button" onClick={() => { setCurrentState("Sign Up"); setIsLogin(false); }} className="cursor-pointer hover:underline">
-                            Create Account
+                    {isLogin ? (
+                        <button type="button" onClick={() => setIsLogin(false)} className="cursor-pointer hover:underline">  
                         </button>
                     ) : (
-                        <button type="button" onClick={() => { setCurrentState("Login"); setIsLogin(true); }} className="cursor-pointer hover:underline">
+                        <button type="button" onClick={() => setIsLogin(true)} className="cursor-pointer hover:underline">
                             Login Here
                         </button>
                     )}
                 </div>
 
+                {!isLogin && !isPasswordValid && password && (
+                    <p className="text-red-500 text-sm text-left w-full">
+                        Password must be at least 8 characters, include uppercase, lowercase, number, and special character.
+                    </p>
+                )}
+
                 {message && <p className="text-red-500 text-sm">{message}</p>}
 
-                <button className="bg-black text-white font-light w-full px-8 py-2 rounded-md hover:bg-gray-900 transition">
-                    {currentState === "Login" ? "Sign In" : "Sign Up"}
-                </button>
-
+                <div className="flex flex-col gap-4 w-full">
+                    {isLogin ? (
+                        <>
+                            <button
+                                type="submit"
+                                className="bg-black text-white font-light w-full px-8 py-2 rounded-md hover:bg-gray-900 transition cursor-pointer"
+                            >
+                                Sign In
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setIsLogin(false)}
+                                className="bg-gray-800 text-white font-light w-full px-8 py-2 rounded-md hover:bg-gray-900 transition cursor-pointer"
+                            >
+                                Sign Up
+                            </button>
+                        </>
+                    ) : (
+                        <button
+                            type="submit"
+                            className="bg-black text-white font-light w-full px-8 py-2 rounded-md hover:bg-gray-900 transition"
+                        >
+                            Sign Up
+                        </button>
+                    )}
+                </div>
             </form>
         </div>
-
     );
 };
 

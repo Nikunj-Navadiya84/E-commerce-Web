@@ -20,19 +20,19 @@ function CartTotal() {
 
             <div className='flex text-sm text-gray-700 justify-between py-3'>
                 <p>Saved On the Total</p>
-                <p>${getOfferAmount().toFixed(2)}</p>
+                <p>- ${getOfferAmount().toFixed(2)}</p>
             </div>
 
             <hr />
             <div className='flex text-sm text-gray-700 justify-between py-3'>
                 <p>Shipping Fee</p>
-                <p>${delivery_fee.toFixed(2)}</p>
+                <p>+ ${delivery_fee.toFixed(2)}</p>
             </div>
 
             <hr />
             <div className='flex text-sm text-gray-700 justify-between py-3'>
                 <p className='font-semibold'>Total</p>
-                <p className='font-semibold'>${(getCartAmount() === 0 ? 0 : (getCartAmount() + delivery_fee)).toFixed(2)}</p>
+                <p className='font-semibold'>${(getCartAmount() === 0 ? 0 : (getCartAmount() - getOfferAmount() + delivery_fee)).toFixed(2)}</p>
             </div>
 
             <div className='flex gap-5 mt-3'>

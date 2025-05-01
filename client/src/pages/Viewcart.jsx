@@ -4,7 +4,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import { Link } from "react-router";
 
 function Viewcart() {
-    const { cart, updateCartQuantity, getCartAmount, delivery_fee, handleRemove ,getOfferAmount} = useContext(StoreContext);
+    const { cart, updateCartQuantity, getCartAmount, delivery_fee, handleRemove, getOfferAmount } = useContext(StoreContext);
 
     return (
         <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-5'>
@@ -89,24 +89,27 @@ function Viewcart() {
                     </h2>
 
                     <div className='text-sm text-gray-700 space-y-3'>
-                        <div className='flex justify-between'>
+                        <div className='flex text-sm text-gray-700 justify-between '>
                             <p>SubTotal</p>
                             <p>${getCartAmount().toFixed(2)}</p>
                         </div>
                         <hr />
-                        <div className='flex justify-between'>
+
+                        <div className='flex text-sm text-gray-700 justify-between '>
                             <p>Saved On the Total</p>
-                            <p>${getOfferAmount().toFixed(2)}</p>
+                            <p>- ${getOfferAmount().toFixed(2)}</p>
                         </div>
+
                         <hr />
-                        <div className='flex justify-between'>
+                        <div className='flex text-sm text-gray-700 justify-between '>
                             <p>Shipping Fee</p>
-                            <p>${delivery_fee.toFixed(2)}</p>
+                            <p>+ ${delivery_fee.toFixed(2)}</p>
                         </div>
+
                         <hr />
-                        <div className='flex justify-between font-semibold'>
-                            <p>Total</p>
-                            <p>${(getCartAmount() === 0 ? 0 : (getCartAmount() + delivery_fee)).toFixed(2)}</p>
+                        <div className='flex text-sm text-gray-700 justify-between '>
+                            <p className='font-semibold'>Total</p>
+                            <p className='font-semibold'>${(getCartAmount() === 0 ? 0 : (getCartAmount() - getOfferAmount() + delivery_fee)).toFixed(2)}</p>
                         </div>
                     </div>
 
