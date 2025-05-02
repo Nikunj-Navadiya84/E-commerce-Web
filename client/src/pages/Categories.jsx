@@ -71,6 +71,7 @@ function Categories() {
         setQuantity(value);
     };
 
+
     return (
         <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20">
             <div className='flex items-center justify-between'>
@@ -160,15 +161,20 @@ function Categories() {
                                                     {product.name}
                                                 </p>
                                             </div>
-                                            <button className="cursor-pointer" onClick={() =>
-                                                likedProducts[product._id] ? removeFromWishlist(product) : addToWishlist(product)
-                                            }>
+                                            <button
+                                                className="cursor-pointer"
+                                                onClick={(e) => {
+                                                    e.stopPropagation(); // Prevent event bubbling
+                                                    likedProducts[product._id] ? removeFromWishlist(product) : addToWishlist(product);
+                                                }}
+                                            >
                                                 {likedProducts[product._id] ? (
                                                     <FaHeart className="text-xl text-red-500" />
                                                 ) : (
                                                     <FaRegHeart className="text-xl text-red-300" />
                                                 )}
                                             </button>
+
                                         </div>
 
                                         <div>
@@ -204,9 +210,9 @@ function Categories() {
                                                 disabled={product.quantity === 0}
                                                 className={`text-sm text-white py-2 px-3 rounded cursor-pointer ${product.quantity === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'}`}
                                                 onClick={(e) => {
-                                                    e.stopPropagation(); 
+                                                    e.stopPropagation();
                                                     if (product.quantity > 0) {
-                                                        addToCart(product, 1); 
+                                                        addToCart(product, 1);
                                                     }
                                                 }}
                                             >
