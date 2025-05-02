@@ -194,17 +194,25 @@ function Categories() {
                                         </div>
 
                                         <div className='flex items-center justify-between'>
+
                                             <div>
                                                 <p className='text-sm text-gray-600 line-through mt-1'>${product.price.toFixed(2)}</p>
                                                 <p className='text-md text-gray-900 font-bold mt-1'>${product.offerPrice.toFixed(2)}</p>
                                             </div>
+
                                             <button
                                                 disabled={product.quantity === 0}
-                                                className={`text-sm text-white py-2 px-3 rounded ${product.quantity === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'}`}
-                                                onClick={() => product.quantity > 0 && addToCart(product, 1)}
+                                                className={`text-sm text-white py-2 px-3 rounded cursor-pointer ${product.quantity === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'}`}
+                                                onClick={(e) => {
+                                                    e.stopPropagation(); 
+                                                    if (product.quantity > 0) {
+                                                        addToCart(product, 1); 
+                                                    }
+                                                }}
                                             >
                                                 {product.quantity === 0 ? "Out of Stock" : "Buy Now"}
                                             </button>
+
                                         </div>
                                     </div>
                                 </motion.div>
