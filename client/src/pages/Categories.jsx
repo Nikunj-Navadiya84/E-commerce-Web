@@ -270,7 +270,7 @@ function Categories() {
                                     <p className='text-sm text-gray-600 mb-1'>{selectedProduct.description}</p>
 
                                     {Array.isArray(reviews[selectedProduct._id]) && reviews[selectedProduct._id].length > 0 && (
-                                        <div className="space-y-4 mt-2">
+                                        <div className="space-y-4 mb-1">
                                             {/* Average Rating Section */}
                                             <div className="flex items-center gap-2 text-yellow-500 text-lg font-medium">
                                                 <div className="flex items-center">
