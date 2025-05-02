@@ -82,7 +82,7 @@ function PlaceOrder() {
                 if (typeof clearCart === 'function') {
                     clearCart();
                 }
-                navigate("/");
+                navigate("/myorder");
             }
         } catch (err) {
             console.error(err);

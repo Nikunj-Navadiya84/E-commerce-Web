@@ -17,6 +17,7 @@ import OrderConfirmation from './pages/OrderConfirmation'
 import Profile from './pages/Profile'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Myorder from './components/Myorder'
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
           <Route path='/wishlist' element={<WishList />} />
           <Route path='/login' element={<Login />} />
           <Route path='/changepassword' element={<ChangePassword />} />
+          <Route path='/myorder' element={<Myorder />} />
         </Routes>
         <Footer />
       </BrowserRouter>

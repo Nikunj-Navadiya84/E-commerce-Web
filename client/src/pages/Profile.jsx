@@ -15,7 +15,7 @@ import OrderConfirmation from './OrderConfirmation';
 
 function Profile() {
     const [activeSection, setActiveSection] = useState("account");
-    const { setIsLoggedIn, cart, user } = useContext(StoreContext);
+    const { setIsLoggedIn, user } = useContext(StoreContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {

@@ -41,8 +41,8 @@ function OrderConfirmation() {
 
     return (
         <div>
-            <div className='text-3xl mb-5 font-semibold text-gray-700'>
-                <h2>My <span className='text-green-700'>Order</span></h2>
+            <div className='text-3xl mb-5 font-semibold text-green-700'>
+                <h2>My <span className='text-gray-700'>Order</span></h2>
             </div>
 
            <div className='max-h-[500px] overflow-y-auto'>
