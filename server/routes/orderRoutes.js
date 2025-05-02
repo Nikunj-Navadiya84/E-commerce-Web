@@ -14,6 +14,4 @@ router.post("/updateStatus",  updateStatus);
 
 router.get("/paid", totalpaid);
 
-
-
 module.exports = router;

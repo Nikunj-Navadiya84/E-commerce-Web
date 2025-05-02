@@ -100,6 +100,7 @@ exports.updateStatus = async (req, res) => {
     }
 };
 
+// total order
 exports.totalpaid = async (req, res) => {
     try {
         const paidOrders = await Order.find({ payment: true });
