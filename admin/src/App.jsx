@@ -7,8 +7,6 @@ import Navbar from './componets/Navbar';
 import Dashboards from './pages/Dashboards';
 import Add from './pages/ProductAdd';
 import List from './pages/ProductList';
-import Client from './pages/ClientAdd';
-import ClientList from './pages/ClientList';
 import AdminLogs from './pages/AdminLogs';
 import Order from './pages/Order';
 import { ToastContainer } from "react-toastify";
@@ -45,18 +43,6 @@ function App() {
               <Route path="/list" element={
                 <PrivateRoute>
                   <List />
-                </PrivateRoute>
-              } />
-
-              <Route path="/client" element={
-                <PrivateRoute>
-                  <Client />
-                </PrivateRoute>
-              } />
-
-              <Route path="/clientList" element={
-                <PrivateRoute>
-                  <ClientList />
                 </PrivateRoute>
               } />
 

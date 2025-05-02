@@ -1,237 +1,149 @@
-const fs = require("fs");
 const Client = require("../models/Client");
+const Product = require("../models/product");
 const logger = require("../Logger/logger");
-const cloudinary = require("../utils/cloudinary");
 
 const getLogMetadata = (req) => ({
   username: req.user ? req.user.id : "Unknown",
   ip: req.ip,
 });
 
-
-// Create Client
+// Create Client Review
 exports.createClient = async (req, res) => {
   try {
-    const { name, description, review } = req.body;
+    const { productId, description, review } = req.body;
 
-    let images = [];
-
-    if (req.files && req.files.length > 0) {
-      for (let file of req.files) {
-        const result = await cloudinary.uploader.upload(file.path, {
-          folder: "products",
-        });
-        images.push({ url: result.secure_url, public_id: result.public_id });
-        fs.unlinkSync(file.path); // Delete temp file
-      }
+    // Check if product exists
+    const productExists = await Product.findById(productId);
+    if (!productExists) {
+      return res.status(404).json({ success: false, message: "Product not found" });
     }
 
-    const product = new Client({ name, description, review, images });
+    const client = new Client({
+      productId,        // Directly saving productId instead of nested 'products'
+      description,
+      review,
+    });
 
-    await product.save();
+    await client.save();
 
-    logger.info(`Product Created: ${product._id}`, {
+    logger.info(`Client Review Created: ${client._id}`, {
       method: req.method,
       path: req.originalUrl,
       ...getLogMetadata(req),
     });
 
-    res
-      .status(201)
-      .json({ success: true, message: "Product created successfully", product });
+    res.status(201).json({
+      success: true,
+      message: "Client review created successfully",
+      client,
+    });
   } catch (error) {
-    logger.error("Error creating product", {
+    logger.error("Error creating client review", {
       error: error.message,
       stack: error.stack,
       ...getLogMetadata(req),
     });
-    res
-      .status(500)
-      .json({ success: false, message: "Error creating product", error: error.message });
+    res.status(500).json({
+      success: false,
+      message: "Error creating client review",
+      error: error.message,
+    });
   }
 };
 
-
-// Get Clients
+// Get Client Reviews by Product
 exports.getClient = async (req, res) => {
   try {
-    const client = await Client.find();
-    if (!client.length)
-      return res.status(404).json({ success: false, message: "No products found" });
+    const productId = req.params.productId;
 
-    logger.info(`Fetched ${client.length} products`, {
+    // Check if productId is valid
+    if (!productId) {
+      return res.status(400).json({ success: false, message: "Product ID is required" });
+    }
+
+    // Fetch reviews using Product ID
+    const reviews = await Client.find({ productId }).populate("productId");
+    if (!reviews.length) {
+      return res.status(404).json({ success: false, message: "No reviews found for this product" });
+    }
+
+    logger.info(`Fetched reviews for product: ${productId}`, {
       method: req.method,
       path: req.originalUrl,
       ...getLogMetadata(req),
     });
 
-    res.status(200).json({ success: true, message: "Products fetched", client });
+    res.status(200).json({ success: true, message: "Product reviews fetched", reviews });
   } catch (err) {
-    logger.error("Error fetching products", {
-      error: err.message,
+    logger.error("Error fetching product reviews", {
+      error: err.stack,
       ...getLogMetadata(req),
     });
-    res
-      .status(500)
-      .json({ success: false, message: "Error fetching products", error: err.message });
+    res.status(500).json({
+      success: false,
+      message: "Error fetching product reviews",
+      error: err.message,
+    });
   }
 };
 
-
-// Update Client
+// Update Client Review
 exports.updateClient = async (req, res) => {
   try {
-    const editid = req.params.id;
+    const clientId = req.params.id;
+    const { description, review } = req.body;
 
-    const {
-      name,
-      description,
-      review,
-      removedImages = [],
-    } = req.body;
-
-    const removedImagesArray = Array.isArray(removedImages)
-      ? removedImages
-      : [removedImages];
-
-    const oldProduct = await Client.findById(editid);
-    if (!oldProduct) {
-      return res.status(404).json({ success: false, message: "Product not found" });
+    const client = await Client.findById(clientId);
+    if (!client) {
+      return res.status(404).json({ success: false, message: "Client review not found" });
     }
 
-    let existingImages = oldProduct.images;
-
-    // If new images are uploaded, remove all old images from Cloudinary
-    if (req.files && req.files.length > 0) {
-      await Promise.all(
-        oldProduct.images.map(async (img) => {
-          try {
-            await cloudinary.uploader.destroy(img.public_id);
-            logger.info("Deleted old image from Cloudinary", { public_id: img.public_id });
-          } catch (cloudErr) {
-            logger.warn("Failed to delete old image", {
-              public_id: img.public_id,
-              error: cloudErr.message,
-            });
-          }
-        })
-      );
-
-      existingImages = []; // Clear image array
-
-      // Upload new images
-      for (let file of req.files) {
-        try {
-          const result = await cloudinary.uploader.upload(file.path, {
-            folder: "products",
-          });
-
-          existingImages.push({
-            url: result.secure_url,
-            public_id: result.public_id,
-          });
-        } catch (uploadErr) {
-          logger.error("Image upload failed", { error: uploadErr.message });
-        } finally {
-          try {
-            fs.unlinkSync(file.path);
-          } catch (err) {
-            logger.warn("Failed to delete local file", { error: err.message });
-          }
-        }
-      }
-    } else {
-      // If no new images uploaded, remove only selected ones
-      if (removedImagesArray.length > 0) {
-        const validRemovedImages = oldProduct.images
-          .filter((img) => removedImagesArray.includes(img.public_id))
-          .map((img) => img.public_id);
-
-        await Promise.all(
-          validRemovedImages.map(async (public_id) => {
-            try {
-              await cloudinary.uploader.destroy(public_id);
-              logger.info("Deleted image from Cloudinary", { public_id });
-            } catch (cloudErr) {
-              logger.warn("Failed to delete image from Cloudinary", {
-                public_id,
-                error: cloudErr.message,
-              });
-            }
-          })
-        );
-
-        existingImages = oldProduct.images.filter(
-          (img) => !removedImagesArray.includes(img.public_id)
-        );
-      }
-    }
-
-    const updatedData = {
-      name,
-      description,
-      review,
-      images: existingImages,
-    };
-
-    // Remove undefined fields
+    const updatedData = { description, review };
     Object.keys(updatedData).forEach(
       (key) => updatedData[key] === undefined && delete updatedData[key]
     );
 
-    const updatedProduct = await Client.findByIdAndUpdate(editid, updatedData, {
-      new: true,
-    });
+    const updatedClient = await Client.findByIdAndUpdate(clientId, updatedData, { new: true });
 
     res.status(200).json({
       success: true,
-      message: "Product updated successfully",
-      product: updatedProduct,
+      message: "Client review updated successfully",
+      client: updatedClient,
     });
   } catch (err) {
-    logger.error("Error updating product", {
+    logger.error("Error updating client review", {
       error: err.message,
       ...getLogMetadata(req),
     });
-    res
-      .status(500)
-      .json({ success: false, message: "Error updating product", error: err.message });
+    res.status(500).json({
+      success: false,
+      message: "Error updating client review",
+      error: err.message,
+    });
   }
 };
 
-
-
-// Delete Client
+// Delete Client Review
 exports.deleteClient = async (req, res) => {
   try {
-    const productId = req.params.id;
-    const product = await Client.findById(productId);
-    if (!product)
-      return res.status(404).json({ success: false, message: "Product not found" });
-
-    // Delete all images from Cloudinary
-    for (let img of product.images) {
-      try {
-        await cloudinary.uploader.destroy(img.public_id);
-        logger.info("Deleted image from Cloudinary", { public_id: img.public_id });
-      } catch (cloudErr) {
-        logger.warn("Failed to delete image from Cloudinary", {
-          public_id: img.public_id,
-          error: cloudErr.message,
-        });
-      }
+    const clientId = req.params.id;
+    const client = await Client.findById(clientId);
+    if (!client) {
+      return res.status(404).json({ success: false, message: "Client review not found" });
     }
 
-    await Client.findByIdAndDelete(productId);
+    await Client.findByIdAndDelete(clientId);
 
-    res.status(200).json({ success: true, message: "Product deleted successfully" });
+    res.status(200).json({ success: true, message: "Client review deleted successfully" });
   } catch (err) {
-    logger.error("Error deleting product", {
+    logger.error("Error deleting client review", {
       error: err.message,
       ...getLogMetadata(req),
     });
-    res
-      .status(500)
-      .json({ success: false, message: "Error deleting product", error: err.message });
+    res.status(500).json({
+      success: false,
+      message: "Error deleting client review",
+      error: err.message,
+    });
   }
 };

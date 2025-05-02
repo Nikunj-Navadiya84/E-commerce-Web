@@ -4,11 +4,7 @@ import { IoMdHome } from "react-icons/io";
 import { FaWpforms } from "react-icons/fa";
 import { FaRegListAlt } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
-import { LuFileUser } from "react-icons/lu";
-import { MdOutlineReviews } from "react-icons/md";
-import { SiCssdesignawards } from "react-icons/si";
 import { BiBarcodeReader } from "react-icons/bi";
-import { LiaAwardSolid } from "react-icons/lia";
 import { assets } from "../assets/assets";
 
 const Sidebar = ({ isOpen }) => {
@@ -37,16 +33,6 @@ const Sidebar = ({ isOpen }) => {
           <NavLink to="/list" className={`flex items-center gap-3 text-md ${!isOpen ? "justify-center" : ""}`}>
             <FaRegListAlt className="text-xl" />
             {isOpen && "Product List"}
-          </NavLink>
-
-          <NavLink to="/client" className={`flex items-center gap-3 text-md ${!isOpen ? "justify-center" : ""}`}>
-            <LuFileUser className="text-xl" />
-            {isOpen && "Client Form"}
-          </NavLink>
-
-          <NavLink to="/clientList" className={`flex items-center gap-3 text-md ${!isOpen ? "justify-center" : ""}`}>
-            <MdOutlineReviews className="text-xl" />
-            {isOpen && "Client List"}
           </NavLink>
 
           <NavLink to="/order" className={`flex items-center gap-3 text-md ${!isOpen ? "justify-center" : ""}`}>

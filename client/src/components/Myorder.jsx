@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Myorder() {
     const [orders, setOrders] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
-    const [rating, setRating] = useState(0);
-    const [comment, setComment] = useState('');
+    const [description, setDescription] = useState("");
+    const [review, setReview] = useState(0);
     const navigate = useNavigate();
 
     const fetchOrders = async () => {
@@ -50,34 +53,31 @@ function Myorder() {
 
     const handleSubmitReview = async () => {
         try {
-            const res = await fetch('http://localhost:4000/api/review/add', {
-                method: 'POST',
+            const response = await axios.post('http://localhost:4000/api/client/add', {
+                productId: selectedItem._id, // Assuming the selectedItem has an _id property for the product
+                description,
+                review
+            }, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                },
-                body: JSON.stringify({
-                    productId: selectedItem._id,
-                    rating,
-                    comment
-                })
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Assuming JWT token for authentication
+                }
             });
-
-            const data = await res.json();
-            if (data.success) {
-                alert("Review submitted successfully!");
-                setShowModal(false);
-                setRating(0);
-                setComment('');
+    
+            if (response.data.success) {
+                toast.success('Review submitted successfully!');
+                setShowModal(false); // Close the modal after submission
+                setReview(0); // Reset the review state
+                setDescription(""); // Reset the description state
             } else {
-                alert(data.message || "Failed to submit review.");
+                toast.error('Failed to submit review. Please try again.');
             }
         } catch (error) {
+            toast.error('Error submitting review. Please try again.');
             console.error("Error submitting review:", error);
-            alert("Something went wrong while submitting your review.");
         }
     };
-
+    
     return (
         <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20'>
             <div className='flex items-center justify-between'>
@@ -131,7 +131,7 @@ function Myorder() {
                                             </button>
                                             <button
                                                 onClick={() => handleReview(item)}
-                                                 className='border px-4 py-2 text-sm font-medium rounded-sm cursor-pointer'
+                                                className='border px-4 py-2 text-sm font-medium rounded-sm cursor-pointer'
                                             >
                                                 Review
                                             </button>
@@ -144,7 +144,6 @@ function Myorder() {
                 )}
             </div>
 
-            {/* Review Modal */}
             {showModal && selectedItem && (
                 <div className="fixed inset-0 backdrop-brightness-40 flex items-center justify-center z-50">
                     <div className="bg-white p-6 rounded-lg w-[90%] max-w-md shadow-lg">
@@ -163,8 +162,8 @@ function Myorder() {
                                 {[1, 2, 3, 4, 5].map((star) => (
                                     <span
                                         key={star}
-                                        onClick={() => setRating(star)}
-                                        className={`cursor-pointer ${rating >= star ? 'text-yellow-400' : 'text-gray-300'}`}
+                                        onClick={() => setReview(star)}
+                                        className={`cursor-pointer ${review >= star ? 'text-yellow-400' : 'text-gray-300'}`}
                                     >
                                         ★
                                     </span>
@@ -177,8 +176,8 @@ function Myorder() {
                             <textarea
                                 className="w-full p-2 border rounded"
                                 rows={3}
-                                value={comment}
-                                onChange={(e) => setComment(e.target.value)}
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
                             />
                         </div>
 
