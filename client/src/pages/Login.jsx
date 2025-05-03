@@ -92,21 +92,13 @@ const Login = () => {
                         validatePassword(e.target.value);
                     }}
                     value={password}
-                    className="w-full px-3 py-2 border border-gray-800 rounded-md focus:ring-2 focus:ring-gray-600 outline-none"
+                    className="w-full px-3 py-2 border border-gray-800 rounded-md focus:ring-2 focus:ring-gray-600 outline-none mb-1"
                     placeholder="Password"
                     required
                 />
 
-                <div className="w-full flex justify-between text-sm text-gray-600">
-                    <p className="cursor-pointer hover:underline">Forgot Your Password?</p>
-                    {isLogin ? (
-                        <button type="button" onClick={() => setIsLogin(false)} className="cursor-pointer hover:underline">  
-                        </button>
-                    ) : (
-                        <button type="button" onClick={() => setIsLogin(true)} className="cursor-pointer hover:underline">
-                            Login Here
-                        </button>
-                    )}
+                <div className="w-full flex justify-between text-sm text-gray-600 m-0">
+                    <p className="cursor-pointer">Forgot Your Password?</p>
                 </div>
 
                 {!isLogin && !isPasswordValid && password && (
@@ -119,13 +111,27 @@ const Login = () => {
 
                 <div className="flex flex-col gap-4 w-full">
                     {isLogin ? (
+                        <div className="w-full flex items-center justify-center">
+                            <div className="w-full border-gray-300"></div>
+                        </div>
+                    ) : (
+                        ""
+                    )}
+                    {isLogin ? (
                         <>
                             <button
                                 type="submit"
-                                className="bg-black text-white font-light w-full px-8 py-2 rounded-md hover:bg-gray-900 transition cursor-pointer"
+                                className="bg-gray-800 text-white font-light w-full px-8 py-2 rounded-md hover:bg-gray-900 transition cursor-pointer "
                             >
                                 Sign In
                             </button>
+
+                            <div className="w-full flex items-center justify-center">
+                                <div className="w-1/3 border-t border-gray-300"></div>
+                                <span className="mx-4 text-sm text-gray-600">OR</span>
+                                <div className="w-1/3 border-t border-gray-300"></div>
+                            </div>
+
                             <button
                                 type="button"
                                 onClick={() => setIsLogin(false)}
@@ -135,12 +141,30 @@ const Login = () => {
                             </button>
                         </>
                     ) : (
-                        <button
-                            type="submit"
-                            className="bg-black text-white font-light w-full px-8 py-2 rounded-md hover:bg-gray-900 transition"
-                        >
-                            Sign Up
-                        </button>
+                        <>
+                            <button
+                                type="submit"
+                                className="bg-gray-800 text-white font-light w-full px-8 py-2 rounded-md hover:bg-gray-900 transition cursor-pointer mt-4"
+                            >
+                                Sign Up
+                            </button>
+
+                            <div className="w-full flex items-center justify-center">
+                                <div className="w-1/3 border-t border-gray-300"></div>
+                                <span className="mx-4 text-sm text-gray-600">OR</span>
+                                <div className="w-1/3 border-t border-gray-300"></div>
+                            </div>
+
+                            <button
+                                type="submit"
+                                onClick={() => setIsLogin(true)}
+                                className="bg-gray-800 text-white font-light w-full px-8 py-2 rounded-md hover:bg-gray-900 transition cursor-pointer"
+                            >
+                                Sign In
+                            </button>
+
+
+                        </>
                     )}
                 </div>
             </form>

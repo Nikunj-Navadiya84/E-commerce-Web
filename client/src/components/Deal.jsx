@@ -22,12 +22,26 @@ function Deal() {
 
     // Fetch Product
     useEffect(() => {
-        const fetchProducts = async () => {
+        const fetchProductsAndReviews = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/api/products/list");
+                const productRes = await axios.get("http://localhost:4000/api/products/list");
+                if (productRes.data.success && Array.isArray(productRes.data.products)) {
+                    setProducts(productRes.data.products);
 
-                if (response.data.success && Array.isArray(response.data.products)) {
-                    setProducts(response.data.products);
+                    // Fetch reviews for each product
+                    productRes.data.products.forEach(async (product) => {
+                        try {
+                            const reviewRes = await axios.get(`http://localhost:4000/api/client/list/${product._id}`);
+                            if (reviewRes.data.success) {
+                                setReviews(prev => ({
+                                    ...prev,
+                                    [product._id]: reviewRes.data.reviews || []
+                                }));
+                            }
+                        } catch (reviewError) {
+                            console.error(`Failed to fetch reviews for product ${product._id}`, reviewError);
+                        }
+                    });
                 } else {
                     setProducts([]);
                 }
@@ -37,7 +51,7 @@ function Deal() {
             }
         };
 
-        fetchProducts();
+        fetchProductsAndReviews();
     }, []);
 
     // Escape key to close modal
@@ -58,15 +72,25 @@ function Deal() {
         }
     }, [selectedProduct]);
 
+    useEffect(() => {
+        if (selectedProduct) fetchReviews(selectedProduct._id);
+    }, [selectedProduct]);
+
     const fetchReviews = async (productId) => {
-        if (reviews[productId]) return; // Skip if reviews are already loaded for this product
+        if (reviews[productId]) return;
         try {
+            setLoadingReviews(true);
             const response = await axios.get(`http://localhost:4000/api/client/list/${productId}`);
             if (response.data.success) {
-                setReviews((prevReviews) => ({ ...prevReviews, [productId]: response.data.reviews || [] }));
+                setReviews((prev) => ({
+                    ...prev,
+                    [productId]: response.data.reviews || []
+                }));
             }
         } catch (error) {
             console.error("Error fetching reviews:", error);
+        } finally {
+            setLoadingReviews(false);
         }
     };
 
@@ -96,8 +120,6 @@ function Deal() {
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
-                        onMouseEnter={() => fetchReviews(product._id)}
-                        onClick={() => setSelectedProduct(product)}
                     >
                         <div className='relative overflow-hidden'>
                             <img
@@ -115,13 +137,7 @@ function Deal() {
                                     <p onClick={() => setSelectedProduct(product)} className='text-gray-800 text-sm mb-2'>{product.name}</p>
                                 </div>
                                 <div>
-                                    <button
-                                        className="cursor-pointer"
-                                        onClick={(e) => {
-                                            e.stopPropagation(); // Prevent event bubbling
-                                            likedProducts[product._id] ? removeFromWishlist(product) : addToWishlist(product);
-                                        }}
-                                    >
+                                    <button className="cursor-pointer" onClick={() => likedProducts[product._id] ? removeFromWishlist(product) : addToWishlist(product)}>
                                         {likedProducts[product._id] ? (
                                             <FaHeart className="text-xl text-red-500" />
                                         ) : (
@@ -131,27 +147,21 @@ function Deal() {
                                 </div>
                             </div>
 
-                            <div>
-                                {reviews[product._id] && reviews[product._id].length > 0 && (
-                                    <div className="space-y-4 mb-1">
-                                        <div className="flex items-center gap-2 text-yellow-500 text-lg font-medium">
-                                            <div className="flex items-center">
-                                                {[...Array(Math.floor(
-                                                    reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length
-                                                ))].map((_, i) => (
-                                                    <BiSolidStar key={i} />
-                                                ))}
-                                                {(
-                                                    reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length
-                                                ) % 1 !== 0 && <BiSolidStarHalf />}
-                                            </div>
-                                            <span className="text-sm text-gray-500">
-                                                ({(reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length).toFixed(1)} out of 5)
-                                            </span>
+                            {reviews[product._id] && reviews[product._id].length > 0 && (
+                                <div className="space-y-4 mb-1">
+                                    <div className="flex items-center gap-2 text-yellow-500 text-lg font-medium">
+                                        <div className="flex items-center">
+                                            {[...Array(Math.floor(reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length))].map((_, i) => (
+                                                <BiSolidStar key={i} />
+                                            ))}
+                                            {(reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length) % 1 !== 0 && <BiSolidStarHalf />}
                                         </div>
+                                        <span className="text-sm text-gray-500">
+                                            ({(reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length).toFixed(1)} out of 5)
+                                        </span>
                                     </div>
-                                )}
-                            </div>
+                                </div>
+                            )}
 
                             <div className='flex  items-center justify-between'>
                                 <div>
@@ -161,12 +171,7 @@ function Deal() {
                                 <button
                                     disabled={product.quantity === 0}
                                     className={`text-sm text-white py-2 px-3 rounded cursor-pointer ${product.quantity === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'}`}
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        if (product.quantity > 0) {
-                                            addToCart(product, 1);
-                                        }
-                                    }}
+                                    onClick={() => product.quantity > 0 && addToCart(product, 1)}
                                 >
                                     {product.quantity === 0 ? "Out of Stock" : "Buy Now"}
                                 </button>

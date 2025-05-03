@@ -17,15 +17,39 @@ function Categories() {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [imageIndex, setImageIndex] = useState(0);
     const [quantity, setQuantity] = useState(1);
-
     const categories = ["Snack & Spices", "Fruits", "Vegetables"];
 
     useEffect(() => {
-        const fetchProducts = async () => {
+        const fetchProductsAndReviews = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/api/products/list");
-                if (response.data.success && Array.isArray(response.data.products)) {
-                    setProducts(response.data.products);
+                const productRes = await axios.get("http://localhost:4000/api/products/list");
+                if (productRes.data.success && Array.isArray(productRes.data.products)) {
+                    setProducts(productRes.data.products);
+    
+                    // Fetch reviews for all products
+                    productRes.data.products.forEach(async (product) => {
+                        try {
+                            const response = await axios.get(`http://localhost:4000/api/client/list/${product._id}`);
+                            if (response.data.success) {
+                                setReviews((prev) => ({
+                                    ...prev,
+                                    [product._id]: response.data.reviews || [],
+                                }));
+                            } else {
+                                setReviews((prev) => ({
+                                    ...prev,
+                                    [product._id]: [],
+                                }));
+                            }
+                        } catch (error) {
+                            console.error(`Error fetching reviews for product ID ${product._id}:`, error);
+                            setReviews((prev) => ({
+                                ...prev,
+                                [product._id]: [],
+                            }));
+                        }
+                    });
+    
                 } else {
                     setProducts([]);
                 }
@@ -34,21 +58,43 @@ function Categories() {
                 setProducts([]);
             }
         };
-
-        fetchProducts();
+    
+        fetchProductsAndReviews();
     }, []);
+    
+    
+
+    useEffect(() => {
+        if (selectedProduct && !reviews[selectedProduct._id]) {
+            fetchReviews(selectedProduct._id);
+        }
+    }, [selectedProduct]);
+    
 
     const fetchReviews = async (productId) => {
-        if (reviews[productId]) return; // Skip if reviews are already loaded for this product
         try {
             const response = await axios.get(`http://localhost:4000/api/client/list/${productId}`);
             if (response.data.success) {
-                setReviews((prevReviews) => ({ ...prevReviews, [productId]: response.data.reviews || [] }));
+                setReviews((prev) => ({
+                    ...prev,
+                    [productId]: response.data.reviews || []
+                }));
+            } else {
+                console.warn(`No reviews found for product ID: ${productId}`);
+                setReviews((prev) => ({
+                    ...prev,
+                    [productId]: []
+                }));
             }
         } catch (error) {
             console.error("Error fetching reviews:", error);
+            setReviews((prev) => ({
+                ...prev,
+                [productId]: []
+            }));
         }
     };
+    
 
     const handleCheckboxChange = (category) => {
         setSelectedCategories(prev =>
@@ -145,80 +191,61 @@ function Categories() {
                                     initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0.3 }}
-                                    onMouseEnter={() => fetchReviews(product._id)} // Fetch reviews when hovering over a product
-                                    onClick={() => setSelectedProduct(product)} // Select product for modal
                                 >
-                                    <div className='overflow-hidden relative'>
-                                        <img src={product.images[0].url} className='w-full h-50 object-cover transition-transform duration-300 hover:scale-105' alt="" />
+                                    <div className='relative overflow-hidden'>
+                                        <img
+                                            src={`${product.images?.[0].url}`}
+                                            className=' h-70 w-full object-cover transition-transform duration-300 hover:scale-105'
+                                            alt={product.name}
+                                        />
                                         <hr className='border-gray-200 absolute bottom-0 left-0 w-full' />
                                     </div>
 
                                     <div className='p-5'>
                                         <div className='flex justify-between'>
                                             <div>
-                                                <h3 className='text-gray-500 text-sm mb-2'>{product.weight} {product.categories}</h3>
-                                                <p className='text-gray-800 text-sm mb-2'>
-                                                    {product.name}
-                                                </p>
+                                                <h3 className='text-gray-500 text-sm mb-2'>{product.weight} {product.categories} </h3>
+                                                <p onClick={() => setSelectedProduct(product)} className='text-gray-800 text-sm mb-2'>{product.name}</p>
                                             </div>
-                                            <button
-                                                className="cursor-pointer"
-                                                onClick={(e) => {
-                                                    e.stopPropagation(); // Prevent event bubbling
-                                                    likedProducts[product._id] ? removeFromWishlist(product) : addToWishlist(product);
-                                                }}
-                                            >
-                                                {likedProducts[product._id] ? (
-                                                    <FaHeart className="text-xl text-red-500" />
-                                                ) : (
-                                                    <FaRegHeart className="text-xl text-red-300" />
-                                                )}
-                                            </button>
-
+                                            <div>
+                                                <button className="cursor-pointer" onClick={() => likedProducts[product._id] ? removeFromWishlist(product) : addToWishlist(product)}>
+                                                    {likedProducts[product._id] ? (
+                                                        <FaHeart className="text-xl text-red-500" />
+                                                    ) : (
+                                                        <FaRegHeart className="text-xl text-red-300" />
+                                                    )}
+                                                </button>
+                                            </div>
                                         </div>
 
-                                        <div>
-                                            {reviews[product._id] && reviews[product._id].length > 0 && (
-                                                <div className="space-y-4 mb-1">
-                                                    <div className="flex items-center gap-2 text-yellow-500 text-lg font-medium">
-                                                        <div className="flex items-center">
-                                                            {[...Array(Math.floor(
-                                                                reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length
-                                                            ))].map((_, i) => (
-                                                                <BiSolidStar key={i} />
-                                                            ))}
-                                                            {(
-                                                                reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length
-                                                            ) % 1 !== 0 && <BiSolidStarHalf />}
-                                                        </div>
-                                                        <span className="text-sm text-gray-500">
-                                                            ({(reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length).toFixed(1)} out of 5)
-                                                        </span>
+                                        {reviews[product._id] && reviews[product._id].length > 0 && (
+                                            <div className="space-y-4 mb-1">
+                                                <div className="flex items-center gap-2 text-yellow-500 text-lg font-medium">
+                                                    <div className="flex items-center">
+                                                        {[...Array(Math.floor(reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length))].map((_, i) => (
+                                                            <BiSolidStar key={i} />
+                                                        ))}
+                                                        {(reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length) % 1 !== 0 && <BiSolidStarHalf />}
                                                     </div>
+                                                    <span className="text-sm text-gray-500">
+                                                        ({(reviews[product._id].reduce((acc, cur) => acc + cur.review, 0) / reviews[product._id].length).toFixed(1)} out of 5)
+                                                    </span>
                                                 </div>
-                                            )}
-                                        </div>
+                                            </div>
+                                        )}
 
-                                        <div className='flex items-center justify-between'>
-
+                                        <div className='flex  items-center justify-between'>
                                             <div>
                                                 <p className='text-sm text-gray-600 line-through mt-1'>${product.price.toFixed(2)}</p>
-                                                <p className='text-md text-gray-900 font-bold mt-1'>${product.offerPrice.toFixed(2)}</p>
+                                                <p className='text-md text-gray-900 font-bold mb-3 '>${product.offerPrice.toFixed(2)}</p>
                                             </div>
-
                                             <button
                                                 disabled={product.quantity === 0}
                                                 className={`text-sm text-white py-2 px-3 rounded cursor-pointer ${product.quantity === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'}`}
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    if (product.quantity > 0) {
-                                                        addToCart(product, 1);
-                                                    }
-                                                }}
+                                                onClick={() => product.quantity > 0 && addToCart(product, 1)}
                                             >
                                                 {product.quantity === 0 ? "Out of Stock" : "Buy Now"}
                                             </button>
-
                                         </div>
                                     </div>
                                 </motion.div>
