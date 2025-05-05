@@ -5,7 +5,6 @@ import { FaHandHoldingHeart } from "react-icons/fa";
 import { CiPercent } from "react-icons/ci";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { motion } from "framer-motion";
-import Client from '../components/Client';
 
 function About() {
     return (
@@ -104,8 +103,6 @@ function About() {
 
 
             </div>
-
-            <Client />
 
             {/* Our Services */}
             <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20'>
