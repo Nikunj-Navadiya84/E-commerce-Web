@@ -17,6 +17,7 @@ function Dashboards() {
   const [activeTab, setActiveTab] = useState("Active Orders");
   const [totalUsers, setTotalUsers] = useState(0);
   const [paidOrders, setPaidOrders] = useState(0);
+  const [orders, setOrders] = useState([])
 
   const datas = [
     { name: 'Jan', sales: 4000, price: 2400, quantity: 2400 },
@@ -35,8 +36,9 @@ function Dashboards() {
 
   useEffect(() => {
     fetchList();
-    fetchUsers(); 
+    fetchUsers();
     fetchPaidOrders();
+    fetchOrders();
   }, []);
 
   const fetchPaidOrders = async () => {
@@ -54,9 +56,9 @@ function Dashboards() {
   };
 
   const fetchUsers = async () => {
-      try {
+    try {
       const response = await axios.get('http://localhost:4000/api/user/all');
-  
+
       if (response.data.success) {
         setTotalUsers(response.data.users.length);
       } else {
@@ -68,8 +70,8 @@ function Dashboards() {
       setTotalUsers(0);
     }
   };
-  
-  
+
+
   const fetchList = async () => {
     try {
       if (!token) return;
@@ -86,6 +88,16 @@ function Dashboards() {
       setList([]);
     }
   };
+
+  const fetchOrders = async () => {
+    try {
+      const response = await axios.get('http://localhost:4000/api/order/allOrder')
+      const data = response.data.orders || []
+      setOrders(data)
+    } catch (error) {
+      console.error('Error fetching orders:', error)
+    }
+  }
 
   const totalProducts = list.length;
   const totalQuantity = list.reduce((acc, item) => acc + item.quantity, 0);
@@ -220,16 +232,15 @@ function Dashboards() {
             </div>
           </div>
 
-          <div className='p-5 bg-white rounded max-h-96'>
+          <div className='p-5 bg-white rounded h-[100]'>
             <div className='flex flex-row justify-between mb-5'>
               <h2 className='text-md'>Orders</h2>
               <div className="flex gap-3 text-sm">
-                {["Active Orders", "Completed", "Cancelled"].map((tab) => (
+                {["Active Orders", "Completed"].map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`p-2 rounded cursor-pointer ${activeTab === tab ? "bg-gray-800 text-white" : "hover:bg-gray-800 hover:text-white"
-                      }`}
+                    className={`p-2 rounded cursor-pointer ${activeTab === tab ? "bg-gray-800 text-white" : "hover:bg-gray-800 hover:text-white"}`}
                   >
                     {tab}
                   </button>
@@ -237,24 +248,49 @@ function Dashboards() {
               </div>
             </div>
 
-            <table className='border w-[100%] text-center border-gray-200'>
-              <thead className='text-md bg-gray-200'>
-                <tr>
-                  <th className='w-1/4 py-2 px-3'>Name</th>
-                  <th className='w-1/9 py-2 px-3'>Price</th>
-                  <th className='w-1/7 py-2 px-3'>Delivery Date</th>
-                  <th className='w-1/5 py-2 px-3'>Images</th>
-                </tr>
-              </thead>
-              <tbody className='text-sm hover:bg-gray-100'>
-                <tr>
-                  <td className='py-2 px-3'></td>
-                  <td className='py-2 px-3'></td>
-                  <td className='py-2 px-3'></td>
-                  <td className='py-2 px-3'></td>
-                </tr>
-              </tbody>
-            </table>
+            <div className='overflow-y-auto max-h-[380px]'>
+              <table className='border w-[100%] text-center border-gray-200'>
+                <thead className='text-md bg-gray-200 '>
+                  <tr>
+                    <th className=' py-2 px-3'>Customer Name</th>
+                    <th className=' py-2 px-3'>Items</th>
+                    <th className=' py-2 px-3'>Price</th>
+                    <th className=' py-2 px-3'>Date</th>
+                  </tr>
+                </thead>
+                <tbody className='text-sm'>
+                  {orders
+                    .filter(order => {
+                      if (activeTab === "Completed") {
+                        return order.status === 'Delivery';
+                      }
+                      if (activeTab === "Active Orders") {
+                        return order.status !== 'Delivered' && order.status !== 'Delivery';
+                      }
+                      return false;
+                    })
+                    .map((order, index) => (
+                      <tr key={index} className='hover:bg-gray-100'>
+                        <td className="py-2 px-4 text-center">
+                          {order.address?.firstName} {order.address?.lastName}
+                        </td>
+                        <td className="py-2 px-4 text-center">
+                          <ul className="list-disc pl-4">
+                            {order.items.map((item, i) => (
+                              <li key={i}>{item.name} × {item.quantity}</li>
+                            ))}
+                          </ul>
+                        </td>
+                        <td className="py-2 px-4 text-center">${order.amount.toFixed(2)}</td>
+                        <td className="py-2 px-4 text-center">
+                          {new Date(order.date).toLocaleDateString()}
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+
           </div>
 
         </div>

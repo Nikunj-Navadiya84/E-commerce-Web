@@ -56,21 +56,21 @@ function OrderConfirmation() {
     const handleSubmitReview = async () => {
         try {
             const response = await axios.post('http://localhost:4000/api/client/add', {
-                productId: selectedItem._id, // Assuming the selectedItem has an _id property for the product
+                productId: selectedItem._id, 
                 description,
                 review
             }, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Assuming JWT token for authentication
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` 
                 }
             });
     
             if (response.data.success) {
                 toast.success('Review submitted successfully!');
-                setShowModal(false); // Close the modal after submission
-                setReview(0); // Reset the review state
-                setDescription(""); // Reset the description state
+                setShowModal(false); 
+                setReview(0); 
+                setDescription(""); 
             } else {
                 toast.error('Failed to submit review. Please try again.');
             }
