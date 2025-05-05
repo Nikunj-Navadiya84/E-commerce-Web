@@ -70,7 +70,7 @@ function Order() {
 
   return (
     <div className="main-content">
-      <h1 className="text-xl shadow p-5">Order List</h1>
+      <h1 className="text-xl shadow p-5">All Order List</h1>
       <div className='m-4'>
         {/*Search and Filter */}
         <div className="my-4 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
