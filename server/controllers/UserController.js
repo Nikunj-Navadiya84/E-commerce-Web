@@ -64,6 +64,11 @@ exports.login = async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
+    // Check if the user is blocked
+    if (user.blocked) {
+      return res.status(403).json({ success: false, message: 'Your account has been blocked' });
+    }
+
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       logger.warn(`Login failed: Incorrect password`, {
@@ -82,7 +87,7 @@ exports.login = async (req, res) => {
       ...getLogMetadata(req, user)
     });
     res.json({ token });
-  } catch (error) {  // Corrected from err to error
+  } catch (error) {
     logger.error(`Login error: ${error.message}`, {
       method: req.method,
       path: req.originalUrl,
@@ -222,6 +227,41 @@ exports.usertotal = async (req , res) => {
     res.status(500).json({ success: false, message: 'Server error' });
   }
 }
+
+// Block user
+exports.blockUser = async (req, res) => {
+  const userId = req.params.id;
+
+  try {
+      // Find the user and update the "blocked" status
+      const user = await User.findByIdAndUpdate(userId, { blocked: true }, { new: true });
+
+      if (!user) {
+          return res.status(404).json({ success: false, message: 'User not found' });
+      }
+
+      res.json({ success: true, message: 'User has been blocked' });
+  } catch (error) {
+      res.status(500).json({ success: false, message: 'Failed to block user', error: error.message });
+  }
+};
+
+// UnBlock User
+exports.unblockUser = async (req, res) => {
+  const userId = req.params.id;
+
+  try {
+      const user = await User.findByIdAndUpdate(userId, { blocked: false }, { new: true });
+
+      if (!user) {
+          return res.status(404).json({ success: false, message: 'User not found' });
+      }
+
+      res.json({ success: true, message: 'User has been unblocked' });
+  } catch (error) {
+      res.status(500).json({ success: false, message: 'Failed to unblock user', error: error.message });
+  }
+};
 
 
 // Admin login

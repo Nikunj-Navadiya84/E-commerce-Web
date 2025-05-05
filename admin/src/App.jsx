@@ -11,6 +11,8 @@ import AdminLogs from './pages/AdminLogs';
 import Order from './pages/Order';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import User from './pages/User';
+import UserOrder from './pages/UserOrder';
 
 
 function App() {
@@ -52,6 +54,18 @@ function App() {
                 </PrivateRoute>
               } />
 
+              <Route path="/user" element={
+                <PrivateRoute>
+                  <User />
+                </PrivateRoute>
+              } />
+
+              <Route path="/userOrder/:userId" element={
+                <PrivateRoute>
+                  <UserOrder />
+                </PrivateRoute>
+              } />
+
               <Route path="/logs" element={
                 <PrivateRoute>
                   <AdminLogs />
@@ -59,13 +73,13 @@ function App() {
               } />
 
             </Routes>
-        
+
           </div>
-          
+
         </div>
-       
+
       </BrowserRouter>
-     
+
     </div>
   );
 }

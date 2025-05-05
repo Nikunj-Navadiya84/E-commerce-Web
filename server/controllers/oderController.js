@@ -113,3 +113,17 @@ exports.totalpaid = async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to fetch paid orders", error: err.message });
       }
 }
+
+// Get orders for a specific user
+exports.userOrders = async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+        // Fix: Use the correct field name "user" instead of "userId"
+        const orders = await Order.find({ user: userId }).sort({ createdAt: -1 });
+        res.status(200).json({ orders });
+    } catch (error) {
+        console.error("Error fetching user orders:", error);
+        res.status(500).json({ message: "Failed to fetch user orders." });
+    }
+};
