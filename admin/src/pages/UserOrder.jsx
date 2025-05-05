@@ -45,7 +45,6 @@ const UserOrder = () => {
                                 <th className="py-3 px-4">Address</th>
                                 <th className="py-3 px-4">Phone</th>
                                 <th className="py-3 px-4">Date</th>
-                                <th className="py-3 px-4">Status</th>
                             </tr>
                         </thead>
                         <tbody className="text-sm">
@@ -76,19 +75,6 @@ const UserOrder = () => {
                                 </td>
                                 <td className="py-2 px-4 text-center">{order.address.phone}</td>
                                 <td className="py-2 px-4 text-center">{new Date(order.date).toLocaleDateString()}</td>
-                                <td className="py-2 px-4 text-center">
-                                  <select
-                                    onChange={(event) => statusHandler(event, order._id)}
-                                    value={order.status}
-                                    className="p-2 rounded text-sm font-semibold text-gray-700 bg-white"
-                                  >
-                                    <option value="Order Placed">Order Placed</option>
-                                    <option value="Paking">Paking</option>
-                                    <option value="Shipped">Shipped</option>
-                                    <option value="Out For Delivery">Out For Delivery</option>
-                                    <option value="Delivery">Delivery</option>
-                                  </select>
-                                </td>
                               </tr>
                             ))}
                         </tbody>
