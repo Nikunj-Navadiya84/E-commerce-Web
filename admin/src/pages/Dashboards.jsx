@@ -232,7 +232,7 @@ function Dashboards() {
             </div>
           </div>
 
-          <div className='p-5 bg-white rounded h-[100px]'>
+          <div className='p-5 bg-white rounded'>
             <div className='flex flex-row justify-between mb-5'>
               <h2 className='text-md'>Orders</h2>
               <div className="flex gap-3 text-sm">
